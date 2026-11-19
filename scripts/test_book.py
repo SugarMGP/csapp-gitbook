@@ -30,6 +30,8 @@ class BookTests(unittest.TestCase):
 
     def test_imported_files_match_manifest(self):
         manifest = json.loads((ROOT / "book-manifest.json").read_text(encoding="utf-8"))
+        paths = [entry["target"] for entry in manifest["files"]]
+        self.assertEqual(paths, sorted(paths))
         self.assertEqual(manifest["sources"], json.loads((ROOT / "sources.json").read_text(encoding="utf-8")))
         for entry in manifest["files"]:
             with self.subTest(path=entry["target"]):
@@ -51,6 +53,7 @@ class BookTests(unittest.TestCase):
                     if p.name not in {"chapter.md", "README.md", "SUMMARY.md", "UPSTREAM.md"}}
         self.assertTrue(expected <= set(refs), f"Not in summary: {expected - set(refs)}")
         self.assertEqual(len(list((BOOK / "实验").rglob("*.tar"))), 8)
+        self.assertLess(summary.index("实验/datalab-zh/datalab-zh.md"), summary.index("实验/archlab-zh/archlab-zh.md"))
         self.assertTrue((BOOK / "supplements/assets/perflab-handout.tar").is_file())
 
 

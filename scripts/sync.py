@@ -79,8 +79,12 @@ def generate(paths, sources):
         if (directory / "chapter.md").exists():
             summary.append(f"  * [整章连续阅读]({directory.name}/chapter.md)")
         if directory.name == "实验":
-            refs = [(re.search(r"^# (.+)$", p.read_text(encoding="utf-8-sig"), re.M)[1], p.relative_to(directory).as_posix())
-                    for p in sorted(directory.rglob("*.md")) if p.name != "README.md"]
+            lab_refs = list(dict.fromkeys(re.findall(r"\]\(([^)]+\.md)\)", index)))
+            lab_refs.extend(p.relative_to(directory).as_posix()
+                            for p in sorted(directory.rglob("*.md"), key=lambda p: p.as_posix())
+                            if p.name != "README.md" and p.relative_to(directory).as_posix() not in lab_refs)
+            refs = [(re.search(r"^# (.+)$", (directory / ref).read_text(encoding="utf-8-sig"), re.M)[1], ref)
+                    for ref in lab_refs]
         else:
             section = index.split("## 小节目录", 1)[1].split("\n## ", 1)[0]
             refs = LINK.findall(section)
@@ -137,7 +141,7 @@ def generate(paths, sources):
         chapter.write_text("---\nsearch: false\n---\n\n" + chapter.read_text(encoding="utf-8-sig"), encoding="utf-8", newline="\n")
     for entry in imported:
         entry["output_sha256"] = hashlib.sha256((BOOK / entry["target"]).read_bytes()).hexdigest()
-    manifest = {"sources": sources, "files": imported}
+    manifest = {"sources": sources, "files": sorted(imported, key=lambda entry: entry["target"])}
     (ROOT / "book-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"Imported {len(imported)} files; generated {len(list(BOOK.rglob('*.md')))} Markdown pages")
 

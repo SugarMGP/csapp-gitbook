@@ -14,6 +14,90 @@
   "files": [
     {
       "upstream": "sunnymaria",
+      "source": "README.md",
+      "target": "UPSTREAM.md",
+      "sha256": "5c9a246f0952c33a6bd1752c0c7b0d3f5f7061b9a235dc439c6f7b3cc5392b44",
+      "output_sha256": "7ebfe5d9871c61362a8e3b580d04625f18be228e48b8b0cc00d79264012890f5"
+    },
+    {
+      "upstream": "hansimov",
+      "source": "_labs/06 perf lab/README-perflab.txt",
+      "target": "supplements/assets/README-perflab.txt",
+      "sha256": "ed09d288572d59ea26dca84fa8873d6a7cdff86a9bcab264407f5288f1f738ed",
+      "output_sha256": "ed09d288572d59ea26dca84fa8873d6a7cdff86a9bcab264407f5288f1f738ed"
+    },
+    {
+      "upstream": "hansimov",
+      "source": "_codes/code-all.tar",
+      "target": "supplements/assets/code-all.tar",
+      "sha256": "1be590472f18d26e8d46929c851807d672508e70ca10701b5a7283b679544288",
+      "output_sha256": "1be590472f18d26e8d46929c851807d672508e70ca10701b5a7283b679544288"
+    },
+    {
+      "upstream": "hansimov",
+      "source": "_codes/code.tar",
+      "target": "supplements/assets/code.tar",
+      "sha256": "801f07a48b6047a9117a3b85ddb425b4e0be732ec662f8316fb57ed2759f7cfa",
+      "output_sha256": "801f07a48b6047a9117a3b85ddb425b4e0be732ec662f8316fb57ed2759f7cfa"
+    },
+    {
+      "upstream": "hansimov",
+      "source": "_labs/06 perf lab/perflab-handout.tar",
+      "target": "supplements/assets/perflab-handout.tar",
+      "sha256": "ecd223d4809033a25313eec832626973089b09b9d25abaf17128e0159a57fc0f",
+      "output_sha256": "ecd223d4809033a25313eec832626973089b09b9d25abaf17128e0159a57fc0f"
+    },
+    {
+      "upstream": "hansimov",
+      "source": "_labs/06 perf lab/perflab.pdf",
+      "target": "supplements/assets/perflab.pdf",
+      "sha256": "4df792de73ca6ad2900254a0a9de846f7be0a1ea4f077298364c8eae36050aac",
+      "output_sha256": "4df792de73ca6ad2900254a0a9de846f7be0a1ea4f077298364c8eae36050aac"
+    },
+    {
+      "upstream": "hansimov",
+      "source": "labs/bomb-lab/readme-jiang-shi-ban.md",
+      "target": "supplements/bomb-lab-instructor.md",
+      "sha256": "b5367d53ed6ea1c64cff551556291bfa73aa93761978184e5894c591d5ce3297",
+      "output_sha256": "b5367d53ed6ea1c64cff551556291bfa73aa93761978184e5894c591d5ce3297"
+    },
+    {
+      "upstream": "hansimov",
+      "source": "labs/data-lab/readme-instructor.md",
+      "target": "supplements/data-lab-instructor.md",
+      "sha256": "d1a330cd44a98a31fadb905ec00cb00ee5153baee51a9e36f5dde01bf6274fac",
+      "output_sha256": "d1a330cd44a98a31fadb905ec00cb00ee5153baee51a9e36f5dde01bf6274fac"
+    },
+    {
+      "upstream": "hansimov",
+      "source": "labs/data-lab/readme-student.md",
+      "target": "supplements/data-lab-student.md",
+      "sha256": "5f2a277cce04e6b20d8901888f78d411012b9fdfbf1e26d0994d8a1ae37ef0f7",
+      "output_sha256": "5f2a277cce04e6b20d8901888f78d411012b9fdfbf1e26d0994d8a1ae37ef0f7"
+    },
+    {
+      "upstream": "hansimov",
+      "source": "labs/labs-overview/common-problems.md",
+      "target": "supplements/faq.md",
+      "sha256": "345e65f2162ffe8ece4002a3f66a0151b066ee1f453957510f499db503810944",
+      "output_sha256": "345e65f2162ffe8ece4002a3f66a0151b066ee1f453957510f499db503810944"
+    },
+    {
+      "upstream": "hansimov",
+      "source": "labs/perf-lab.md",
+      "target": "supplements/performance-lab.md",
+      "sha256": "3668166956596e9dae5ce507f3cb873b505f48a7817393bf182c373e8b8cf361",
+      "output_sha256": "64b44d4e4140cf796faa32b6664ced4616ae8794e7b7ab836e0309abe308479f"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "前言/README.md",
+      "target": "前言/README.md",
+      "sha256": "74a10b0605e4eb6b6409ecb48bbaf15b0228c8dea85db81c71b9dbf1c1efdbfd",
+      "output_sha256": "74a10b0605e4eb6b6409ecb48bbaf15b0228c8dea85db81c71b9dbf1c1efdbfd"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "前言/assets/preface-mei-hong.jpg",
       "target": "前言/assets/preface-mei-hong.jpg",
       "sha256": "3268fe157704bffe9591ac0deff27287ae1d227019dddc59abd7ee5461fc1d93",
@@ -32,13 +116,6 @@
       "target": "前言/chapter.md",
       "sha256": "c5f311f2a2a254a948d7d8cf3fcf3449c7cf0f2cf1a85bb4a5decbaf1c5ba9e3",
       "output_sha256": "d24b69ebd043982463b25f6fb451036851c91c3310a34605a716dfb750a16c37"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "前言/README.md",
-      "target": "前言/README.md",
-      "sha256": "74a10b0605e4eb6b6409ecb48bbaf15b0228c8dea85db81c71b9dbf1c1efdbfd",
-      "output_sha256": "74a10b0605e4eb6b6409ecb48bbaf15b0228c8dea85db81c71b9dbf1c1efdbfd"
     },
     {
       "upstream": "sunnymaria",
@@ -144,6 +221,216 @@
       "target": "前言/sections/15-关于作者.md",
       "sha256": "6416c998617fd5e3527778ed0978ee8b2160bc4725f13ec9221f5afddcde866a",
       "output_sha256": "6416c998617fd5e3527778ed0978ee8b2160bc4725f13ec9221f5afddcde866a"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "参考文献.md",
+      "target": "参考文献.md",
+      "sha256": "ae019fb0f902a34fca788f74b6dd8b7b852755f70651a41dd5d11f60ef9e4e5a",
+      "output_sha256": "ae019fb0f902a34fca788f74b6dd8b7b852755f70651a41dd5d11f60ef9e4e5a"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/COMPATIBILITY.md",
+      "target": "实验/COMPATIBILITY.md",
+      "sha256": "c708bfe51242c265cc90748653cbbbe58fc169d9fb609a13966c52dbf7f42063",
+      "output_sha256": "c708bfe51242c265cc90748653cbbbe58fc169d9fb609a13966c52dbf7f42063"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/PACKAGES.md",
+      "target": "实验/PACKAGES.md",
+      "sha256": "bcfda8373301805a85763ef4de6fe945d2b9a36de1aa2c97ec85867bba1d30d4",
+      "output_sha256": "bcfda8373301805a85763ef4de6fe945d2b9a36de1aa2c97ec85867bba1d30d4"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/README.md",
+      "target": "实验/README.md",
+      "sha256": "f9ba7e28d9f3b0878d770a5c2c84b95319651c5255cbd9b5262fc752359d3674",
+      "output_sha256": "f9ba7e28d9f3b0878d770a5c2c84b95319651c5255cbd9b5262fc752359d3674"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/archlab-zh/archlab-handout.tar",
+      "target": "实验/archlab-zh/archlab-handout.tar",
+      "sha256": "586fc3347214ccd90e1c7cbfa74560c59584f8cf452d81c653acfd73344797d4",
+      "output_sha256": "586fc3347214ccd90e1c7cbfa74560c59584f8cf452d81c653acfd73344797d4"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/archlab-zh/archlab-zh.md",
+      "target": "实验/archlab-zh/archlab-zh.md",
+      "sha256": "79acda82e1c91a76169ae0cf45d4e269a58e506b085adfd2c990834f2136673e",
+      "output_sha256": "79acda82e1c91a76169ae0cf45d4e269a58e506b085adfd2c990834f2136673e"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/archlab-zh/simguide-assets/figure-2-seq-control-panel.png",
+      "target": "实验/archlab-zh/simguide-assets/figure-2-seq-control-panel.png",
+      "sha256": "2bcf3b6ec4d9d10f076772a7f02023ec029808c1346b9af0cf0d462497068423",
+      "output_sha256": "2bcf3b6ec4d9d10f076772a7f02023ec029808c1346b9af0cf0d462497068423"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/archlab-zh/simguide-assets/figure-3-seq-code-window.png",
+      "target": "实验/archlab-zh/simguide-assets/figure-3-seq-code-window.png",
+      "sha256": "f54a6021b5ea7304bc2b9ccf52edf29c9f3350cf5ee6856735f18a54c5830b26",
+      "output_sha256": "f54a6021b5ea7304bc2b9ccf52edf29c9f3350cf5ee6856735f18a54c5830b26"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/archlab-zh/simguide-assets/figure-4-seq-memory-window.png",
+      "target": "实验/archlab-zh/simguide-assets/figure-4-seq-memory-window.png",
+      "sha256": "76960360be249d4b22e4b98cebb40f5af76f6b4bf5c4490a27a3af702c9feedf",
+      "output_sha256": "76960360be249d4b22e4b98cebb40f5af76f6b4bf5c4490a27a3af702c9feedf"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/archlab-zh/simguide-assets/figure-5-pipe-control-panel.png",
+      "target": "实验/archlab-zh/simguide-assets/figure-5-pipe-control-panel.png",
+      "sha256": "e6df0e33c58f9fcbdffe746a06067a1087c5d8a7cd5926c8c2a7b3cfbba37b09",
+      "output_sha256": "e6df0e33c58f9fcbdffe746a06067a1087c5d8a7cd5926c8c2a7b3cfbba37b09"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/archlab-zh/simguide-assets/figure-6-pipeline-register.png",
+      "target": "实验/archlab-zh/simguide-assets/figure-6-pipeline-register.png",
+      "sha256": "15084527579f6f2a5a120ecca076dfd94fee85c980fcb39e0fb98e7e97bd707d",
+      "output_sha256": "15084527579f6f2a5a120ecca076dfd94fee85c980fcb39e0fb98e7e97bd707d"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/archlab-zh/simguide-assets/figure-7-pipe-code-window.png",
+      "target": "实验/archlab-zh/simguide-assets/figure-7-pipe-code-window.png",
+      "sha256": "006292b4d144a77fba95d73e3fb2e700b870a3cb370e9825d7d58002906ca550",
+      "output_sha256": "006292b4d144a77fba95d73e3fb2e700b870a3cb370e9825d7d58002906ca550"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/archlab-zh/simguide-assets/pipeline-overview.png",
+      "target": "实验/archlab-zh/simguide-assets/pipeline-overview.png",
+      "sha256": "6e5fadee718a706e7a890142c144e20ff99166d9b7ecd279f678c3760d5e3ec2",
+      "output_sha256": "6e5fadee718a706e7a890142c144e20ff99166d9b7ecd279f678c3760d5e3ec2"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/archlab-zh/simguide-zh.md",
+      "target": "实验/archlab-zh/simguide-zh.md",
+      "sha256": "3afaba23445c36ff06c41b2f62db293768b536459ee0b83b3c95e32a45f04692",
+      "output_sha256": "3afaba23445c36ff06c41b2f62db293768b536459ee0b83b3c95e32a45f04692"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/attacklab-zh/assets/figure-2-rop-gadgets-zh.png",
+      "target": "实验/attacklab-zh/assets/figure-2-rop-gadgets-zh.png",
+      "sha256": "ff0028a096cf32315864c471b403b6269879cee027b6ab10e57cf8dba34a23a8",
+      "output_sha256": "ff0028a096cf32315864c471b403b6269879cee027b6ab10e57cf8dba34a23a8"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/attacklab-zh/assets/figure-3-instruction-encodings-zh.png",
+      "target": "实验/attacklab-zh/assets/figure-3-instruction-encodings-zh.png",
+      "sha256": "89c7ad9c004eacb55fbf881efec18f017eaca85a40d5f491a40a778f8677b615",
+      "output_sha256": "89c7ad9c004eacb55fbf881efec18f017eaca85a40d5f491a40a778f8677b615"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/attacklab-zh/attacklab-zh.md",
+      "target": "实验/attacklab-zh/attacklab-zh.md",
+      "sha256": "530a51cfae1c6111d9c3729f50c3ee9f98154f79288d8194d6db3c55938ea7fc",
+      "output_sha256": "530a51cfae1c6111d9c3729f50c3ee9f98154f79288d8194d6db3c55938ea7fc"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/attacklab-zh/target1.tar",
+      "target": "实验/attacklab-zh/target1.tar",
+      "sha256": "7a2aea42ea275cb7620dc0d579113f7b3d41885a3e954bd3cf244cacc6db267d",
+      "output_sha256": "7a2aea42ea275cb7620dc0d579113f7b3d41885a3e954bd3cf244cacc6db267d"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/bomblab-zh/bomb.tar",
+      "target": "实验/bomblab-zh/bomb.tar",
+      "sha256": "4b005c5d13d53b77fcbb435b87c1e5ef88027144594bb39e1e494f1f93d39ed9",
+      "output_sha256": "4b005c5d13d53b77fcbb435b87c1e5ef88027144594bb39e1e494f1f93d39ed9"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/bomblab-zh/bomblab-zh.md",
+      "target": "实验/bomblab-zh/bomblab-zh.md",
+      "sha256": "03d07564a2fe42847c869a843ad8dd703f8f0e951dc939bd15395fc0c1de9f46",
+      "output_sha256": "03d07564a2fe42847c869a843ad8dd703f8f0e951dc939bd15395fc0c1de9f46"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/cachelab-zh/cachelab-handout.tar",
+      "target": "实验/cachelab-zh/cachelab-handout.tar",
+      "sha256": "de37f176d21338c65fc5bd5eb163c06df97fda2a3f1d21f577e25247f80ba64b",
+      "output_sha256": "de37f176d21338c65fc5bd5eb163c06df97fda2a3f1d21f577e25247f80ba64b"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/cachelab-zh/cachelab-zh.md",
+      "target": "实验/cachelab-zh/cachelab-zh.md",
+      "sha256": "65c855350804d0bcce182703c4e4b840038b7f7d4b5012a161daad67ae34c992",
+      "output_sha256": "65c855350804d0bcce182703c4e4b840038b7f7d4b5012a161daad67ae34c992"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/datalab-zh/datalab-handout.tar",
+      "target": "实验/datalab-zh/datalab-handout.tar",
+      "sha256": "a3bd21b752ecc7724d284417b1e19aa9f3839554893a4282ebe8e901c9fb2e02",
+      "output_sha256": "a3bd21b752ecc7724d284417b1e19aa9f3839554893a4282ebe8e901c9fb2e02"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/datalab-zh/datalab-zh.md",
+      "target": "实验/datalab-zh/datalab-zh.md",
+      "sha256": "9fb5b152a4052332fbf561d41fbf71bfeace7d28a101f2763a4bdd0e88aecc4f",
+      "output_sha256": "9fb5b152a4052332fbf561d41fbf71bfeace7d28a101f2763a4bdd0e88aecc4f"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/malloclab-zh/malloclab-handout.tar",
+      "target": "实验/malloclab-zh/malloclab-handout.tar",
+      "sha256": "5f7aaeb98fb90e3b59f44627f5ede3eab1f99cf5047492ed40a489e22a859e2c",
+      "output_sha256": "5f7aaeb98fb90e3b59f44627f5ede3eab1f99cf5047492ed40a489e22a859e2c"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/malloclab-zh/malloclab-zh.md",
+      "target": "实验/malloclab-zh/malloclab-zh.md",
+      "sha256": "ba16d057d63f09a680c2b30762d8e65beb49e850b0a6928fe423cd3dbccd91c4",
+      "output_sha256": "ba16d057d63f09a680c2b30762d8e65beb49e850b0a6928fe423cd3dbccd91c4"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/proxylab-zh/proxylab-handout.tar",
+      "target": "实验/proxylab-zh/proxylab-handout.tar",
+      "sha256": "9664e70733dc7eb467a15f622f0fcf7f110670e34430478ae4f580aafe964b39",
+      "output_sha256": "9664e70733dc7eb467a15f622f0fcf7f110670e34430478ae4f580aafe964b39"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/proxylab-zh/proxylab-zh.md",
+      "target": "实验/proxylab-zh/proxylab-zh.md",
+      "sha256": "6c6448390c3c4c50c88b44dcbda111f40da77657571de6b22e7a809317b99eb1",
+      "output_sha256": "6c6448390c3c4c50c88b44dcbda111f40da77657571de6b22e7a809317b99eb1"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/shlab-zh/shlab-handout.tar",
+      "target": "实验/shlab-zh/shlab-handout.tar",
+      "sha256": "3aaad75abb6654eb5073690a3af2bc82f3ac031daccdb85866095566b4b0b8cc",
+      "output_sha256": "3aaad75abb6654eb5073690a3af2bc82f3ac031daccdb85866095566b4b0b8cc"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "实验/shlab-zh/shlab-zh.md",
+      "target": "实验/shlab-zh/shlab-zh.md",
+      "sha256": "d56c9142cc96ac7af59e7bbc87911f28188a15c422b09f2b472dd1910a42dd12",
+      "output_sha256": "d56c9142cc96ac7af59e7bbc87911f28188a15c422b09f2b472dd1910a42dd12"
     },
     {
       "upstream": "sunnymaria",
@@ -406,17 +693,17 @@
     },
     {
       "upstream": "sunnymaria",
-      "source": "第01章-计算机系统漫游/chapter.md",
-      "target": "第01章-计算机系统漫游/chapter.md",
-      "sha256": "c0f756ccf48f94e2de24701e4df821c683311447915724cd79dfe5692a9fb505",
-      "output_sha256": "e4a48e174a2026ae2198124d4dc8ba0a4ee2b0e1579848290230c429abfd5c56"
-    },
-    {
-      "upstream": "sunnymaria",
       "source": "第01章-计算机系统漫游/README.md",
       "target": "第01章-计算机系统漫游/README.md",
       "sha256": "0e62d88515685639087406a127ea867e065b30b01f2df024f9b4604ab001416b",
       "output_sha256": "0e62d88515685639087406a127ea867e065b30b01f2df024f9b4604ab001416b"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "第01章-计算机系统漫游/chapter.md",
+      "target": "第01章-计算机系统漫游/chapter.md",
+      "sha256": "c0f756ccf48f94e2de24701e4df821c683311447915724cd79dfe5692a9fb505",
+      "output_sha256": "e4a48e174a2026ae2198124d4dc8ba0a4ee2b0e1579848290230c429abfd5c56"
     },
     {
       "upstream": "sunnymaria",
@@ -938,6 +1225,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第02章-信息的表示和处理/README.md",
+      "target": "第02章-信息的表示和处理/README.md",
+      "sha256": "34f78c719862b88c20122e10d8fa75379203e169f17ec0b953b1d7d0de63f165",
+      "output_sha256": "34f78c719862b88c20122e10d8fa75379203e169f17ec0b953b1d7d0de63f165"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/assets/answer-2-6-bit-alignment.png",
       "target": "第02章-信息的表示和处理/assets/answer-2-6-bit-alignment.png",
       "sha256": "972097153a81e7989401a44c29d137e1c4341ec3389e42e2cac5836061002c6d",
@@ -977,13 +1271,6 @@
       "target": "第02章-信息的表示和处理/homework/2.92-2.97-bit-level-floating-point.md",
       "sha256": "273716070c196e0b87d8471ffb3423c4a2e4f3538102de7ae7641460546b5c93",
       "output_sha256": "273716070c196e0b87d8471ffb3423c4a2e4f3538102de7ae7641460546b5c93"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "第02章-信息的表示和处理/README.md",
-      "target": "第02章-信息的表示和处理/README.md",
-      "sha256": "34f78c719862b88c20122e10d8fa75379203e169f17ec0b953b1d7d0de63f165",
-      "output_sha256": "34f78c719862b88c20122e10d8fa75379203e169f17ec0b953b1d7d0de63f165"
     },
     {
       "upstream": "sunnymaria",
@@ -1512,6 +1799,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第03章-程序的机器级表示/README.md",
+      "target": "第03章-程序的机器级表示/README.md",
+      "sha256": "8f543a76ac3e450918862589b3342c37a3dab84882521afb790247c4adde134a",
+      "output_sha256": "8f543a76ac3e450918862589b3342c37a3dab84882521afb790247c4adde134a"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第03章-程序的机器级表示/assets/answers--assets--answer-3-46-stack-a.jpg",
       "target": "第03章-程序的机器级表示/assets/answers--assets--answer-3-46-stack-a.jpg",
       "sha256": "35f1ee3cdc7f1860c548144726421d3c7823f401b5d72264338a13960d66c074",
@@ -1551,13 +1845,6 @@
       "target": "第03章-程序的机器级表示/homework/3.70-3.75-unions-stack-and-floating-point.md",
       "sha256": "0c32f76dd6801cbb73187f42607e83f1d28f6945a06f924f627e2272a6629c20",
       "output_sha256": "0c32f76dd6801cbb73187f42607e83f1d28f6945a06f924f627e2272a6629c20"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "第03章-程序的机器级表示/README.md",
-      "target": "第03章-程序的机器级表示/README.md",
-      "sha256": "8f543a76ac3e450918862589b3342c37a3dab84882521afb790247c4adde134a",
-      "output_sha256": "8f543a76ac3e450918862589b3342c37a3dab84882521afb790247c4adde134a"
     },
     {
       "upstream": "sunnymaria",
@@ -2212,6 +2499,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第04章-处理器体系结构/README.md",
+      "target": "第04章-处理器体系结构/README.md",
+      "sha256": "18aaedd4fbc802a54022769cb6ca617e727fa75f51a69f209d5778aed216c4c5",
+      "output_sha256": "18aaedd4fbc802a54022769cb6ca617e727fa75f51a69f209d5778aed216c4c5"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第04章-处理器体系结构/assets/answers--assets--fig-4-71.jpg",
       "target": "第04章-处理器体系结构/assets/answers--assets--fig-4-71.jpg",
       "sha256": "b1afaa85c6aebc3fdacec0143baae0f8f3ea0271c954bb9808c93f5b1282db5b",
@@ -2258,13 +2552,6 @@
       "target": "第04章-处理器体系结构/homework/assets/fig-4-70-load-forwarding.jpg",
       "sha256": "caf0cb2de35e2a491268c17919f371c030a2663a3acf6de7ec02711b71fb82c7",
       "output_sha256": "caf0cb2de35e2a491268c17919f371c030a2663a3acf6de7ec02711b71fb82c7"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "第04章-处理器体系结构/README.md",
-      "target": "第04章-处理器体系结构/README.md",
-      "sha256": "18aaedd4fbc802a54022769cb6ca617e727fa75f51a69f209d5778aed216c4c5",
-      "output_sha256": "18aaedd4fbc802a54022769cb6ca617e727fa75f51a69f209d5778aed216c4c5"
     },
     {
       "upstream": "sunnymaria",
@@ -2639,6 +2926,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第05章-优化程序性能/README.md",
+      "target": "第05章-优化程序性能/README.md",
+      "sha256": "186b93fff4efcf8ceecb2b9a8b9a4d04ce7915d3a2368b657d67df86ea3b95c6",
+      "output_sha256": "186b93fff4efcf8ceecb2b9a8b9a4d04ce7915d3a2368b657d67df86ea3b95c6"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第05章-优化程序性能/assets/answers--assets--fig-5-39.jpg",
       "target": "第05章-优化程序性能/assets/answers--assets--fig-5-39.jpg",
       "sha256": "abe045e6799ae3604eecbb1e29393e90d6f791b47b0314738aeff997fabfdb58",
@@ -2664,13 +2958,6 @@
       "target": "第05章-优化程序性能/homework/5.18-5.19-polynomial-and-prefix-sum.md",
       "sha256": "11ea2561f2fb35f82a88ec1d433e52ceb42149845a436fac045cbfc9818cfe11",
       "output_sha256": "11ea2561f2fb35f82a88ec1d433e52ceb42149845a436fac045cbfc9818cfe11"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "第05章-优化程序性能/README.md",
-      "target": "第05章-优化程序性能/README.md",
-      "sha256": "186b93fff4efcf8ceecb2b9a8b9a4d04ce7915d3a2368b657d67df86ea3b95c6",
-      "output_sha256": "186b93fff4efcf8ceecb2b9a8b9a4d04ce7915d3a2368b657d67df86ea3b95c6"
     },
     {
       "upstream": "sunnymaria",
@@ -3101,6 +3388,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第06章-存储器层次结构/README.md",
+      "target": "第06章-存储器层次结构/README.md",
+      "sha256": "4135e7f4914bd6938063641e570b6b221c0863ddc9870cbb669750a8580ca9a4",
+      "output_sha256": "4135e7f4914bd6938063641e570b6b221c0863ddc9870cbb669750a8580ca9a4"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第06章-存储器层次结构/assets/answers--assets--fig-6-48.jpg",
       "target": "第06章-存储器层次结构/assets/answers--assets--fig-6-48.jpg",
       "sha256": "ce83b084b51ed49d7c1fdb63ef769b2bfc991de0637e3ad1a8dc514fd8f6b94c",
@@ -3133,13 +3427,6 @@
       "target": "第06章-存储器层次结构/homework/6.38-6.46-cache-locality-and-optimization.md",
       "sha256": "a0392fca49d83b6b14bbd20c441a0084fd898cf7c007d0deef29f1766137c7d4",
       "output_sha256": "a0392fca49d83b6b14bbd20c441a0084fd898cf7c007d0deef29f1766137c7d4"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "第06章-存储器层次结构/README.md",
-      "target": "第06章-存储器层次结构/README.md",
-      "sha256": "4135e7f4914bd6938063641e570b6b221c0863ddc9870cbb669750a8580ca9a4",
-      "output_sha256": "4135e7f4914bd6938063641e570b6b221c0863ddc9870cbb669750a8580ca9a4"
     },
     {
       "upstream": "sunnymaria",
@@ -3388,6 +3675,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第07章-链接/README.md",
+      "target": "第07章-链接/README.md",
+      "sha256": "0af3d4365bd8923712cabc4c35a65052fe3b084fde27f4bd7417fc24a776ff81",
+      "output_sha256": "0af3d4365bd8923712cabc4c35a65052fe3b084fde27f4bd7417fc24a776ff81"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第07章-链接/chapter.md",
       "target": "第07章-链接/chapter.md",
       "sha256": "c9903e4832a4303559ae98b829f414f255d03b2c5cae3f49d7c86c7d3e84fe79",
@@ -3399,13 +3693,6 @@
       "target": "第07章-链接/homework/7.6-7.13-linking-and-object-files.md",
       "sha256": "0e2766af2f430052eefd3df21da641ef72db1cc1556750e77add78ecb841957e",
       "output_sha256": "0e2766af2f430052eefd3df21da641ef72db1cc1556750e77add78ecb841957e"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "第07章-链接/README.md",
-      "target": "第07章-链接/README.md",
-      "sha256": "0af3d4365bd8923712cabc4c35a65052fe3b084fde27f4bd7417fc24a776ff81",
-      "output_sha256": "0af3d4365bd8923712cabc4c35a65052fe3b084fde27f4bd7417fc24a776ff81"
     },
     {
       "upstream": "sunnymaria",
@@ -3759,6 +4046,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第08章-异常控制流/README.md",
+      "target": "第08章-异常控制流/README.md",
+      "sha256": "4438afafb1f143f5cbadd85aa130abfde3cb2c577af4d954ae68e3064d59525f",
+      "output_sha256": "4438afafb1f143f5cbadd85aa130abfde3cb2c577af4d954ae68e3064d59525f"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第08章-异常控制流/assets/answers--assets--fig-8-47.jpg",
       "target": "第08章-异常控制流/assets/answers--assets--fig-8-47.jpg",
       "sha256": "c988f18fcecf04dca887bce9ef96a97a764651a1f821a53f644b75e44f233870",
@@ -3805,13 +4099,6 @@
       "target": "第08章-异常控制流/homework/8.9-8.15-processes-and-fork.md",
       "sha256": "91939acbc7e9759d2390a3a3fdbd628f9028435ac7266017003e21a8ab92f05c",
       "output_sha256": "91939acbc7e9759d2390a3a3fdbd628f9028435ac7266017003e21a8ab92f05c"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "第08章-异常控制流/README.md",
-      "target": "第08章-异常控制流/README.md",
-      "sha256": "4438afafb1f143f5cbadd85aa130abfde3cb2c577af4d954ae68e3064d59525f",
-      "output_sha256": "4438afafb1f143f5cbadd85aa130abfde3cb2c577af4d954ae68e3064d59525f"
     },
     {
       "upstream": "sunnymaria",
@@ -4529,6 +4816,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第09章-虚拟内存/README.md",
+      "target": "第09章-虚拟内存/README.md",
+      "sha256": "274291d068d37d8a1a4078a6162ee65d791ccdda75ade8e8e0ae6886913e3e4c",
+      "output_sha256": "274291d068d37d8a1a4078a6162ee65d791ccdda75ade8e8e0ae6886913e3e4c"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第09章-虚拟内存/chapter.md",
       "target": "第09章-虚拟内存/chapter.md",
       "sha256": "0778d87368fdef84674e5bac775654bb68dd46e69bf134e2bf34be5c6a68c03f",
@@ -4547,13 +4841,6 @@
       "target": "第09章-虚拟内存/homework/9.14-9.20-memory-mapping-and-allocation.md",
       "sha256": "f8217cd606d429fa036c7498a2251820c6dc31a9c78957b8dc290e5341663dc2",
       "output_sha256": "f8217cd606d429fa036c7498a2251820c6dc31a9c78957b8dc290e5341663dc2"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "第09章-虚拟内存/README.md",
-      "target": "第09章-虚拟内存/README.md",
-      "sha256": "274291d068d37d8a1a4078a6162ee65d791ccdda75ade8e8e0ae6886913e3e4c",
-      "output_sha256": "274291d068d37d8a1a4078a6162ee65d791ccdda75ade8e8e0ae6886913e3e4c"
     },
     {
       "upstream": "sunnymaria",
@@ -4725,6 +5012,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第10章-系统级IO/README.md",
+      "target": "第10章-系统级IO/README.md",
+      "sha256": "b5353357435b16534494c5ee93cae5c63b54644b449ac9197fad5db8cf6010b9",
+      "output_sha256": "b5353357435b16534494c5ee93cae5c63b54644b449ac9197fad5db8cf6010b9"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第10章-系统级IO/chapter.md",
       "target": "第10章-系统级IO/chapter.md",
       "sha256": "9b4d42cf7128a607d4ab14f87307271dcb783a874c593d57e562b6d9ca80fa4e",
@@ -4736,13 +5030,6 @@
       "target": "第10章-系统级IO/homework/10.6-10.10-system-level-io.md",
       "sha256": "48779a4faca91e5d1786858b313671c895a0b43ae5d30d6fa1786bc8fa66454b",
       "output_sha256": "48779a4faca91e5d1786858b313671c895a0b43ae5d30d6fa1786bc8fa66454b"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "第10章-系统级IO/README.md",
-      "target": "第10章-系统级IO/README.md",
-      "sha256": "b5353357435b16534494c5ee93cae5c63b54644b449ac9197fad5db8cf6010b9",
-      "output_sha256": "b5353357435b16534494c5ee93cae5c63b54644b449ac9197fad5db8cf6010b9"
     },
     {
       "upstream": "sunnymaria",
@@ -5019,6 +5306,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第11章-网络编程/README.md",
+      "target": "第11章-网络编程/README.md",
+      "sha256": "dfedcfe9f91980448a9fc2a7d173a17e2e92e01ee567abc94375c334427afaf3",
+      "output_sha256": "dfedcfe9f91980448a9fc2a7d173a17e2e92e01ee567abc94375c334427afaf3"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第11章-网络编程/chapter.md",
       "target": "第11章-网络编程/chapter.md",
       "sha256": "a67207cfc1992b6cf9beca4c0ff8ad310306574a009086245af9c563018c5b8f",
@@ -5030,13 +5324,6 @@
       "target": "第11章-网络编程/homework/11.6-11.13-network-programming.md",
       "sha256": "639c4e1041a405b29b1253a0f54de17078682f04026f8bb93b4cc3c68cdf84ff",
       "output_sha256": "639c4e1041a405b29b1253a0f54de17078682f04026f8bb93b4cc3c68cdf84ff"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "第11章-网络编程/README.md",
-      "target": "第11章-网络编程/README.md",
-      "sha256": "dfedcfe9f91980448a9fc2a7d173a17e2e92e01ee567abc94375c334427afaf3",
-      "output_sha256": "dfedcfe9f91980448a9fc2a7d173a17e2e92e01ee567abc94375c334427afaf3"
     },
     {
       "upstream": "sunnymaria",
@@ -5411,6 +5698,13 @@
     },
     {
       "upstream": "sunnymaria",
+      "source": "第12章-并发编程/README.md",
+      "target": "第12章-并发编程/README.md",
+      "sha256": "368310648cfbfc662038bcbab96c307847323e4ee1663aa6e3f701d8b2b8bfec",
+      "output_sha256": "368310648cfbfc662038bcbab96c307847323e4ee1663aa6e3f701d8b2b8bfec"
+    },
+    {
+      "upstream": "sunnymaria",
       "source": "第12章-并发编程/assets/answers--assets--fig-12-48.jpg",
       "target": "第12章-并发编程/assets/answers--assets--fig-12-48.jpg",
       "sha256": "0435d1b19dbf66ca4b6cef7c93c718ad3c3d731cb861fd541d7ae8dcfb2270d1",
@@ -5439,13 +5733,6 @@
     },
     {
       "upstream": "sunnymaria",
-      "source": "第12章-并发编程/README.md",
-      "target": "第12章-并发编程/README.md",
-      "sha256": "368310648cfbfc662038bcbab96c307847323e4ee1663aa6e3f701d8b2b8bfec",
-      "output_sha256": "368310648cfbfc662038bcbab96c307847323e4ee1663aa6e3f701d8b2b8bfec"
-    },
-    {
-      "upstream": "sunnymaria",
       "source": "第12章-并发编程/练习题答案.md",
       "target": "第12章-并发编程/练习题答案.md",
       "sha256": "a529304f54e27801c719d835ce0310c9cb226d0e47b3d1dfda0816bb8b78b9a0",
@@ -5453,10 +5740,10 @@
     },
     {
       "upstream": "sunnymaria",
-      "source": "附录A-错误处理/chapter.md",
-      "target": "附录A-错误处理/chapter.md",
-      "sha256": "4a221ad46d87e1ae79b4aa242add5f48c25efaa14dd47fb067e139aa200feb2e",
-      "output_sha256": "234acbea3c231abecabc78b0991caab767c802417bddeeaaf924b0b2eb0b5a89"
+      "source": "答案编校说明.md",
+      "target": "答案编校说明.md",
+      "sha256": "896c73a714d418130023dbe7fc7a828589426e3b25e057c6484bc5a21aeed1e2",
+      "output_sha256": "896c73a714d418130023dbe7fc7a828589426e3b25e057c6484bc5a21aeed1e2"
     },
     {
       "upstream": "sunnymaria",
@@ -5464,6 +5751,13 @@
       "target": "附录A-错误处理/README.md",
       "sha256": "86e0bcf807de86656e4c6fc0d70dc545953111651998d92e8290e376222b43ab",
       "output_sha256": "86e0bcf807de86656e4c6fc0d70dc545953111651998d92e8290e376222b43ab"
+    },
+    {
+      "upstream": "sunnymaria",
+      "source": "附录A-错误处理/chapter.md",
+      "target": "附录A-错误处理/chapter.md",
+      "sha256": "4a221ad46d87e1ae79b4aa242add5f48c25efaa14dd47fb067e139aa200feb2e",
+      "output_sha256": "234acbea3c231abecabc78b0991caab767c802417bddeeaaf924b0b2eb0b5a89"
     },
     {
       "upstream": "sunnymaria",
@@ -5485,300 +5779,6 @@
       "target": "附录A-错误处理/sections/A.2-error-handling-wrappers.md",
       "sha256": "70b5cb1787fb9bb36cc8259b1397fa30c2f5903652a15e20d8d849f606945db3",
       "output_sha256": "70b5cb1787fb9bb36cc8259b1397fa30c2f5903652a15e20d8d849f606945db3"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/archlab-zh/archlab-handout.tar",
-      "target": "实验/archlab-zh/archlab-handout.tar",
-      "sha256": "586fc3347214ccd90e1c7cbfa74560c59584f8cf452d81c653acfd73344797d4",
-      "output_sha256": "586fc3347214ccd90e1c7cbfa74560c59584f8cf452d81c653acfd73344797d4"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/archlab-zh/archlab-zh.md",
-      "target": "实验/archlab-zh/archlab-zh.md",
-      "sha256": "79acda82e1c91a76169ae0cf45d4e269a58e506b085adfd2c990834f2136673e",
-      "output_sha256": "79acda82e1c91a76169ae0cf45d4e269a58e506b085adfd2c990834f2136673e"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/archlab-zh/simguide-assets/figure-2-seq-control-panel.png",
-      "target": "实验/archlab-zh/simguide-assets/figure-2-seq-control-panel.png",
-      "sha256": "2bcf3b6ec4d9d10f076772a7f02023ec029808c1346b9af0cf0d462497068423",
-      "output_sha256": "2bcf3b6ec4d9d10f076772a7f02023ec029808c1346b9af0cf0d462497068423"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/archlab-zh/simguide-assets/figure-3-seq-code-window.png",
-      "target": "实验/archlab-zh/simguide-assets/figure-3-seq-code-window.png",
-      "sha256": "f54a6021b5ea7304bc2b9ccf52edf29c9f3350cf5ee6856735f18a54c5830b26",
-      "output_sha256": "f54a6021b5ea7304bc2b9ccf52edf29c9f3350cf5ee6856735f18a54c5830b26"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/archlab-zh/simguide-assets/figure-4-seq-memory-window.png",
-      "target": "实验/archlab-zh/simguide-assets/figure-4-seq-memory-window.png",
-      "sha256": "76960360be249d4b22e4b98cebb40f5af76f6b4bf5c4490a27a3af702c9feedf",
-      "output_sha256": "76960360be249d4b22e4b98cebb40f5af76f6b4bf5c4490a27a3af702c9feedf"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/archlab-zh/simguide-assets/figure-5-pipe-control-panel.png",
-      "target": "实验/archlab-zh/simguide-assets/figure-5-pipe-control-panel.png",
-      "sha256": "e6df0e33c58f9fcbdffe746a06067a1087c5d8a7cd5926c8c2a7b3cfbba37b09",
-      "output_sha256": "e6df0e33c58f9fcbdffe746a06067a1087c5d8a7cd5926c8c2a7b3cfbba37b09"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/archlab-zh/simguide-assets/figure-6-pipeline-register.png",
-      "target": "实验/archlab-zh/simguide-assets/figure-6-pipeline-register.png",
-      "sha256": "15084527579f6f2a5a120ecca076dfd94fee85c980fcb39e0fb98e7e97bd707d",
-      "output_sha256": "15084527579f6f2a5a120ecca076dfd94fee85c980fcb39e0fb98e7e97bd707d"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/archlab-zh/simguide-assets/figure-7-pipe-code-window.png",
-      "target": "实验/archlab-zh/simguide-assets/figure-7-pipe-code-window.png",
-      "sha256": "006292b4d144a77fba95d73e3fb2e700b870a3cb370e9825d7d58002906ca550",
-      "output_sha256": "006292b4d144a77fba95d73e3fb2e700b870a3cb370e9825d7d58002906ca550"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/archlab-zh/simguide-assets/pipeline-overview.png",
-      "target": "实验/archlab-zh/simguide-assets/pipeline-overview.png",
-      "sha256": "6e5fadee718a706e7a890142c144e20ff99166d9b7ecd279f678c3760d5e3ec2",
-      "output_sha256": "6e5fadee718a706e7a890142c144e20ff99166d9b7ecd279f678c3760d5e3ec2"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/archlab-zh/simguide-zh.md",
-      "target": "实验/archlab-zh/simguide-zh.md",
-      "sha256": "3afaba23445c36ff06c41b2f62db293768b536459ee0b83b3c95e32a45f04692",
-      "output_sha256": "3afaba23445c36ff06c41b2f62db293768b536459ee0b83b3c95e32a45f04692"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/attacklab-zh/assets/figure-2-rop-gadgets-zh.png",
-      "target": "实验/attacklab-zh/assets/figure-2-rop-gadgets-zh.png",
-      "sha256": "ff0028a096cf32315864c471b403b6269879cee027b6ab10e57cf8dba34a23a8",
-      "output_sha256": "ff0028a096cf32315864c471b403b6269879cee027b6ab10e57cf8dba34a23a8"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/attacklab-zh/assets/figure-3-instruction-encodings-zh.png",
-      "target": "实验/attacklab-zh/assets/figure-3-instruction-encodings-zh.png",
-      "sha256": "89c7ad9c004eacb55fbf881efec18f017eaca85a40d5f491a40a778f8677b615",
-      "output_sha256": "89c7ad9c004eacb55fbf881efec18f017eaca85a40d5f491a40a778f8677b615"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/attacklab-zh/attacklab-zh.md",
-      "target": "实验/attacklab-zh/attacklab-zh.md",
-      "sha256": "530a51cfae1c6111d9c3729f50c3ee9f98154f79288d8194d6db3c55938ea7fc",
-      "output_sha256": "530a51cfae1c6111d9c3729f50c3ee9f98154f79288d8194d6db3c55938ea7fc"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/attacklab-zh/target1.tar",
-      "target": "实验/attacklab-zh/target1.tar",
-      "sha256": "7a2aea42ea275cb7620dc0d579113f7b3d41885a3e954bd3cf244cacc6db267d",
-      "output_sha256": "7a2aea42ea275cb7620dc0d579113f7b3d41885a3e954bd3cf244cacc6db267d"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/bomblab-zh/bomb.tar",
-      "target": "实验/bomblab-zh/bomb.tar",
-      "sha256": "4b005c5d13d53b77fcbb435b87c1e5ef88027144594bb39e1e494f1f93d39ed9",
-      "output_sha256": "4b005c5d13d53b77fcbb435b87c1e5ef88027144594bb39e1e494f1f93d39ed9"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/bomblab-zh/bomblab-zh.md",
-      "target": "实验/bomblab-zh/bomblab-zh.md",
-      "sha256": "03d07564a2fe42847c869a843ad8dd703f8f0e951dc939bd15395fc0c1de9f46",
-      "output_sha256": "03d07564a2fe42847c869a843ad8dd703f8f0e951dc939bd15395fc0c1de9f46"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/cachelab-zh/cachelab-handout.tar",
-      "target": "实验/cachelab-zh/cachelab-handout.tar",
-      "sha256": "de37f176d21338c65fc5bd5eb163c06df97fda2a3f1d21f577e25247f80ba64b",
-      "output_sha256": "de37f176d21338c65fc5bd5eb163c06df97fda2a3f1d21f577e25247f80ba64b"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/cachelab-zh/cachelab-zh.md",
-      "target": "实验/cachelab-zh/cachelab-zh.md",
-      "sha256": "65c855350804d0bcce182703c4e4b840038b7f7d4b5012a161daad67ae34c992",
-      "output_sha256": "65c855350804d0bcce182703c4e4b840038b7f7d4b5012a161daad67ae34c992"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/COMPATIBILITY.md",
-      "target": "实验/COMPATIBILITY.md",
-      "sha256": "c708bfe51242c265cc90748653cbbbe58fc169d9fb609a13966c52dbf7f42063",
-      "output_sha256": "c708bfe51242c265cc90748653cbbbe58fc169d9fb609a13966c52dbf7f42063"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/datalab-zh/datalab-handout.tar",
-      "target": "实验/datalab-zh/datalab-handout.tar",
-      "sha256": "a3bd21b752ecc7724d284417b1e19aa9f3839554893a4282ebe8e901c9fb2e02",
-      "output_sha256": "a3bd21b752ecc7724d284417b1e19aa9f3839554893a4282ebe8e901c9fb2e02"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/datalab-zh/datalab-zh.md",
-      "target": "实验/datalab-zh/datalab-zh.md",
-      "sha256": "9fb5b152a4052332fbf561d41fbf71bfeace7d28a101f2763a4bdd0e88aecc4f",
-      "output_sha256": "9fb5b152a4052332fbf561d41fbf71bfeace7d28a101f2763a4bdd0e88aecc4f"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/malloclab-zh/malloclab-handout.tar",
-      "target": "实验/malloclab-zh/malloclab-handout.tar",
-      "sha256": "5f7aaeb98fb90e3b59f44627f5ede3eab1f99cf5047492ed40a489e22a859e2c",
-      "output_sha256": "5f7aaeb98fb90e3b59f44627f5ede3eab1f99cf5047492ed40a489e22a859e2c"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/malloclab-zh/malloclab-zh.md",
-      "target": "实验/malloclab-zh/malloclab-zh.md",
-      "sha256": "ba16d057d63f09a680c2b30762d8e65beb49e850b0a6928fe423cd3dbccd91c4",
-      "output_sha256": "ba16d057d63f09a680c2b30762d8e65beb49e850b0a6928fe423cd3dbccd91c4"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/PACKAGES.md",
-      "target": "实验/PACKAGES.md",
-      "sha256": "bcfda8373301805a85763ef4de6fe945d2b9a36de1aa2c97ec85867bba1d30d4",
-      "output_sha256": "bcfda8373301805a85763ef4de6fe945d2b9a36de1aa2c97ec85867bba1d30d4"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/proxylab-zh/proxylab-handout.tar",
-      "target": "实验/proxylab-zh/proxylab-handout.tar",
-      "sha256": "9664e70733dc7eb467a15f622f0fcf7f110670e34430478ae4f580aafe964b39",
-      "output_sha256": "9664e70733dc7eb467a15f622f0fcf7f110670e34430478ae4f580aafe964b39"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/proxylab-zh/proxylab-zh.md",
-      "target": "实验/proxylab-zh/proxylab-zh.md",
-      "sha256": "6c6448390c3c4c50c88b44dcbda111f40da77657571de6b22e7a809317b99eb1",
-      "output_sha256": "6c6448390c3c4c50c88b44dcbda111f40da77657571de6b22e7a809317b99eb1"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/README.md",
-      "target": "实验/README.md",
-      "sha256": "f9ba7e28d9f3b0878d770a5c2c84b95319651c5255cbd9b5262fc752359d3674",
-      "output_sha256": "f9ba7e28d9f3b0878d770a5c2c84b95319651c5255cbd9b5262fc752359d3674"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/shlab-zh/shlab-handout.tar",
-      "target": "实验/shlab-zh/shlab-handout.tar",
-      "sha256": "3aaad75abb6654eb5073690a3af2bc82f3ac031daccdb85866095566b4b0b8cc",
-      "output_sha256": "3aaad75abb6654eb5073690a3af2bc82f3ac031daccdb85866095566b4b0b8cc"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "实验/shlab-zh/shlab-zh.md",
-      "target": "实验/shlab-zh/shlab-zh.md",
-      "sha256": "d56c9142cc96ac7af59e7bbc87911f28188a15c422b09f2b472dd1910a42dd12",
-      "output_sha256": "d56c9142cc96ac7af59e7bbc87911f28188a15c422b09f2b472dd1910a42dd12"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "参考文献.md",
-      "target": "参考文献.md",
-      "sha256": "ae019fb0f902a34fca788f74b6dd8b7b852755f70651a41dd5d11f60ef9e4e5a",
-      "output_sha256": "ae019fb0f902a34fca788f74b6dd8b7b852755f70651a41dd5d11f60ef9e4e5a"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "答案编校说明.md",
-      "target": "答案编校说明.md",
-      "sha256": "896c73a714d418130023dbe7fc7a828589426e3b25e057c6484bc5a21aeed1e2",
-      "output_sha256": "896c73a714d418130023dbe7fc7a828589426e3b25e057c6484bc5a21aeed1e2"
-    },
-    {
-      "upstream": "sunnymaria",
-      "source": "README.md",
-      "target": "UPSTREAM.md",
-      "sha256": "5c9a246f0952c33a6bd1752c0c7b0d3f5f7061b9a235dc439c6f7b3cc5392b44",
-      "output_sha256": "7ebfe5d9871c61362a8e3b580d04625f18be228e48b8b0cc00d79264012890f5"
-    },
-    {
-      "upstream": "hansimov",
-      "source": "labs/labs-overview/common-problems.md",
-      "target": "supplements/faq.md",
-      "sha256": "345e65f2162ffe8ece4002a3f66a0151b066ee1f453957510f499db503810944",
-      "output_sha256": "345e65f2162ffe8ece4002a3f66a0151b066ee1f453957510f499db503810944"
-    },
-    {
-      "upstream": "hansimov",
-      "source": "labs/data-lab/readme-student.md",
-      "target": "supplements/data-lab-student.md",
-      "sha256": "5f2a277cce04e6b20d8901888f78d411012b9fdfbf1e26d0994d8a1ae37ef0f7",
-      "output_sha256": "5f2a277cce04e6b20d8901888f78d411012b9fdfbf1e26d0994d8a1ae37ef0f7"
-    },
-    {
-      "upstream": "hansimov",
-      "source": "labs/data-lab/readme-instructor.md",
-      "target": "supplements/data-lab-instructor.md",
-      "sha256": "d1a330cd44a98a31fadb905ec00cb00ee5153baee51a9e36f5dde01bf6274fac",
-      "output_sha256": "d1a330cd44a98a31fadb905ec00cb00ee5153baee51a9e36f5dde01bf6274fac"
-    },
-    {
-      "upstream": "hansimov",
-      "source": "labs/bomb-lab/readme-jiang-shi-ban.md",
-      "target": "supplements/bomb-lab-instructor.md",
-      "sha256": "b5367d53ed6ea1c64cff551556291bfa73aa93761978184e5894c591d5ce3297",
-      "output_sha256": "b5367d53ed6ea1c64cff551556291bfa73aa93761978184e5894c591d5ce3297"
-    },
-    {
-      "upstream": "hansimov",
-      "source": "_codes/code.tar",
-      "target": "supplements/assets/code.tar",
-      "sha256": "801f07a48b6047a9117a3b85ddb425b4e0be732ec662f8316fb57ed2759f7cfa",
-      "output_sha256": "801f07a48b6047a9117a3b85ddb425b4e0be732ec662f8316fb57ed2759f7cfa"
-    },
-    {
-      "upstream": "hansimov",
-      "source": "_codes/code-all.tar",
-      "target": "supplements/assets/code-all.tar",
-      "sha256": "1be590472f18d26e8d46929c851807d672508e70ca10701b5a7283b679544288",
-      "output_sha256": "1be590472f18d26e8d46929c851807d672508e70ca10701b5a7283b679544288"
-    },
-    {
-      "upstream": "hansimov",
-      "source": "_labs/06 perf lab/perflab-handout.tar",
-      "target": "supplements/assets/perflab-handout.tar",
-      "sha256": "ecd223d4809033a25313eec832626973089b09b9d25abaf17128e0159a57fc0f",
-      "output_sha256": "ecd223d4809033a25313eec832626973089b09b9d25abaf17128e0159a57fc0f"
-    },
-    {
-      "upstream": "hansimov",
-      "source": "_labs/06 perf lab/perflab.pdf",
-      "target": "supplements/assets/perflab.pdf",
-      "sha256": "4df792de73ca6ad2900254a0a9de846f7be0a1ea4f077298364c8eae36050aac",
-      "output_sha256": "4df792de73ca6ad2900254a0a9de846f7be0a1ea4f077298364c8eae36050aac"
-    },
-    {
-      "upstream": "hansimov",
-      "source": "_labs/06 perf lab/README-perflab.txt",
-      "target": "supplements/assets/README-perflab.txt",
-      "sha256": "ed09d288572d59ea26dca84fa8873d6a7cdff86a9bcab264407f5288f1f738ed",
-      "output_sha256": "ed09d288572d59ea26dca84fa8873d6a7cdff86a9bcab264407f5288f1f738ed"
-    },
-    {
-      "upstream": "hansimov",
-      "source": "labs/perf-lab.md",
-      "target": "supplements/performance-lab.md",
-      "sha256": "3668166956596e9dae5ce507f3cb873b505f48a7817393bf182c373e8b8cf361",
-      "output_sha256": "64b44d4e4140cf796faa32b6664ced4616ae8794e7b7ab836e0309abe308479f"
     }
   ]
 }
