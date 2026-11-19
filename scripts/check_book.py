@@ -60,6 +60,8 @@ def references(text):
         yield match[1].strip("<>")
     for match in re.finditer(r'<(?:img|a)\b[^>]*?\b(?:src|href)=["\']([^"\']+)', text, re.I):
         yield match[1]
+    for match in re.finditer(r'{% file\s+src=["\']([^"\']+)["\']\s*%}', text):
+        yield match[1]
 
 
 if __name__ == "__main__":

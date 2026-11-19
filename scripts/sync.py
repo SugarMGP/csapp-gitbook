@@ -2,6 +2,7 @@
 
 import argparse
 import hashlib
+import html
 import json
 import os
 import re
@@ -135,6 +136,7 @@ def generate(paths, sources):
         text = text.replace(f"](http://csapp.cs.cmu.edu/3e/{old})", f"](assets/{new})")
     perf.write_text(text, encoding="utf-8", newline="\n")
     shutil.copyfile(ROOT / "templates/README.md", BOOK / "README.md")
+    shutil.copyfile(ROOT / "templates/labs.md", BOOK / "实验/README.md")
     shutil.copyfile(ROOT / "templates/supplements.md", BOOK / "supplements/README.md")
     shutil.copyfile(ROOT / "templates/.gitbook.yaml", BOOK / ".gitbook.yaml")
     summary.extend(["* [补充资料](supplements/README.md)",
@@ -158,6 +160,10 @@ def generate(paths, sources):
     for path in BOOK.rglob("*.md"):
         original = path.read_text(encoding="utf-8-sig")
         normalized = normalize_headings(rewrite_links(original, path, path, relocations))
+        normalized = native_figures(normalized)
+        normalized = native_math(normalized)
+        if path.name == "练习题答案.md":
+            normalized = group_answers(normalized)
         if normalized != original:
             path.write_text(normalized, encoding="utf-8", newline="\n")
     for i, line in enumerate(summary):
@@ -187,6 +193,91 @@ def normalize_headings(text):
     offset = 1 - len(first[1])
     return outside_fences(text, lambda line: re.sub(
         r"^(#{1,6})(?= )", lambda match: "#" * max(1, len(match[1]) + offset), line))
+
+
+def native_figures(text):
+    pattern = re.compile(r"^!\[([^]\n]*)\]\(([^)\n]+)\)\n\n(\*\*图\s*[^\n]+)$", re.M)
+
+    def replace(match):
+        alt, source, caption = match.groups()
+        caption = html.escape(caption)
+        caption = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", caption)
+        caption = re.sub(r"`([^`]+)`", r"<code>\1</code>", caption)
+        caption = caption.replace("&lt;sup&gt;", "<sup>").replace("&lt;/sup&gt;", "</sup>")
+        caption = caption.replace("&lt;sub&gt;", "<sub>").replace("&lt;/sub&gt;", "</sub>")
+        return (f'<figure><img src="{html.escape(source, quote=True)}" '
+                f'alt="{html.escape(alt, quote=True)}"><figcaption><p>{caption}</p></figcaption></figure>')
+
+    return pattern.sub(replace, text)
+
+
+def native_math(text):
+    lines = text.splitlines()
+    result = []
+    fenced = False
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        if re.match(r"^\s*(`{3,}|~{3,})", line):
+            fenced = not fenced
+        if fenced or not line.startswith(">"):
+            result.append(line)
+            index += 1
+            continue
+        end = index
+        while end < len(lines) and lines[end].startswith(">"):
+            end += 1
+        block = lines[index:end]
+        bodies = [item[2:] if item.startswith("> ") else item[1:] for item in block]
+        formulas = [item for item in bodies if item.strip()]
+        is_formula = (formulas
+                      and sum(len(re.findall(r"[\u4e00-\u9fff]", item)) for item in formulas) <= 4
+                      and any(re.search(r"[=≈≐Σ∑]|<su[bp]>", item) for item in formulas)
+                      and all(not re.search(
+                          r"^[①-⑳]|。$|[`{};|]|\b(?:int|long|double|void|printf|for|while|linux>)\b", item)
+                          for item in formulas))
+        if not is_formula:
+            result.extend(block)
+            index = end
+            continue
+        converted = [math_to_tex(item) for item in formulas]
+        if sum("\\tag{" in item for item in converted) > 1:
+            for formula in converted:
+                result.extend(["$$", formula, "$$"])
+            index = end
+            continue
+        formula = converted[0] if len(converted) == 1 else (
+            "\\begin{gathered}\n" + r" \\ ".join(converted) + "\n\\end{gathered}")
+        result.extend(["$$", formula, "$$"])
+        index = end
+    return "\n".join(result) + ("\n" if text.endswith("\n") else "")
+
+
+def math_to_tex(formula):
+    formula = re.sub(r"\*([A-Za-z][A-Za-z0-9]*)\*", r"\1", formula)
+    formula = re.sub(r"<sub>(.*?)</sub>", r"_{\1}", formula)
+    formula = re.sub(r"<sup>(.*?)</sup>", r"^{\1}", formula)
+    formula = re.sub(r"[　 ]*（(\d+(?:\.\d+)*)）$", r" \\tag{\1}", formula)
+    formula = formula.replace("≐", r"\mathrel{:=}").replace("Σ", r"\sum").replace("∑", r"\sum")
+    formula = formula.replace("·", r"\cdot ").replace("×", r"\times ").replace("≈", r"\approx ")
+    formula = re.sub(r"\bmod\b", r"\\bmod", formula)
+    return formula.replace("…", r"\ldots ").replace("（", "(").replace("）", ")")
+
+
+def group_answers(text):
+    headings = list(re.finditer(r"^## 练习题 (\d+)\.(\d+)$", text, re.M))
+    if len(headings) <= 10:
+        return text
+    chapter = headings[0][1]
+    groups = {}
+    for match in headings:
+        number = int(match[2])
+        groups.setdefault((number - 1) // 10 * 10 + 1, []).append(number)
+    for start, members in reversed(list(groups.items())):
+        marker = f"## 练习题 {chapter}.{start}"
+        group = f"## 练习题 {chapter}.{start}～{chapter}.{members[-1]}\n\n"
+        text = text.replace(marker, group + marker, 1)
+    return re.sub(r"^## (练习题 \d+\.\d+)$", r"### \1", text, flags=re.M)
 
 
 def rewrite_links(text, source, destination, relocations):

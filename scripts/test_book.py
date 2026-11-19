@@ -49,7 +49,7 @@ class BookTests(unittest.TestCase):
         self.assertEqual(len(list(BOOK.glob("第*章-*"))), 12)
         answers = list(BOOK.glob("第*章-*/练习题答案.md"))
         self.assertEqual(len(answers), 12)
-        self.assertGreaterEqual(sum(len(re.findall(r"^## 练习题 \d+\.\d+", p.read_text(encoding="utf-8"), re.M)) for p in answers), 238)
+        self.assertGreaterEqual(sum(len(re.findall(r"^#{2,3} 练习题 \d+\.\d+$", p.read_text(encoding="utf-8"), re.M)) for p in answers), 238)
         expected = {p.relative_to(BOOK).as_posix() for p in BOOK.rglob("*.md")
                     if p.name not in {"README.md", "SUMMARY.md"}}
         self.assertTrue(expected <= set(refs), f"Not in summary: {expected - set(refs)}")

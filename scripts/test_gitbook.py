@@ -7,7 +7,7 @@ from pathlib import Path
 
 import jsonschema
 import yaml
-from sync import normalize_headings, outside_fences, rewrite_links
+from sync import group_answers, native_figures, native_math, normalize_headings, outside_fences, rewrite_links
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -93,6 +93,44 @@ class GitBookTests(unittest.TestCase):
     def test_heading_normalization_preserves_code(self):
         source = "### Page\n\nText.\n\n#### Detail\n\n```c\n#define VALUE 1\n```\n"
         self.assertEqual(normalize_headings(source), "# Page\n\nText.\n\n## Detail\n\n```c\n#define VALUE 1\n```\n")
+
+    def test_native_figures_keep_one_visible_caption(self):
+        source = "![高速缓存存储器](assets/cache.png)\n\n**图 1-8** 高速缓存存储器\n"
+        rendered = native_figures(source)
+        self.assertIn('<figure><img src="assets/cache.png" alt="高速缓存存储器">', rendered)
+        self.assertIn("<figcaption><p><strong>图 1-8</strong> 高速缓存存储器", rendered)
+        self.assertNotIn("![", rendered)
+        for path in (ROOT / "book").rglob("*.md"):
+            text = path.read_text(encoding="utf-8-sig")
+            self.assertNotRegex(text, r"(?m)^!\[[^]]+\]\([^)]+\)\n\n\*\*图")
+
+    def test_native_math_replaces_standalone_formula_quotes(self):
+        source = "说明。\n\n> S<sub>p</sub> = T<sub>1</sub> / T<sub>p</sub>\n\n下文。\n"
+        self.assertIn("$$\nS_{p} = T_{1} / T_{p}\n$$", native_math(source))
+        product = "> x *<sup>u</sup><sub>w</sub> y = (x · y) mod 2<sup>w</sup>\n"
+        self.assertIn("x *^{u}_{w} y", native_math(product))
+        derivation = ("> (x' · y') mod 2<sup>w</sup>\n>\n"
+                      "> = (x · y) mod 2<sup>w</sup>　（2.18）\n")
+        self.assertIn("\\begin{gathered}", native_math(derivation))
+        self.assertIn("\\tag{2.18}", native_math(derivation))
+        tagged = "> x = 1　（2.1）\n>\n> y = 2　（2.2）\n"
+        self.assertEqual(native_math(tagged).count("$$"), 4)
+        note = "> ① 1ns = 10<sup>-9</sup>s。\n"
+        self.assertEqual(native_math(note), note)
+        parallelism = next((ROOT / "book").glob("第12章-*/12.6/12.6-*.md")).read_text(encoding="utf-8")
+        self.assertIn("$$\nS_{p} =", parallelism)
+
+    def test_long_answer_pages_are_grouped(self):
+        answers = next((ROOT / "book").glob("第02章-*/练习题答案.md")).read_text(encoding="utf-8")
+        self.assertIn("## 练习题 2.1～2.10", answers)
+        self.assertIn("### 练习题 2.1", answers)
+        self.assertEqual(group_answers("# 练习题答案\n\n## 练习题 1.1\n"),
+                         "# 练习题答案\n\n## 练习题 1.1\n")
+
+    def test_lab_index_uses_native_cards_and_files(self):
+        labs = (ROOT / "book/实验/README.md").read_text(encoding="utf-8")
+        self.assertIn('<table data-view="cards">', labs)
+        self.assertEqual(labs.count("{% file src="), 8)
 
     def test_site_configuration_and_content_mapping(self):
         site = yaml.safe_load((ROOT / "gitbook-docs.yaml").read_text(encoding="utf-8"))
