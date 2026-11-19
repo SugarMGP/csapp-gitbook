@@ -123,7 +123,8 @@ class GitBookTests(unittest.TestCase):
     def test_long_answer_pages_are_grouped(self):
         answers = next((ROOT / "book").glob("第02章-*/练习题答案.md")).read_text(encoding="utf-8")
         self.assertIn("## 练习题 2.1～2.10", answers)
-        self.assertIn("### 练习题 2.1", answers)
+        self.assertIn("**练习题 2.1**", answers)
+        self.assertNotRegex(answers, r"(?m)^### 练习题")
         self.assertEqual(group_answers("# 练习题答案\n\n## 练习题 1.1\n"),
                          "# 练习题答案\n\n## 练习题 1.1\n")
 

@@ -277,7 +277,7 @@ def group_answers(text):
         marker = f"## 练习题 {chapter}.{start}"
         group = f"## 练习题 {chapter}.{start}～{chapter}.{members[-1]}\n\n"
         text = text.replace(marker, group + marker, 1)
-    return re.sub(r"^## (练习题 \d+\.\d+)$", r"### \1", text, flags=re.M)
+    return re.sub(r"^## (练习题 \d+\.\d+)$", r"**\1**", text, flags=re.M)
 
 
 def rewrite_links(text, source, destination, relocations):

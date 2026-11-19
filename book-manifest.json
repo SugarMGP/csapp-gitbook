@@ -1249,7 +1249,7 @@
       "source": "第02章-信息的表示和处理/练习题答案.md",
       "target": "第02章-信息的表示和处理/练习题答案.md",
       "sha256": "1f8cc5e71ac1a33b4053f1c99832c4b7bf1d4d5ddf0185dda759ad155af055e6",
-      "output_sha256": "f5265b68a72a2cf491197fd0d5e206cb270a7c4527863d7f6f20bd7c96b7bcea"
+      "output_sha256": "231cb781afb13dfbc7595efcbf8cfd2619c94409dcf71dc3f634ae02d8ebeabe"
     },
     {
       "upstream": "sunnymaria",
@@ -1816,7 +1816,7 @@
       "source": "第03章-程序的机器级表示/练习题答案.md",
       "target": "第03章-程序的机器级表示/练习题答案.md",
       "sha256": "f8bc453b9c9750350d8552a581fc4d95f42b84190de0ae55604fc0df2cc09a59",
-      "output_sha256": "763be5f1dd27e9ab09fc88c88d5652f7cd61facf8e433a3b6a750677948e4462"
+      "output_sha256": "727f0cd297b615a253397e4c23eb6e9d9aa9020927ac8beba4752fdac984ce99"
     },
     {
       "upstream": "sunnymaria",
@@ -2516,7 +2516,7 @@
       "source": "第04章-处理器体系结构/练习题答案.md",
       "target": "第04章-处理器体系结构/练习题答案.md",
       "sha256": "4f3409bf9d746dc1ddcab9127c32662fd01a4648bf85680edd5197311becba7c",
-      "output_sha256": "66d529276cd3ca61b7a78945b4d0adc9925e7c820059ce83eb2cf439be2a572f"
+      "output_sha256": "de6eedbe9554e52948d9a03ea2903d67bab2b8b32f77d676cc1b83211059cb25"
     },
     {
       "upstream": "sunnymaria",
@@ -2915,7 +2915,7 @@
       "source": "第05章-优化程序性能/练习题答案.md",
       "target": "第05章-优化程序性能/练习题答案.md",
       "sha256": "c3117e7da31c340c9ae8a2bd5ba3385432d2574aea997656f74b8e3401842bc0",
-      "output_sha256": "1d3adb6efd098a4e57a4d22fb5d6f755260197dbc2fb0aefeb15c62e1fed413a"
+      "output_sha256": "ab8734766cb212b89d111419b0fa97c65af4ac15f79b6869f6fe5e042d1ee0d7"
     },
     {
       "upstream": "sunnymaria",
@@ -3377,7 +3377,7 @@
       "source": "第06章-存储器层次结构/练习题答案.md",
       "target": "第06章-存储器层次结构/练习题答案.md",
       "sha256": "9c8b2ca2e38dfd07c094244f3d4168ee8384ac45faa8286d8bb289a6dfc29e34",
-      "output_sha256": "34b2cc2927740af8eb4289341d5d9f7f367de4b4cbd3592a71ac77054fea4f74"
+      "output_sha256": "932c873758817bf733635edf209265a7dcf497df88ba11c83379b1f960b73592"
     },
     {
       "upstream": "sunnymaria",
@@ -5638,7 +5638,7 @@
       "source": "第12章-并发编程/练习题答案.md",
       "target": "第12章-并发编程/练习题答案.md",
       "sha256": "a529304f54e27801c719d835ce0310c9cb226d0e47b3d1dfda0816bb8b78b9a0",
-      "output_sha256": "027f712d10eaa466bbf79826069b1d903db5f44c3b47be50ed479bb6869de57a"
+      "output_sha256": "53ec5648b2edcbd75d6f1ca47a51ee088955cc777769a3042294ce90573a15c6"
     },
     {
       "upstream": "sunnymaria",
