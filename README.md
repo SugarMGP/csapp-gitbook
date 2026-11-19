@@ -2,11 +2,11 @@
 
 《深入理解计算机系统》第三版中文书稿：整合 [SunnyMaria/csapp-zh-markdown](https://github.com/SunnyMaria/csapp-zh-markdown) 的正文和 [Hansimov/csapp](https://github.com/Hansimov/csapp) 的补充资料，通过 Git Sync 导入 GitBook，使用 GitBook 官方默认主题阅读。
 
-**[书籍目录](book/SUMMARY.md)** · [连接 GitBook](docs/gitbook-setup.md) · [资料来源与权利归属](book/SOURCES.md) · [调研记录](docs/source-research.md)
+**[书籍目录](book/SUMMARY.md)** · [连接 GitBook](docs/gitbook-setup.md) · [中文排版调研](docs/gitbook-chinese-typography.md) · [资料来源与权利归属](book/SOURCES.md) · [调研记录](docs/source-research.md)
 
 仓库通过根目录 `gitbook-docs.yaml` 配置站点，将默认中文空间映射到 `book/`。
 
-收录前言、第 1—12 章、附录 A、参考文献、238 道原书练习题答案、8 个实验的中文说明及自学包，以及 Performance Lab、实验 FAQ、Data/Bomb Lab 补充 README 和示例代码包。保留逐节阅读与整章阅读，目录、搜索和外观使用 GitBook 原生功能。
+收录前言、第 1—12 章、附录 A、参考文献、238 道原书练习题答案、8 个实验的中文说明及自学包，以及 Performance Lab、实验 FAQ、Data/Bomb Lab 补充 README 和示例代码包。各章开篇正文直接放在章首页，下面按小节阅读；目录、搜索和外观使用 GitBook 原生功能。
 
 “完整”指上游已有正文的小节覆盖和配套资料完整，不代表逐字校对了正版出版物，也不包含家庭作业或实验解答。
 

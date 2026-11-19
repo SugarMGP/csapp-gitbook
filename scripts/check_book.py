@@ -30,8 +30,8 @@ def main():
     for path in files:
         if path.name != "SUMMARY.md" and path not in targets:
             errors.append(f"Page is not linked: {path.relative_to(root)}")
-    if len(files) < 500:
-        errors.append(f"Expected at least 500 Markdown pages, found {len(files)}")
+    if not files or not (root / "README.md").is_file() or not (root / "SUMMARY.md").is_file():
+        errors.append("Missing book homepage or navigation")
     print(f"{len(files)} Markdown files, {count} local references, {len(errors)} errors")
     for error in errors:
         print(error)

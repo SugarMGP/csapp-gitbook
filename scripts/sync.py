@@ -3,10 +3,12 @@
 import argparse
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
 from pathlib import Path
+from urllib.parse import unquote, urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 BOOK = ROOT / "book"
@@ -54,6 +56,7 @@ def generate(paths, sources):
         shutil.rmtree(BOOK)
     BOOK.mkdir()
     imported = []
+    relocations = {}
 
     def copy(source, target, upstream):
         dest = BOOK / target
@@ -73,13 +76,11 @@ def generate(paths, sources):
         elif directory.name.startswith("附录"):
             summary.extend(["", "## 附录", ""])
         for path in sorted(directory.rglob("*")):
-            if path.is_file():
+            if path.is_file() and path.name != "chapter.md":
                 copy(path, path.relative_to(sunny), "sunnymaria")
         index = (directory / "README.md").read_text(encoding="utf-8-sig")
         title = re.search(r"^# (.+)$", index, re.M)[1]
         summary.append(f"* [{title}]({directory.name}/README.md)")
-        if (directory / "chapter.md").exists():
-            summary.append(f"  * [整章连续阅读]({directory.name}/chapter.md)")
         if directory.name == "实验":
             lab_refs = list(dict.fromkeys(re.findall(r"\]\(([^)]+\.md)\)", index)))
             lab_refs.extend(p.relative_to(directory).as_posix()
@@ -90,18 +91,31 @@ def generate(paths, sources):
         else:
             section = index.split("## 小节目录", 1)[1].split("\n## ", 1)[0]
             refs = LINK.findall(section)
+            landing = BOOK / directory.name / "README.md"
+            chunks = [f"# {title}"]
+            openings = [ref for label, ref in refs if label == title]
+            for ref in openings:
+                opening = BOOK / directory.name / ref
+                body = normalize_headings(opening.read_text(encoding="utf-8-sig"))
+                chunks.append(rewrite_links(body.split("\n", 1)[1].strip(), opening, landing, relocations))
+                relocations[opening.resolve()] = landing.resolve()
+                original_target = opening.relative_to(BOOK).as_posix()
+                for entry in imported:
+                    if entry["target"] == original_target:
+                        entry["target"] = landing.relative_to(BOOK).as_posix()
+                opening.unlink()
+            refs = [(label, ref) for label, ref in refs if ref not in openings]
+            chunks.extend(["## 小节目录", "\n".join(f"- [{label}]({ref})" for label, ref in refs)])
+            if (directory / "练习题答案.md").exists():
+                chunks.extend(["## 练习题答案", "[查看本章练习题答案](练习题答案.md)"])
+            landing.write_text("\n\n".join(chunks) + "\n", encoding="utf-8", newline="\n")
         for label, ref in refs:
             depth = 2 if re.match(r"\d+\.\d+\.\d+", label) else 1
             summary.append("  " * depth + f"* [{label}]({directory.name}/{ref})")
         if (directory / "练习题答案.md").exists():
             summary.append(f"  * [练习题答案]({directory.name}/练习题答案.md)")
-    for name in ["参考文献.md", "答案编校说明.md", "README.md"]:
-        copy(sunny / name, Path("UPSTREAM.md" if name == "README.md" else name), "sunnymaria")
-    original = BOOK / "UPSTREAM.md"
-    original.write_text(original.read_text(encoding="utf-8").replace(
-        "(维护工具/README.md)",
-        f"(https://github.com/SunnyMaria/csapp-zh-markdown/blob/{sources['sunnymaria']['commit']}/维护工具/README.md)"
-    ), encoding="utf-8", newline="\n")
+    for name in ["参考文献.md", "答案编校说明.md"]:
+        copy(sunny / name, Path(name), "sunnymaria")
     for original, target in SUPPLEMENTS.items():
         copy(hans / original, Path("supplements") / target, "hansimov")
     for filename in ["code.tar", "code-all.tar"]:
@@ -125,7 +139,7 @@ def generate(paths, sources):
                     "  * [Bomb Lab 讲师版](supplements/bomb-lab-instructor.md)",
                     "", "## 参考资料", "",
                     "* [参考文献](参考文献.md)", "* [答案编校说明](答案编校说明.md)",
-                    "* [资料来源与权利归属](SOURCES.md)", "* [上游原始说明](UPSTREAM.md)"])
+                    "* [资料来源与权利归属](SOURCES.md)"])
     credits = ["# 资料来源与权利归属", "", "本项目整合已有中文资料，通过 Git Sync 导入 GitBook，使用 GitBook 官方默认主题阅读。", ""]
     for name, source in sources.items():
         url = source["url"].removesuffix(".git")
@@ -137,7 +151,7 @@ def generate(paths, sources):
     (BOOK / "SOURCES.md").write_text("\n".join(credits), encoding="utf-8", newline="\n")
     for path in BOOK.rglob("*.md"):
         original = path.read_text(encoding="utf-8-sig")
-        normalized = normalize_headings(original)
+        normalized = normalize_headings(rewrite_links(original, path, path, relocations))
         if normalized != original:
             path.write_text(normalized, encoding="utf-8", newline="\n")
     for i, line in enumerate(summary):
@@ -150,9 +164,9 @@ def generate(paths, sources):
     (BOOK / "SUMMARY.md").write_text("\n".join(summary) + "\n", encoding="utf-8", newline="\n")
     for entry in imported:
         entry["output_sha256"] = hashlib.sha256((BOOK / entry["target"]).read_bytes()).hexdigest()
-    manifest = {"sources": sources, "files": sorted(imported, key=lambda entry: entry["target"])}
+    manifest = {"sources": sources, "files": sorted(imported, key=lambda entry: (entry["target"], entry["source"]))}
     (ROOT / "book-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
-    print(f"Imported {len(imported)} files; generated {len(list(BOOK.rglob('*.md')))} Markdown pages")
+    print(f"Imported {len(imported)} source files; generated {len(list(BOOK.rglob('*.md')))} Markdown pages")
 
 
 def normalize_headings(text):
@@ -160,6 +174,24 @@ def normalize_headings(text):
     if not first or len(first[1]) == 1:
         return text
     offset = 1 - len(first[1])
+    return outside_fences(text, lambda line: re.sub(
+        r"^(#{1,6})(?= )", lambda match: "#" * max(1, len(match[1]) + offset), line))
+
+
+def rewrite_links(text, source, destination, relocations):
+    def replace(match):
+        url = urlsplit(match[2].strip("<>"))
+        if url.scheme or url.netloc or not url.path:
+            return match[0]
+        target = (source.parent / unquote(url.path)).resolve()
+        target = relocations.get(target, target)
+        relative = Path(os.path.relpath(target, destination.parent)).as_posix()
+        return match[1] + urlunsplit(("", "", relative, url.query, url.fragment)) + match[3]
+    link = re.compile(r"(!?\[[^\]\n]*\]\()(<[^>]+>|[^)\n]+)(\))")
+    return outside_fences(text, lambda line: link.sub(replace, line))
+
+
+def outside_fences(text, transform):
     lines, fence = [], None
     for line in text.splitlines(keepends=True):
         marker = re.match(r"^\s*(`{3,}|~{3,})", line)
@@ -169,7 +201,7 @@ def normalize_headings(text):
             elif marker[1][0] == fence[0] and len(marker[1]) >= len(fence):
                 fence = None
         elif fence is None:
-            line = re.sub(r"^(#{1,6})(?= )", lambda match: "#" * max(1, len(match[1]) + offset), line)
+            line = transform(line)
         lines.append(line)
     return "".join(lines)
 

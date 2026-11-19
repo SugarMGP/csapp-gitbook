@@ -1,17 +1,44 @@
 """Validate the actual site configuration and the Markdown consumed by GitBook."""
 
+import json
 import re
 import unittest
 from pathlib import Path
 
 import jsonschema
 import yaml
-from sync import normalize_headings
+from sync import normalize_headings, rewrite_links
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class GitBookTests(unittest.TestCase):
+    def test_moving_openings_rebases_links_and_preserves_code(self):
+        source = ROOT / "book/chapter/section/opening.md"
+        destination = ROOT / "book/chapter/README.md"
+        text = '[Next](next.md)\n![Figure](assets/figure.png)\n```c\nchar *example = "[literal](next.md)";\n```\n'
+        moves = {(source.parent / "next.md").resolve(): destination.parent / "other.md"}
+        expected = '[Next](other.md)\n![Figure](section/assets/figure.png)\n```c\nchar *example = "[literal](next.md)";\n```\n'
+        self.assertEqual(rewrite_links(text, source, destination, moves), expected)
+
+    def test_continuous_chapters_are_removed(self):
+        self.assertEqual(list((ROOT / "book").rglob("chapter.md")), [])
+        summary = (ROOT / "book/SUMMARY.md").read_text(encoding="utf-8")
+        self.assertNotIn("整章", summary)
+
+    def test_opening_content_is_merged_into_chapter_landings(self):
+        manifest = json.loads((ROOT / "book-manifest.json").read_text(encoding="utf-8"))
+        openings = [entry for entry in manifest["files"]
+                    if entry["source"].endswith(("-chapter-opening.md", "A.0-error-handling.md"))]
+        self.assertEqual(len(openings), 13)
+        for entry in openings:
+            self.assertTrue(entry["target"].endswith("/README.md"), entry["source"])
+            self.assertFalse((ROOT / "book" / entry["source"]).exists())
+        first = next((ROOT / "book").glob("第01章-*/README.md")).read_text(encoding="utf-8")
+        self.assertIn("计算机系统是由硬件和系统软件组成的", first)
+        second = next((ROOT / "book").glob("第02章-*/README.md")).read_text(encoding="utf-8")
+        self.assertIn("2.1/assets/fig-2-1-gcc-c-versions.jpg", second)
+
     def test_heading_normalization_preserves_code(self):
         source = "### Page\n\nText.\n\n#### Detail\n\n```c\n#define VALUE 1\n```\n"
         self.assertEqual(normalize_headings(source), "# Page\n\nText.\n\n## Detail\n\n```c\n#define VALUE 1\n```\n")
