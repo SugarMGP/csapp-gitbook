@@ -1,0 +1,16 @@
+{% macro articles(items) %}
+{% for article in items %}
+<li class="chapter{% if article.path == file.path %} active{% endif %}" data-level="{{ article.level }}" data-path="{{ article.path|resolveFile }}">
+  <a href="{{ article.path|resolveFile }}{{ article.anchor }}">{{ article.title }}</a>
+  {% if article.articles.length %}<ul class="articles">{{ articles(article.articles) }}</ul>{% endif %}
+</li>
+{% endfor %}
+{% endmacro %}
+<ul class="summary">
+  <li><a href="https://github.com/SugarMGP/csapp-gitbook" target="_blank" rel="noopener" class="custom-link">CSAPP · GitHub</a></li>
+  <li class="divider"></li>
+  {% for part in summary.parts %}
+  {% if part.title %}<li class="header">{{ part.title }}</li>{% endif %}
+  {{ articles(part.articles) }}
+  {% endfor %}
+</ul>

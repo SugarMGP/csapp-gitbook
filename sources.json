@@ -1,0 +1,12 @@
+{
+  "sunnymaria": {
+    "url": "https://github.com/SunnyMaria/csapp-zh-markdown.git",
+    "branch": "main",
+    "commit": "7fe0d4f79d65ba63cc3c8723c24d2d2e99b84c66"
+  },
+  "hansimov": {
+    "url": "https://github.com/Hansimov/csapp.git",
+    "branch": "master",
+    "commit": "49ec5b8fb885d1e273c84d22cad6196e9731239f"
+  }
+}
