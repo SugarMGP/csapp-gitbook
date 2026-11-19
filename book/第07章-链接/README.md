@@ -14,30 +14,35 @@
 
 这一章提供了关于链接各方面的全面讨论，从传统静态链接到加载时的共享库的动态链接，以及到运行时的共享库的动态链接。我们将使用实际示例来描述基本的机制，而且指出链接问题在哪些情况中会影响程序的性能和正确性。为了使描述具体和便于理解，我们的讨论是基于这样的环境：一个运行 Linux 的 x86-64 系统，使用标准的 ELF-64（此后称为 ELF）目标文件格式。不过，无论是什么样的操作系统、ISA 或者目标文件格式，基本的链接概念是通用的，认识到这一点是很重要的。细节可能不尽相同，但是概念是相同的。
 
+## 第二部分 在系统上运行程序
+
+继续我们对计算机系统的探索，进一步来看看构建和运行应用程序的系统软件。链接器把程序的各个部分联合成一个文件，处理器可以将这个文件加载到内存，并且执行它。现代操作系统与硬件合作，为每个程序提供一种幻象，好像这个程序是在独占地使用处理器和主存，而实际上，在任何时刻，系统上都有多个程序在运行。
+
+在本书的第一部分，你很好地理解了程序和硬件之间的交互关系。本书的第二部分将拓宽你对系统的了解，使你牢固地掌握程序和操作系统之间的交互关系。你将学习到如何使用操作系统提供的服务来构建系统级程序，例如 Unix shell 和动态内存分配包。
+
 ## 小节目录
 
-- [第二部分 在系统上运行程序](7.0/7.0-part-2.md)
 - [7.1 编译器驱动程序](7.1/7.1-compiler-drivers.md)
 - [7.2 静态链接](7.2/7.2-static-linking.md)
 - [7.3 目标文件](7.3/7.3-object-files.md)
 - [7.4 可重定位目标文件](7.4/7.4-relocatable-object-files.md)
 - [7.5 符号和符号表](7.5/7.5-symbols-and-symbol-tables.md)
 - [7.6 符号解析](7.6/7.6-symbol-resolution.md)
-- [7.6.1 链接器如何解析多重定义的全局符号](7.6/7.6.1-how-linkers-resolve-multiply-defined-global-symbols.md)
-- [7.6.2 与静态库链接](7.6/7.6.2-linking-with-static-libraries.md)
-- [7.6.3 链接器如何使用静态库来解析引用](7.6/7.6.3-how-linkers-use-static-libraries-to-resolve-references.md)
+  - [7.6.1 链接器如何解析多重定义的全局符号](7.6/7.6.1-how-linkers-resolve-multiply-defined-global-symbols.md)
+  - [7.6.2 与静态库链接](7.6/7.6.2-linking-with-static-libraries.md)
+  - [7.6.3 链接器如何使用静态库来解析引用](7.6/7.6.3-how-linkers-use-static-libraries-to-resolve-references.md)
 - [7.7 重定位](7.7/7.7-relocation.md)
-- [7.7.1 重定位条目](7.7/7.7.1-relocation-entries.md)
-- [7.7.2 重定位符号引用](7.7/7.7.2-relocating-symbol-references.md)
+  - [7.7.1 重定位条目](7.7/7.7.1-relocation-entries.md)
+  - [7.7.2 重定位符号引用](7.7/7.7.2-relocating-symbol-references.md)
 - [7.8 可执行目标文件](7.8/7.8-executable-object-files.md)
 - [7.9 加载可执行目标文件](7.9/7.9-loading-executable-object-files.md)
 - [7.10 动态链接共享库](7.10/7.10-dynamic-linking-with-shared-libraries.md)
 - [7.11 从应用程序中加载和链接共享库](7.11/7.11-loading-and-linking-shared-libraries-from-applications.md)
 - [7.12 位置无关代码](7.12/7.12-position-independent-code.md)
 - [7.13 库打桩机制](7.13/7.13-library-interpositioning.md)
-- [7.13.1 编译时打桩](7.13/7.13.1-compile-time-interpositioning.md)
-- [7.13.2 链接时打桩](7.13/7.13.2-link-time-interpositioning.md)
-- [7.13.3 运行时打桩](7.13/7.13.3-run-time-interpositioning.md)
+  - [7.13.1 编译时打桩](7.13/7.13.1-compile-time-interpositioning.md)
+  - [7.13.2 链接时打桩](7.13/7.13.2-link-time-interpositioning.md)
+  - [7.13.3 运行时打桩](7.13/7.13.3-run-time-interpositioning.md)
 - [7.14 处理目标文件的工具](7.14/7.14-tools-for-manipulating-object-files.md)
 - [7.15 小结](7.15/7.15-summary.md)
 - [参考文献说明](7.15/references.md)

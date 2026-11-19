@@ -9,16 +9,21 @@
 
 这一章介绍 Unix I/O 和标准 I/O 的一般概念，并且向你展示在 C 程序中如何可靠地使用它们。除了作为一般性的介绍之外，这一章还为我们随后学习网络编程和并发性奠定坚实的基础。
 
+## 第三部分 程序间的交互和通信
+
+我们学习计算机系统到现在，一直假设程序是独立运行的，只包含最小限度的输入和输出。然而，在现实世界里，应用程序利用操作系统提供的服务来与 I/O 设备及其他程序通信。
+
+本书的这一部分将使你了解 Unix 操作系统提供的基本 I/O 服务，以及如何用这些服务来构造应用程序，例如 Web 客户端和服务器，它们是通过 Internet 彼此通信的。你将学习编写诸如 Web 服务器这样的可以同时为多个客户端提供服务的并发程序。编写并发应用程序还能使程序在现代多核处理器上执行得更快。当学完了这个部分，你将逐渐变成一个很牛的程序员，对计算机系统以及它们对程序的影响有很成熟的理解。
+
 ## 小节目录
 
-- [第三部分 程序间的交互和通信](10.0/10.0-part-3.md)
 - [10.1 Unix I/O](10.1/10.1-unix-io.md)
 - [10.2 文件](10.2/10.2-files.md)
 - [10.3 打开和关闭文件](10.3/10.3-opening-and-closing-files.md)
 - [10.4 读和写文件](10.4/10.4-reading-and-writing-files.md)
 - [10.5 用 RIO 包健壮地读写](10.5/10.5-robust-reading-and-writing-with-rio.md)
-- [10.5.1 RIO 的无缓冲的输入输出函数](10.5/10.5.1-rio-unbuffered-input-output-functions.md)
-- [10.5.2 RIO 的带缓冲的输入函数](10.5/10.5.2-rio-buffered-input-functions.md)
+  - [10.5.1 RIO 的无缓冲的输入输出函数](10.5/10.5.1-rio-unbuffered-input-output-functions.md)
+  - [10.5.2 RIO 的带缓冲的输入函数](10.5/10.5.2-rio-buffered-input-functions.md)
 - [10.6 读取文件元数据](10.6/10.6-reading-file-metadata.md)
 - [10.7 读取目录内容](10.7/10.7-reading-directory-contents.md)
 - [10.8 共享文件](10.8/10.8-sharing-files.md)

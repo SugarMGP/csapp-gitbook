@@ -7,12 +7,63 @@ from pathlib import Path
 
 import jsonschema
 import yaml
-from sync import normalize_headings, rewrite_links
+from sync import normalize_headings, outside_fences, rewrite_links
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class GitBookTests(unittest.TestCase):
+    def test_part_introductions_are_not_chapter_subpages(self):
+        manifest = json.loads((ROOT / "book-manifest.json").read_text(encoding="utf-8"))
+        parts = [entry for entry in manifest["files"] if re.search(r"-part-\d+\.md$", entry["source"])]
+        self.assertEqual(len(parts), 3)
+        for entry in parts:
+            self.assertTrue(entry["target"].endswith("/README.md"), entry["source"])
+            self.assertFalse((ROOT / "book" / entry["source"]).exists())
+            landing = (ROOT / "book" / entry["target"]).read_text(encoding="utf-8")
+            self.assertRegex(landing, r"(?m)^## 第[一二三]+部分")
+        summary = (ROOT / "book/SUMMARY.md").read_text(encoding="utf-8")
+        self.assertNotRegex(summary, r"(?m)^\s+\* \[第[一二三]+部分")
+        tenth = next((ROOT / "book").glob("第10章-*/README.md")).read_text(encoding="utf-8")
+        self.assertIn("\n  - [10.5.1 ", tenth)
+        self.assertNotIn("10.0-part-3.md", tenth)
+
+    def test_numbered_sections_have_the_correct_parent(self):
+        chapter, section = None, None
+        summary = (ROOT / "book/SUMMARY.md").read_text(encoding="utf-8")
+        for indent, label in re.findall(r"^( *)\* \[([^\]]+)\]", summary, re.M):
+            if not indent:
+                parent = re.match(r"第 (\d+) 章", label)
+                chapter, section = int(parent[1]) if parent else None, None
+                continue
+            number = re.match(r"(\d+)\.(\d+)(?:\.(\d+))? ", label)
+            if number and chapter is not None:
+                self.assertEqual(int(number[1]), chapter, label)
+                if number[3]:
+                    self.assertEqual((number[1], number[2]), section, label)
+                    self.assertEqual(len(indent), 4, label)
+                else:
+                    section = (number[1], number[2])
+                    self.assertEqual(len(indent), 2, label)
+
+    def test_chapters_belong_to_the_correct_part(self):
+        group = None
+        for line in (ROOT / "book/SUMMARY.md").read_text(encoding="utf-8").splitlines():
+            if line.startswith("## "):
+                group = line[3:]
+            chapter = re.match(r"^\* \[第 (\d+) 章", line)
+            if chapter:
+                number = int(chapter[1])
+                if number == 1:
+                    expected = None
+                elif number <= 6:
+                    expected = "第一部分"
+                elif number <= 9:
+                    expected = "第二部分"
+                else:
+                    expected = "第三部分"
+                self.assertEqual(group.split(" · ")[0] if group else None, expected)
+
     def test_moving_openings_rebases_links_and_preserves_code(self):
         source = ROOT / "book/chapter/section/opening.md"
         destination = ROOT / "book/chapter/README.md"
@@ -63,8 +114,10 @@ class GitBookTests(unittest.TestCase):
     def test_pages_start_with_a_level_one_title(self):
         wrong = []
         for path in (ROOT / "book").rglob("*.md"):
-            heading = re.search(r"^(#{1,6}) ", path.read_text(encoding="utf-8-sig"), re.M)
-            if not heading or heading[1] != "#":
+            visible = []
+            outside_fences(path.read_text(encoding="utf-8-sig"), lambda line: visible.append(line) or line)
+            headings = re.findall(r"^(#{1,6}) ", "".join(visible), re.M)
+            if not headings or headings[0] != "#" or headings.count("#") != 1:
                 wrong.append(path.relative_to(ROOT).as_posix())
         self.assertFalse(wrong, f"{len(wrong)} pages lack an H1 title: {wrong[:5]}")
 

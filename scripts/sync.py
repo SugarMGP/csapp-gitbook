@@ -93,11 +93,16 @@ def generate(paths, sources):
             refs = LINK.findall(section)
             landing = BOOK / directory.name / "README.md"
             chunks = [f"# {title}"]
-            openings = [ref for label, ref in refs if label == title]
+            part_openings = [ref for label, ref in refs if re.match(r"第[一二三四五六七八九十]+部分", label)]
+            openings = [ref for label, ref in refs if label == title] + part_openings
             for ref in openings:
                 opening = BOOK / directory.name / ref
                 body = normalize_headings(opening.read_text(encoding="utf-8-sig"))
-                chunks.append(rewrite_links(body.split("\n", 1)[1].strip(), opening, landing, relocations))
+                if ref in part_openings:
+                    body = re.sub(r"^# ", "## ", body, count=1)
+                else:
+                    body = body.split("\n", 1)[1]
+                chunks.append(rewrite_links(body.strip(), opening, landing, relocations))
                 relocations[opening.resolve()] = landing.resolve()
                 original_target = opening.relative_to(BOOK).as_posix()
                 for entry in imported:
@@ -105,12 +110,13 @@ def generate(paths, sources):
                         entry["target"] = landing.relative_to(BOOK).as_posix()
                 opening.unlink()
             refs = [(label, ref) for label, ref in refs if ref not in openings]
-            chunks.extend(["## 小节目录", "\n".join(f"- [{label}]({ref})" for label, ref in refs)])
+            toc = ["  " * (section_depth(label) - 1) + f"- [{label}]({ref})" for label, ref in refs]
+            chunks.extend(["## 小节目录", "\n".join(toc)])
             if (directory / "练习题答案.md").exists():
                 chunks.extend(["## 练习题答案", "[查看本章练习题答案](练习题答案.md)"])
             landing.write_text("\n\n".join(chunks) + "\n", encoding="utf-8", newline="\n")
         for label, ref in refs:
-            depth = 2 if re.match(r"\d+\.\d+\.\d+", label) else 1
+            depth = section_depth(label)
             summary.append("  " * depth + f"* [{label}]({directory.name}/{ref})")
         if (directory / "练习题答案.md").exists():
             summary.append(f"  * [练习题答案]({directory.name}/练习题答案.md)")
@@ -167,6 +173,11 @@ def generate(paths, sources):
     manifest = {"sources": sources, "files": sorted(imported, key=lambda entry: (entry["target"], entry["source"]))}
     (ROOT / "book-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"Imported {len(imported)} source files; generated {len(list(BOOK.rglob('*.md')))} Markdown pages")
+
+
+def section_depth(title):
+    number = re.match(r"\d+(?:\.\d+)+", title)
+    return len(number[0].split(".")) - 1 if number else 1
 
 
 def normalize_headings(text):
