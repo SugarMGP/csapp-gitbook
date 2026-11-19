@@ -52,35 +52,35 @@
       "source": "labs/bomb-lab/readme-jiang-shi-ban.md",
       "target": "supplements/bomb-lab-instructor.md",
       "sha256": "b5367d53ed6ea1c64cff551556291bfa73aa93761978184e5894c591d5ce3297",
-      "output_sha256": "9ee2369286f6f22a197ca8ede4ca348307f6345e03ee8ce2c51702fa97893367"
+      "output_sha256": "f86188107a04f87609b1551b9d6988f11de7968126fbdb7f19411bf1d6781caf"
     },
     {
       "upstream": "hansimov",
       "source": "labs/data-lab/readme-instructor.md",
       "target": "supplements/data-lab-instructor.md",
       "sha256": "d1a330cd44a98a31fadb905ec00cb00ee5153baee51a9e36f5dde01bf6274fac",
-      "output_sha256": "923bf7aba0de2357a5b8e993f4893097e01713316d084349c9e9eaae9ff32085"
+      "output_sha256": "85afcffb8e2839c85e17c926fe444499d1d6bde86675fc2a85cd593479f29899"
     },
     {
       "upstream": "hansimov",
       "source": "labs/data-lab/readme-student.md",
       "target": "supplements/data-lab-student.md",
       "sha256": "5f2a277cce04e6b20d8901888f78d411012b9fdfbf1e26d0994d8a1ae37ef0f7",
-      "output_sha256": "1fdfb91c7566e18ff56575a362d4ccc18b6fec7db941e8a04d0114b8dd76fdfd"
+      "output_sha256": "0af795555b0a2fc64e805006d80678315d61acbbbb13c0ea82785e65efc34898"
     },
     {
       "upstream": "hansimov",
       "source": "labs/labs-overview/common-problems.md",
       "target": "supplements/faq.md",
       "sha256": "345e65f2162ffe8ece4002a3f66a0151b066ee1f453957510f499db503810944",
-      "output_sha256": "345e65f2162ffe8ece4002a3f66a0151b066ee1f453957510f499db503810944"
+      "output_sha256": "acf9a5828f35880b9dfe34b44d1f16a7eb02d834a251eeb5b0d5c94017f4a37b"
     },
     {
       "upstream": "hansimov",
       "source": "labs/perf-lab.md",
       "target": "supplements/performance-lab.md",
       "sha256": "3668166956596e9dae5ce507f3cb873b505f48a7817393bf182c373e8b8cf361",
-      "output_sha256": "64b44d4e4140cf796faa32b6664ced4616ae8794e7b7ab836e0309abe308479f"
+      "output_sha256": "16fd249ed50bd6d7419f4b0b7258e732a09f708352badff6eab0e9af97911e67"
     },
     {
       "upstream": "sunnymaria",
@@ -1018,7 +1018,7 @@
       "source": "第02章-信息的表示和处理/2.3/2.3.3-twos-complement-negation.md",
       "target": "第02章-信息的表示和处理/2.3/2.3.3-twos-complement-negation.md",
       "sha256": "f7147706cc3de9ba690afba7b50ee485c3ba1cdcb783f7a4dab12d971b1f76eb",
-      "output_sha256": "1f877cf701b88bb8471b279a418ab54378b0cc34438b4906053beec0026fa4a8"
+      "output_sha256": "a25e3e2395f0afaf57a2e663d66aa4f6ee552029eacfff969d6886cf3dec303c"
     },
     {
       "upstream": "sunnymaria",
@@ -1844,7 +1844,7 @@
       "source": "第04章-处理器体系结构/4.1/4.1.3-instruction-encoding.md",
       "target": "第04章-处理器体系结构/4.1/4.1.3-instruction-encoding.md",
       "sha256": "688849103a7ab7a9b8c7367e3b90b6bfc170ebd6de4a7dcff2ce48fc221ee103",
-      "output_sha256": "19963af8190ed640625d6639498e8c3aa7e0504e65c576daa9eb39670eb40766"
+      "output_sha256": "73ef63ed37a064cfb6d8f3f4fbdf04d096b9f6c82f5cadf6c27ebe8e698d8d9f"
     },
     {
       "upstream": "sunnymaria",
@@ -2005,7 +2005,7 @@
       "source": "第04章-处理器体系结构/4.3/4.3.1-organizing-processing-into-stages.md",
       "target": "第04章-处理器体系结构/4.3/4.3.1-organizing-processing-into-stages.md",
       "sha256": "71200faf14c15ab5821a5752f5d8c0590fa3d911fb24833170224554d8e12ce3",
-      "output_sha256": "2f76b76396fab2b6f6926d571cf7566fee7340abc7dc1337f0417bf8bff76880"
+      "output_sha256": "ba4936727db4819ad81cf9be51b4bb495c350434182bea96ebccbc2a06792324"
     },
     {
       "upstream": "sunnymaria",
@@ -2684,7 +2684,7 @@
       "source": "第05章-优化程序性能/5.4/5.4-eliminating-loop-inefficiencies.md",
       "target": "第05章-优化程序性能/5.4/5.4-eliminating-loop-inefficiencies.md",
       "sha256": "f3259c066c8aeea548848a3d5f44059aa3c277d20c39097641386553bf8f992b",
-      "output_sha256": "e24f4e81d5b900a95ed7b55bb862522acaa69c309d31af2239e7fc81bfd40fc8"
+      "output_sha256": "ab8cbaa58438183a2435b476857cafc197fb541a0f400444c33e6e1030029366"
     },
     {
       "upstream": "sunnymaria",
@@ -2705,7 +2705,7 @@
       "source": "第05章-优化程序性能/5.6/5.6-eliminating-unneeded-memory-references.md",
       "target": "第05章-优化程序性能/5.6/5.6-eliminating-unneeded-memory-references.md",
       "sha256": "af4ec8f85d2cc80b197c32ef92b4895d192214725b52502521517124dbd41a37",
-      "output_sha256": "c69e13d6bfe2c2b22621ff91d7aa1aeb960f7090adf3465873f19422c04d1c6c"
+      "output_sha256": "4f5d2ceb66437602e3ca91aa9bed88bfc150338c7c1991c1c0c321d31cbeffeb"
     },
     {
       "upstream": "sunnymaria",
@@ -2817,7 +2817,7 @@
       "source": "第05章-优化程序性能/5.9/5.9.2-reassociation-transformation.md",
       "target": "第05章-优化程序性能/5.9/5.9.2-reassociation-transformation.md",
       "sha256": "9bf16ea7c83e1ff0861bba2e00e6b4da6c205e1dbd5e1621c3dc317fcaeddde1",
-      "output_sha256": "37d16254a293931d66e2c479d0e3b63b176104aba045d0a9a7faa08b3a3b1a12"
+      "output_sha256": "61a3af241ba3aa4f6cc8ec5d47f228dd0bd110bd2b7ba0f269bcc79879cacfbf"
     },
     {
       "upstream": "sunnymaria",
@@ -2929,14 +2929,14 @@
       "source": "第06章-存储器层次结构/6.1/6.1.1-random-access-memory.md",
       "target": "第06章-存储器层次结构/6.1/6.1.1-random-access-memory.md",
       "sha256": "7ff983dbc2c3784fed6e5fbfbddb5034d999fa07d5cdd9b71ebbbf533a496c9d",
-      "output_sha256": "593278b6393f9d7119084a05dcfb4cf44ec30835fdb8f46b58e5173b4b545cb4"
+      "output_sha256": "f734cbfefc54bf9684f44690b4802a77dff70432f52098f87ff99365190e9f2b"
     },
     {
       "upstream": "sunnymaria",
       "source": "第06章-存储器层次结构/6.1/6.1.2-disk-storage.md",
       "target": "第06章-存储器层次结构/6.1/6.1.2-disk-storage.md",
       "sha256": "3de5b58124f5b90a2f9a85c7bed91dad864997885e2403b3b05b4a25a3c5ed7c",
-      "output_sha256": "c0e0a6eb00e0fbfbb73c705ce6e621f375cc89437e8a23435518bf08759a6329"
+      "output_sha256": "bf2105cd8d747973d89151d41f9f5d602132276a7e18247c6c5b9139bb560565"
     },
     {
       "upstream": "sunnymaria",
@@ -3118,7 +3118,7 @@
       "source": "第06章-存储器层次结构/6.4/6.4.1-general-cache-memory-organization.md",
       "target": "第06章-存储器层次结构/6.4/6.4.1-general-cache-memory-organization.md",
       "sha256": "7bc2135f692820637b4ca5a27a2011c5452fced0c562c95e3146cea0211bcad7",
-      "output_sha256": "194173f4e7d0e6eb18193e7278663f5f51880f02526d1894f2b85879ce0f4360"
+      "output_sha256": "2cde40bb58c1e9ba523422de343b8b400a0d4154983a29eea68ededf8633f935"
     },
     {
       "upstream": "sunnymaria",
@@ -3139,7 +3139,7 @@
       "source": "第06章-存储器层次结构/6.4/6.4.4-fully-associative-caches.md",
       "target": "第06章-存储器层次结构/6.4/6.4.4-fully-associative-caches.md",
       "sha256": "44e16299791d5c7f334182dea661d881a21413512d43b182695e8ae3f6a8c43a",
-      "output_sha256": "c9addcaae161b162b33908c8e1aa4e32e358d5e036a94ec66fe9ef5f81261ac1"
+      "output_sha256": "83547aecfb5119d1d16425ee5c5e1f76651c79199eebefd5cc7d2ac0782682d8"
     },
     {
       "upstream": "sunnymaria",
@@ -3517,7 +3517,7 @@
       "source": "第07章-链接/7.5/7.5-symbols-and-symbol-tables.md",
       "target": "第07章-链接/7.5/7.5-symbols-and-symbol-tables.md",
       "sha256": "5b6b46cf8b640d4c29aeb7f7df426845992fd31410451c2d9608dc6a4eb02e37",
-      "output_sha256": "f075449b1d43acdbfaa04d60ac50e4af0e804ae4417bd636374f2274f6ea1ef6"
+      "output_sha256": "f2181ac002ef1cb604c916668ec1d846669340547d7a22f0076ccd92fc74abed"
     },
     {
       "upstream": "sunnymaria",
@@ -3734,7 +3734,7 @@
       "source": "第08章-异常控制流/8.2/8.2.2-concurrent-flows.md",
       "target": "第08章-异常控制流/8.2/8.2.2-concurrent-flows.md",
       "sha256": "e8cd2b73e8be8b4e6a263f01a520f53a3828ba53d13554e8f2ec055abc728cf5",
-      "output_sha256": "c69414f1868dd209282e77b6690daffde29f5f50c1f83ba74b5896fe1e9ce442"
+      "output_sha256": "469ba2f1f78f7d790a93ad789d73a55bddfed5611097812929634438c958c3bd"
     },
     {
       "upstream": "sunnymaria",
@@ -4210,7 +4210,7 @@
       "source": "第09章-虚拟内存/9.2/9.2-address-spaces.md",
       "target": "第09章-虚拟内存/9.2/9.2-address-spaces.md",
       "sha256": "5c33274704164b9981f5884a1cb98e6f0c996f5b27543891e95977d1f272e497",
-      "output_sha256": "1afde09b81f9b910195a088b4be1bbea8bf6aed8cee48c73cbf2a67da1aa4bd8"
+      "output_sha256": "0070ba0742ce49ed8f5b3e62ff2c37634caa64f990e98e6e6a6200edee1e7598"
     },
     {
       "upstream": "sunnymaria",
@@ -4231,7 +4231,7 @@
       "source": "第09章-虚拟内存/9.3/9.3.2-page-tables.md",
       "target": "第09章-虚拟内存/9.3/9.3.2-page-tables.md",
       "sha256": "114e6e4c6db648128f0fc7c966384e406d35e783d401eac7167b415dee2e9f21",
-      "output_sha256": "44cd3ffdd9b3c44ca2309c86e12a02c45a37bdfd78c4cf0a312a588bacc22c81"
+      "output_sha256": "d41e864ad6754d854771b0c1650f0c24c416eb49e0df8242d57310c0d243c5d3"
     },
     {
       "upstream": "sunnymaria",
@@ -4336,7 +4336,7 @@
       "source": "第09章-虚拟内存/9.6/9.6-address-translation.md",
       "target": "第09章-虚拟内存/9.6/9.6-address-translation.md",
       "sha256": "9d8562a373d2240d64da964af9c25001ef1d9eda6164e0f37e22c1fbe6da3004",
-      "output_sha256": "8b2a7e0f522e9f5bb478cfabf390c00be8a691c57dba72d88145f9ccf88daaae"
+      "output_sha256": "bf31dfac81ea059d8423ab881a297573fff0430878a7d315176bf47e079458d3"
     },
     {
       "upstream": "sunnymaria",
@@ -4364,7 +4364,7 @@
       "source": "第09章-虚拟内存/9.6/9.6.4-putting-it-together-end-to-end-address-translation.md",
       "target": "第09章-虚拟内存/9.6/9.6.4-putting-it-together-end-to-end-address-translation.md",
       "sha256": "06ee62ced2b275afce7dcde6a74b0cc8df004d0070a1487c86418ee2371ac9f1",
-      "output_sha256": "c3f7bc3e923a5baecda5dddcb8059b1a732bd3e307f10801e5bfa9b553114214"
+      "output_sha256": "eef4a27e917c699f781a47ad75c32c3f42e7160b180b476e00d01c30f78da29b"
     },
     {
       "upstream": "sunnymaria",
@@ -4588,7 +4588,7 @@
       "source": "第09章-虚拟内存/9.9/9.9.11-coalescing-with-boundary-tags.md",
       "target": "第09章-虚拟内存/9.9/9.9.11-coalescing-with-boundary-tags.md",
       "sha256": "b71133d252d79b5ca0f223e7115f61744f35b5c158f78a78d311f32fb4af5e1c",
-      "output_sha256": "975a3195c0a516fef990625cb63a5c8750608d68d7cca8455ae6de268f84449e"
+      "output_sha256": "e4e7022d6c9b06b28185829ec71f106bd61850890b5282f3fd5b3ba06c177908"
     },
     {
       "upstream": "sunnymaria",
@@ -4644,7 +4644,7 @@
       "source": "第09章-虚拟内存/9.9/9.9.6-implicit-free-lists.md",
       "target": "第09章-虚拟内存/9.9/9.9.6-implicit-free-lists.md",
       "sha256": "f169948dd569b531d1aad4aa9a205141925cbabfa89a69d9b96ab03952245d6d",
-      "output_sha256": "9750629f6fcb72a2945428595eabd7c13f6b1bb1cf3e19d0c55c5d869dd6f340"
+      "output_sha256": "ad97449b341d9ac903aba1575f97d6e01cc5af75921ff021f334aeefa7f9862e"
     },
     {
       "upstream": "sunnymaria",
@@ -5029,7 +5029,7 @@
       "source": "第11章-网络编程/11.3/11.3.1-ip-addresses.md",
       "target": "第11章-网络编程/11.3/11.3.1-ip-addresses.md",
       "sha256": "f874c3bf0eba6d56ebc91a05841848189605b36a69b80a5e5dffabc265c7e6e8",
-      "output_sha256": "a87880d473af34b5973e40c51d61f08fca7746e0e865f1f62f9d8a9f9430c23c"
+      "output_sha256": "791fc3890077b395f295a8974ee85a0da91719be3969af635ba0981b56fa99a6"
     },
     {
       "upstream": "sunnymaria",
@@ -5561,7 +5561,7 @@
       "source": "第12章-并发编程/12.7/12.7.5-deadlocks.md",
       "target": "第12章-并发编程/12.7/12.7.5-deadlocks.md",
       "sha256": "840cd04057dfde2ce54a331cf308e9947df8a51c38db59adb10d9e1beca7e7f7",
-      "output_sha256": "842c409bc8f25101621254168d5d1c724e6c5084d36da691d3631ace44e77183"
+      "output_sha256": "6d1b5f88f1c83767d617c0c604a604de363206cb77c7e333fc94b07350b085eb"
     },
     {
       "upstream": "sunnymaria",

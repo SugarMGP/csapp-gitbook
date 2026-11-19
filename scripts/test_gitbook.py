@@ -7,7 +7,7 @@ from pathlib import Path
 
 import jsonschema
 import yaml
-from sync import (disable_table_search, group_answers, native_code_titles,
+from sync import (TABLE_MARKDOWN, disable_table_search, group_answers, native_code_titles,
                   native_figures, native_images, native_math, normalize_headings,
                   outside_fences, rewrite_links)
 
@@ -137,8 +137,11 @@ class GitBookTests(unittest.TestCase):
         self.assertIn('<table data-search="false">', quoted)
         self.assertIn("> Intro.", quoted)
         self.assertIn("> Outro.", quoted)
-        self.assertNotIn("\n>\n<blockquote>", quoted)
-        self.assertNotIn("</blockquote>\n>\n", quoted)
+        self.assertIn("\n\n<blockquote>", quoted)
+        self.assertIn("</blockquote>\n\n> Outro.", quoted)
+        reparsed = TABLE_MARKDOWN.render(quoted)
+        self.assertIn("<p>Outro.</p>", reparsed)
+        self.assertNotIn("&gt; Outro.", reparsed)
         tables = 0
         for path in (ROOT / "book").rglob("*.md"):
             text = path.read_text(encoding="utf-8-sig")

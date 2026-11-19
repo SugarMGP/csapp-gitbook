@@ -414,4 +414,3 @@ linux> ./bomb < student_n_solution.txt
 ```
 
 不同阶段变种的源代码在 ./src/phases/ 中。
-

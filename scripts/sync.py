@@ -260,16 +260,20 @@ def disable_table_search(text):
                 end += 1
             if prefix and result and result[-1] == ">":
                 result.pop()
+            if prefix and result and result[-1] != "":
+                result.append("")
             rendered = TABLE_MARKDOWN.render("\n".join(lines[index:end]) + "\n").strip()
             rendered = rendered.replace("<table>", '<table data-search="false">', 1)
             result.extend(rendered.splitlines())
             if prefix and end < len(lines) and lines[end] == ">":
                 end += 1
+            if prefix:
+                result.append("")
             index = end
             continue
         result.append(line)
         index += 1
-    converted = "\n".join(result) + ("\n" if text.endswith("\n") else "")
+    converted = "\n".join(result).rstrip("\n") + ("\n" if text.endswith("\n") else "")
     return outside_fences(converted, lambda line: re.sub(
         r"<table(?![^>]*\bdata-search=)", '<table data-search="false"', line))
 

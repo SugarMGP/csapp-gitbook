@@ -43,4 +43,3 @@ sudo apt-get install gcc-multilib
 ```c
 make && ./btest
 ```
-
