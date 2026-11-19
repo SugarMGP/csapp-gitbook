@@ -136,13 +136,60 @@ PASSED: Sent exploit string to server to be validated.
 NICE JOB!
 ```
 
-| 阶段 | 程序 | 级别 | 方法 | 函数 | 分值 |
-|---:|---|---:|:---:|---|---:|
-| 1 | CTARGET | 1 | CI | `touch1` | 10 |
-| 2 | CTARGET | 2 | CI | `touch2` | 25 |
-| 3 | CTARGET | 3 | CI | `touch3` | 25 |
-| 4 | RTARGET | 2 | ROP | `touch2` | 35 |
-| 5 | RTARGET | 3 | ROP | `touch3` | 5 |
+<table data-search="false">
+<thead>
+<tr>
+<th style="text-align:right">阶段</th>
+<th>程序</th>
+<th style="text-align:right">级别</th>
+<th style="text-align:center">方法</th>
+<th>函数</th>
+<th style="text-align:right">分值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>CTARGET</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">CI</td>
+<td><code>touch1</code></td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>CTARGET</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">CI</td>
+<td><code>touch2</code></td>
+<td style="text-align:right">25</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>CTARGET</td>
+<td style="text-align:right">3</td>
+<td style="text-align:center">CI</td>
+<td><code>touch3</code></td>
+<td style="text-align:right">25</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>RTARGET</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">ROP</td>
+<td><code>touch2</code></td>
+<td style="text-align:right">35</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>RTARGET</td>
+<td style="text-align:right">3</td>
+<td style="text-align:center">ROP</td>
+<td><code>touch3</code></td>
+<td style="text-align:right">5</td>
+</tr>
+</tbody>
+</table>
 
 CI：代码注入（Code Injection）  
 ROP：面向返回编程（Return-Oriented Programming）

@@ -36,15 +36,44 @@
 
 所有的 CS:APP 实验都有着相同的简单的顶层目录结构：
 
-| 文件名 | 说明 |
-| :--- | :--- |
-| Makefile | 构建整个实验。 |
-| README | 本文件。 |
-| src/ | 包含实验的所有源代码。 |
-| datalab-handout/ | 发给学生的材料目录。由 Makefile 从 ./src 中的文件生成。不要修改此目录中的任何内容。 |
-| grade/ | 自动评分脚本，讲师可以用它来给学生提交的文件打分。 |
-| writeup/ | LaTeX 实验报告样例。 |
-| contest/ | 可选的“击败教授”比赛所需的所有文件。 |
+<table data-search="false">
+<thead>
+<tr>
+<th style="text-align:left">文件名</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Makefile</td>
+<td style="text-align:left">构建整个实验。</td>
+</tr>
+<tr>
+<td style="text-align:left">README</td>
+<td style="text-align:left">本文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">src/</td>
+<td style="text-align:left">包含实验的所有源代码。</td>
+</tr>
+<tr>
+<td style="text-align:left">datalab-handout/</td>
+<td style="text-align:left">发给学生的材料目录。由 Makefile 从 ./src 中的文件生成。不要修改此目录中的任何内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">grade/</td>
+<td style="text-align:left">自动评分脚本，讲师可以用它来给学生提交的文件打分。</td>
+</tr>
+<tr>
+<td style="text-align:left">writeup/</td>
+<td style="text-align:left">LaTeX 实验报告样例。</td>
+</tr>
+<tr>
+<td style="text-align:left">contest/</td>
+<td style="text-align:left">可选的“击败教授”比赛所需的所有文件。</td>
+</tr>
+</tbody>
+</table>
 
 ## 3. 构建实验
 

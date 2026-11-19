@@ -11,9 +11,12 @@ import subprocess
 from pathlib import Path
 from urllib.parse import unquote, urlsplit, urlunsplit
 
+from markdown_it import MarkdownIt
+
 ROOT = Path(__file__).resolve().parents[1]
 BOOK = ROOT / "book"
 LINK = re.compile(r"^- \[([^\]]+)\]\(([^)]+)\)$", re.M)
+TABLE_MARKDOWN = MarkdownIt("commonmark", {"html": True}).enable("table")
 SUPPLEMENTS = {
     "labs/labs-overview/common-problems.md": "faq.md",
     "labs/data-lab/readme-student.md": "data-lab-student.md",
@@ -163,7 +166,7 @@ def generate(paths, sources):
         normalized = native_figures(normalized)
         normalized = native_images(normalized)
         normalized = native_code_titles(normalized)
-        normalized = disable_processor_table_search(normalized)
+        normalized = disable_table_search(normalized)
         normalized = native_math(normalized)
         if path.name == "练习题答案.md":
             normalized = group_answers(normalized)
@@ -230,33 +233,41 @@ def native_code_titles(text):
     return pattern.sub(replace, text)
 
 
-def disable_processor_table_search(text):
+def disable_table_search(text):
     lines = text.splitlines()
-    header = "| 阶段 | `OPq rA, rB` | `rrmovq rA, rB` | `irmovq V, rB` |"
-    try:
-        start = lines.index(header)
-    except ValueError:
-        return text
-    end = start
-    while end < len(lines) and lines[end].startswith("|"):
-        end += 1
-    rows = [[cell.strip() for cell in line.strip("|").split("|")] for line in lines[start:end]]
-    if len(rows) < 3:
-        return text
-
-    def cells(tag, values):
-        rendered = []
-        for value in values:
-            value = html.escape(value)
-            value = re.sub(r"`([^`]+)`", r"<code>\1</code>", value)
-            rendered.append(f"<{tag}>{value}</{tag}>")
-        return "<tr>" + "".join(rendered) + "</tr>"
-
-    table = ["<table data-search=\"false\">", "<thead>", cells("th", rows[0]), "</thead>", "<tbody>"]
-    table.extend(cells("td", row) for row in rows[2:])
-    table.extend(["</tbody>", "</table>"])
-    lines[start:end] = table
-    return "\n".join(lines) + ("\n" if text.endswith("\n") else "")
+    result = []
+    index = 0
+    fence = None
+    separator = re.compile(r"^\|(?:\s*:?-{3,}:?\s*\|)+$")
+    while index < len(lines):
+        line = lines[index]
+        marker = re.match(r"^\s*(`{3,}|~{3,})", line)
+        if marker:
+            if fence is None:
+                fence = marker[1]
+            elif marker[1][0] == fence[0] and len(marker[1]) >= len(fence):
+                fence = None
+            result.append(line)
+            index += 1
+            continue
+        prefix = "> " if line.startswith("> ") else ""
+        body = line[len(prefix):]
+        next_body = lines[index + 1][len(prefix):] if index + 1 < len(lines) and lines[index + 1].startswith(prefix) else ""
+        if (fence is None and body.startswith("|") and body.endswith("|")
+                and separator.fullmatch(next_body)):
+            end = index + 2
+            while end < len(lines) and lines[end].startswith(prefix + "|") and lines[end].endswith("|"):
+                end += 1
+            rendered = TABLE_MARKDOWN.render("\n".join(lines[index:end]) + "\n").strip()
+            rendered = rendered.replace("<table>", '<table data-search="false">', 1)
+            result.extend(rendered.splitlines())
+            index = end
+            continue
+        result.append(line)
+        index += 1
+    converted = "\n".join(result) + ("\n" if text.endswith("\n") else "")
+    return outside_fences(converted, lambda line: re.sub(
+        r"<table(?![^>]*\bdata-search=)", '<table data-search="false"', line))
 
 
 def native_math(text):

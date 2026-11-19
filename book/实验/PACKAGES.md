@@ -2,16 +2,66 @@
 
 以下压缩包于 2026-09-16 从 [CS:APP3e 官方实验页面](https://csapp.cs.cmu.edu/3e/labs.html) 的 Self-Study Handout 链接下载，保留官方文件名和原始字节。它们是自学实验材料，不是教师专用的答案包。
 
-| 实验 | 本地文件 | 官方来源 | 大小（字节） |
-| --- | --- | --- | ---: |
-| Data Lab | [datalab-handout.tar](datalab-zh/datalab-handout.tar) | [原始下载](https://csapp.cs.cmu.edu/3e/datalab-handout.tar) | 1075200 |
-| Bomb Lab | [bomb.tar](bomblab-zh/bomb.tar) | [原始下载](https://csapp.cs.cmu.edu/3e/bomb.tar) | 40960 |
-| Attack Lab | [target1.tar](attacklab-zh/target1.tar) | [原始下载](https://csapp.cs.cmu.edu/3e/target1.tar) | 174080 |
-| Architecture Lab | [archlab-handout.tar](archlab-zh/archlab-handout.tar) | [原始下载](https://csapp.cs.cmu.edu/3e/archlab-handout.tar) | 1392640 |
-| Cache Lab | [cachelab-handout.tar](cachelab-zh/cachelab-handout.tar) | [原始下载](https://csapp.cs.cmu.edu/3e/cachelab-handout.tar) | 4116480 |
-| Shell Lab | [shlab-handout.tar](shlab-zh/shlab-handout.tar) | [原始下载](https://csapp.cs.cmu.edu/3e/shlab-handout.tar) | 81920 |
-| Malloc Lab | [malloclab-handout.tar](malloclab-zh/malloclab-handout.tar) | [原始下载](https://csapp.cs.cmu.edu/3e/malloclab-handout.tar) | 92160 |
-| Proxy Lab | [proxylab-handout.tar](proxylab-zh/proxylab-handout.tar) | [原始下载](https://csapp.cs.cmu.edu/3e/proxylab-handout.tar) | 133120 |
+<table data-search="false">
+<thead>
+<tr>
+<th>实验</th>
+<th>本地文件</th>
+<th>官方来源</th>
+<th style="text-align:right">大小（字节）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Lab</td>
+<td><a href="datalab-zh/datalab-handout.tar">datalab-handout.tar</a></td>
+<td><a href="https://csapp.cs.cmu.edu/3e/datalab-handout.tar">原始下载</a></td>
+<td style="text-align:right">1075200</td>
+</tr>
+<tr>
+<td>Bomb Lab</td>
+<td><a href="bomblab-zh/bomb.tar">bomb.tar</a></td>
+<td><a href="https://csapp.cs.cmu.edu/3e/bomb.tar">原始下载</a></td>
+<td style="text-align:right">40960</td>
+</tr>
+<tr>
+<td>Attack Lab</td>
+<td><a href="attacklab-zh/target1.tar">target1.tar</a></td>
+<td><a href="https://csapp.cs.cmu.edu/3e/target1.tar">原始下载</a></td>
+<td style="text-align:right">174080</td>
+</tr>
+<tr>
+<td>Architecture Lab</td>
+<td><a href="archlab-zh/archlab-handout.tar">archlab-handout.tar</a></td>
+<td><a href="https://csapp.cs.cmu.edu/3e/archlab-handout.tar">原始下载</a></td>
+<td style="text-align:right">1392640</td>
+</tr>
+<tr>
+<td>Cache Lab</td>
+<td><a href="cachelab-zh/cachelab-handout.tar">cachelab-handout.tar</a></td>
+<td><a href="https://csapp.cs.cmu.edu/3e/cachelab-handout.tar">原始下载</a></td>
+<td style="text-align:right">4116480</td>
+</tr>
+<tr>
+<td>Shell Lab</td>
+<td><a href="shlab-zh/shlab-handout.tar">shlab-handout.tar</a></td>
+<td><a href="https://csapp.cs.cmu.edu/3e/shlab-handout.tar">原始下载</a></td>
+<td style="text-align:right">81920</td>
+</tr>
+<tr>
+<td>Malloc Lab</td>
+<td><a href="malloclab-zh/malloclab-handout.tar">malloclab-handout.tar</a></td>
+<td><a href="https://csapp.cs.cmu.edu/3e/malloclab-handout.tar">原始下载</a></td>
+<td style="text-align:right">92160</td>
+</tr>
+<tr>
+<td>Proxy Lab</td>
+<td><a href="proxylab-zh/proxylab-handout.tar">proxylab-handout.tar</a></td>
+<td><a href="https://csapp.cs.cmu.edu/3e/proxylab-handout.tar">原始下载</a></td>
+<td style="text-align:right">133120</td>
+</tr>
+</tbody>
+</table>
 
 ## SHA-256
 

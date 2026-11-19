@@ -2,7 +2,7 @@
 
 八个实验按推荐学习顺序排列。每张卡片进入中文说明，实验包可在下方直接下载。
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody>
+<table data-search="false" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody>
 <tr><td><strong>Data Lab</strong></td><td>用受限的 C 语言运算完成位级操作。</td><td><a href="datalab-zh/datalab-zh.md">datalab-zh/datalab-zh.md</a></td></tr>
 <tr><td><strong>Bomb Lab</strong></td><td>阅读汇编代码，逐阶段拆解二进制炸弹。</td><td><a href="bomblab-zh/bomblab-zh.md">bomblab-zh/bomblab-zh.md</a></td></tr>
 <tr><td><strong>Attack Lab</strong></td><td>理解缓冲区溢出、代码注入与 ROP。</td><td><a href="attacklab-zh/attacklab-zh.md">attacklab-zh/attacklab-zh.md</a></td></tr>

@@ -33,23 +33,76 @@
 
 ./bomblab 目录包含下列文件：
 
-| 文件名 | 说明 |
-| :--- | :--- |
-| Makefile | 开始/停止实验和清除文件 |
-| bomblab.pl\* | 主守护进程，守护其他服务器和守护进程 |
-| Bomblab.pm | Bomb Lab 配置文件 |
-| bomblab-reportd.pl\* | 报告守护进程，持续更新记分板 |
-| bomblab-requestd.pl\* | 请求服务器，将炸弹提供给学生 |
-| bomblab-resultd.pl\* | 结果服务器，从炸弹得到自动结果字符串 |
-| bomblab-scoreboard.html | 实时网络记分板 |
-| bomblab-update.pl\* | 帮助 bomblab-reportd.pl 更新记分板 |
-| bombs/ | 包含发送给每个学生的炸弹 |
-| log-status.txt | 状态日志，来自不同服务器和守护进程的消息 |
-| log.txt | 自动结果记分板日志，接受自炸弹 |
-| makebomb.pl\* | 帮助脚本，用于制作炸弹 |
-| scores.txt | 合计每个学生的当前记分板分数 |
-| src/ | 炸弹源文件 |
-| writeup/ | Bomb Lab 的 LaTeX 报告样例 |
+<table data-search="false">
+<thead>
+<tr>
+<th style="text-align:left">文件名</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Makefile</td>
+<td style="text-align:left">开始/停止实验和清除文件</td>
+</tr>
+<tr>
+<td style="text-align:left">bomblab.pl*</td>
+<td style="text-align:left">主守护进程，守护其他服务器和守护进程</td>
+</tr>
+<tr>
+<td style="text-align:left">Bomblab.pm</td>
+<td style="text-align:left">Bomb Lab 配置文件</td>
+</tr>
+<tr>
+<td style="text-align:left">bomblab-reportd.pl*</td>
+<td style="text-align:left">报告守护进程，持续更新记分板</td>
+</tr>
+<tr>
+<td style="text-align:left">bomblab-requestd.pl*</td>
+<td style="text-align:left">请求服务器，将炸弹提供给学生</td>
+</tr>
+<tr>
+<td style="text-align:left">bomblab-resultd.pl*</td>
+<td style="text-align:left">结果服务器，从炸弹得到自动结果字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">bomblab-scoreboard.html</td>
+<td style="text-align:left">实时网络记分板</td>
+</tr>
+<tr>
+<td style="text-align:left">bomblab-update.pl*</td>
+<td style="text-align:left">帮助 bomblab-reportd.pl 更新记分板</td>
+</tr>
+<tr>
+<td style="text-align:left">bombs/</td>
+<td style="text-align:left">包含发送给每个学生的炸弹</td>
+</tr>
+<tr>
+<td style="text-align:left">log-status.txt</td>
+<td style="text-align:left">状态日志，来自不同服务器和守护进程的消息</td>
+</tr>
+<tr>
+<td style="text-align:left">log.txt</td>
+<td style="text-align:left">自动结果记分板日志，接受自炸弹</td>
+</tr>
+<tr>
+<td style="text-align:left">makebomb.pl*</td>
+<td style="text-align:left">帮助脚本，用于制作炸弹</td>
+</tr>
+<tr>
+<td style="text-align:left">scores.txt</td>
+<td style="text-align:left">合计每个学生的当前记分板分数</td>
+</tr>
+<tr>
+<td style="text-align:left">src/</td>
+<td style="text-align:left">炸弹源文件</td>
+</tr>
+<tr>
+<td style="text-align:left">writeup/</td>
+<td style="text-align:left">Bomb Lab 的 LaTeX 报告样例</td>
+</tr>
+</tbody>
+</table>
 
 ## 3. 炸弹术语
 
@@ -157,13 +210,36 @@ linux> make stop
 * 首先，学生用他们最喜欢的浏览器访问 **http://$SERVER\_NAME:$REQUESTD\_PORT/。**例如，http://foo.cs.cmu.edu**:**15213/。请求服务器产生相应，将 HTML 表单发送回浏览器。
 * 接着，学生用他们的用户名和电子邮件地址填写此表单，然后提交表单。请求服务器解析表单，制作一个 bombID = n 的定制的通知炸弹，并将 tar 文件发送到浏览器。然后学生将 tar 文件保存到磁盘上。当学生解压此文件时，会创建一个目录（./bomb），其中包含以下四个文件：
 
-| 文件名 | 说明 |
-| :--- | :--- |
-| bomb\* | 定制的通知炸弹可执行程序 |
-| bomb.c | 主炸弹程序的源码 |
-| ID | 标识与该炸弹有关的学生 |
-| README | 列出炸弹号码、学生和电子邮件地址 |
-| solution.txt | 该炸弹的解答 |
+<table data-search="false">
+<thead>
+<tr>
+<th style="text-align:left">文件名</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bomb*</td>
+<td style="text-align:left">定制的通知炸弹可执行程序</td>
+</tr>
+<tr>
+<td style="text-align:left">bomb.c</td>
+<td style="text-align:left">主炸弹程序的源码</td>
+</tr>
+<tr>
+<td style="text-align:left">ID</td>
+<td style="text-align:left">标识与该炸弹有关的学生</td>
+</tr>
+<tr>
+<td style="text-align:left">README</td>
+<td style="text-align:left">列出炸弹号码、学生和电子邮件地址</td>
+</tr>
+<tr>
+<td style="text-align:left">solution.txt</td>
+<td style="text-align:left">该炸弹的解答</td>
+</tr>
+</tbody>
+</table>
 
 结果服务器：每次学生拆除一个阶段或引爆炸弹时，炸弹都会向结果服务器发送一条 HTTP 消息（称为自动结果字符串（autoresult string）），然后结果服务器将消息附加到记分板日志中。每个消息都包含一个 BombID、一个阶段和所发生事件的标示。如果是拆除事件，则消息还包含学生键入的“拆除字符串（defusing string）”以消除阶段。
 
@@ -231,15 +307,44 @@ linux> ./makebomb.pl -s ./src -b ./bombs
 
 这会在 ./bombs/bomb0 下面创建一个通用炸弹和其他文件：
 
-| 文件名 | 说明 |
-| :--- | :--- |
-| bomb\* | 通用炸弹执行程序（分发给学生） |
-| bomb.c | 主程序的源代码（分发给学生） |
-| bomb-quiet\* | 请忽略该文件 |
-| ID | 请忽略该文件 |
-| phases.c | 炸弹阶段的 C 代码 |
-| README | 请忽略该文件 |
-| solution.txt | 该炸弹的解答 |
+<table data-search="false">
+<thead>
+<tr>
+<th style="text-align:left">文件名</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bomb*</td>
+<td style="text-align:left">通用炸弹执行程序（分发给学生）</td>
+</tr>
+<tr>
+<td style="text-align:left">bomb.c</td>
+<td style="text-align:left">主程序的源代码（分发给学生）</td>
+</tr>
+<tr>
+<td style="text-align:left">bomb-quiet*</td>
+<td style="text-align:left">请忽略该文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ID</td>
+<td style="text-align:left">请忽略该文件</td>
+</tr>
+<tr>
+<td style="text-align:left">phases.c</td>
+<td style="text-align:left">炸弹阶段的 C 代码</td>
+</tr>
+<tr>
+<td style="text-align:left">README</td>
+<td style="text-align:left">请忽略该文件</td>
+</tr>
+<tr>
+<td style="text-align:left">solution.txt</td>
+<td style="text-align:left">该炸弹的解答</td>
+</tr>
+</tbody>
+</table>
 
 你只向学生分发其中两个文件：./bomb 和./bomb.c。
 
@@ -260,15 +365,44 @@ linux> ./makebomb.pl -i <n> -s ./src -b ./bombs -l bomblab -u <email> -v <uid>
 
 这将为电子邮件地址为 &lt;email&gt; 且用户名为 &lt;uid&gt; 的学生在 ./bombs/bomb 中创建一个定制的安静炸弹：
 
-| 文件名 | 说明 |
-| :--- | :--- |
-| bomb\* | 定制的炸弹执行程序（分发给学生） |
-| bomb.c | 主程序的源代码（分发给学生） |
-| bomb-quiet\* | 请忽略该文件 |
-| ID | 标识与该炸弹关联的学生 |
-| phases.c | 炸弹阶段的 C 代码 |
-| README | 列出炸弹号码、学生和电子邮件地址 |
-| solution.txt | 该炸弹的解答 |
+<table data-search="false">
+<thead>
+<tr>
+<th style="text-align:left">文件名</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bomb*</td>
+<td style="text-align:left">定制的炸弹执行程序（分发给学生）</td>
+</tr>
+<tr>
+<td style="text-align:left">bomb.c</td>
+<td style="text-align:left">主程序的源代码（分发给学生）</td>
+</tr>
+<tr>
+<td style="text-align:left">bomb-quiet*</td>
+<td style="text-align:left">请忽略该文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ID</td>
+<td style="text-align:left">标识与该炸弹关联的学生</td>
+</tr>
+<tr>
+<td style="text-align:left">phases.c</td>
+<td style="text-align:left">炸弹阶段的 C 代码</td>
+</tr>
+<tr>
+<td style="text-align:left">README</td>
+<td style="text-align:left">列出炸弹号码、学生和电子邮件地址</td>
+</tr>
+<tr>
+<td style="text-align:left">solution.txt</td>
+<td style="text-align:left">该炸弹的解答</td>
+</tr>
+</tbody>
+</table>
 
 你将向学生分发其中的四个文件：bomb、bomb.c、ID 和 README。
 

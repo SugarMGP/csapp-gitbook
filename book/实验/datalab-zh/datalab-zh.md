@@ -49,21 +49,96 @@ unix> tar xvf datalab-handout.tar.
 
 表 1 大致按照由易到难的顺序列出了这些谜题。“难度评分”一栏给出谜题的难度等级（即分值），“运算符上限”一栏给出实现每个函数时允许使用的运算符数量上限。有关函数应有行为的更多细节，请参见 `bits.c` 中的注释。你也可以参考 `tests.c` 中的测试函数。这些函数作为参考函数，用来表达你的函数应有的正确行为，但它们并不遵守对你的函数所规定的编码规则。
 
-| 名称 | 描述 | 难度评分 | 运算符上限 |
-| --- | --- | --- | --- |
-| `bitXor(x,y)` | 仅使用 `&` 和 `~` 实现 `x \|\| y`。 | 1 | 14 |
-| `tmin()` | 最小的二进制补码整数。 | 1 | 4 |
-| `isTmax(x)` | 当且仅当 `x x` 是最大的二进制补码整数时为真。 | 1 | 10 |
-| `allOddBits(x)` | 当且仅当 `x` 中所有奇数编号的位都为 1 时为真。 | 2 | 12 |
-| `negate(x)` | 使用 `-` 运算符返回 `-x`。 | 2 | 5 |
-| `isAsciDigit(x)` | 若 `0x30 ≤ x ≤`，则为真。 | 3 | 15 |
-| `conditional` | 与 `x ? y : z` 相同。 | 3 | 16 |
-| `isLessOrEqual(x, y)` | 若 `x ≤ y`，则为真；否则为假。 | 3 | 24 |
-| `logicalNeg(x))` | 不使用 `!` 运算符计算 `!x`。 | 4 | 12 |
-| `howManyBits(x)` | 用二进制补码表示 `x` 所需的最少位数。 | 4 | 90 |
-| `floatScale2(uf)` | 对于浮点参数 `f`，返回 `2*f` 的等价位级表示。 | 4 | 30 |
-| `floatFloat2Int(uf)` | 对于浮点参数 `f`，返回 `(int)f` 的等价位级表示。 | 4 | 30 |
-| `floatPower2(x)` | 对于整数 `x`，返回 `2.0^x` 的等价位级表示。 | 4 | 30 |
+<table data-search="false">
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>难度评分</th>
+<th>运算符上限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bitXor(x,y)</code></td>
+<td>仅使用 <code>&amp;</code> 和 <code>~</code> 实现 <code>x || y</code>。</td>
+<td>1</td>
+<td>14</td>
+</tr>
+<tr>
+<td><code>tmin()</code></td>
+<td>最小的二进制补码整数。</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>isTmax(x)</code></td>
+<td>当且仅当 <code>x x</code> 是最大的二进制补码整数时为真。</td>
+<td>1</td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>allOddBits(x)</code></td>
+<td>当且仅当 <code>x</code> 中所有奇数编号的位都为 1 时为真。</td>
+<td>2</td>
+<td>12</td>
+</tr>
+<tr>
+<td><code>negate(x)</code></td>
+<td>使用 <code>-</code> 运算符返回 <code>-x</code>。</td>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>isAsciDigit(x)</code></td>
+<td>若 <code>0x30 ≤ x ≤</code>，则为真。</td>
+<td>3</td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>conditional</code></td>
+<td>与 <code>x ? y : z</code> 相同。</td>
+<td>3</td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>isLessOrEqual(x, y)</code></td>
+<td>若 <code>x ≤ y</code>，则为真；否则为假。</td>
+<td>3</td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>logicalNeg(x))</code></td>
+<td>不使用 <code>!</code> 运算符计算 <code>!x</code>。</td>
+<td>4</td>
+<td>12</td>
+</tr>
+<tr>
+<td><code>howManyBits(x)</code></td>
+<td>用二进制补码表示 <code>x</code> 所需的最少位数。</td>
+<td>4</td>
+<td>90</td>
+</tr>
+<tr>
+<td><code>floatScale2(uf)</code></td>
+<td>对于浮点参数 <code>f</code>，返回 <code>2*f</code> 的等价位级表示。</td>
+<td>4</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>floatFloat2Int(uf)</code></td>
+<td>对于浮点参数 <code>f</code>，返回 <code>(int)f</code> 的等价位级表示。</td>
+<td>4</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>floatPower2(x)</code></td>
+<td>对于整数 <code>x</code>，返回 <code>2.0^x</code> 的等价位级表示。</td>
+<td>4</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
 
 表 1：Data Lab 谜题。对于浮点谜题，`f` 是与无符号整数 `uf` 具有相同位表示的浮点数。
 

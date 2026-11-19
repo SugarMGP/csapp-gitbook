@@ -8,22 +8,72 @@
 
 ## 0. 文件
 
-| 文件名 | 说明 |
-| :--- | :--- |
-| Makefile | 构建 btest、fshow 和 ishow |
-| README | 本文件 |
-| bits.c | 你将要修改和提交的文件 |
-| bits.h | 头文件 |
-| btest.c | btest 主程序 |
-| btest.h | 用于构建 btest |
-| decl.c | 用于构建 btest |
-| tests.c | 用于构建 btest |
-| tests-header.c | 用于构建 btest |
-| dlc\* | 规则检查编译器的二进制文件（data lab 编译器） |
-| driver.pl\* | 使用 btest 和 dlc 来为 bits.c 自动评分的驱动程序 |
-| Driverhdrs.pm | 头文件，用于可选的“击败教授”比赛 |
-| fshow.c | 实用代码，用于检查浮点表示 |
-| ishow.c | 实用代码，用于检查整数表示 |
+<table data-search="false">
+<thead>
+<tr>
+<th style="text-align:left">文件名</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Makefile</td>
+<td style="text-align:left">构建 btest、fshow 和 ishow</td>
+</tr>
+<tr>
+<td style="text-align:left">README</td>
+<td style="text-align:left">本文件</td>
+</tr>
+<tr>
+<td style="text-align:left">bits.c</td>
+<td style="text-align:left">你将要修改和提交的文件</td>
+</tr>
+<tr>
+<td style="text-align:left">bits.h</td>
+<td style="text-align:left">头文件</td>
+</tr>
+<tr>
+<td style="text-align:left">btest.c</td>
+<td style="text-align:left">btest 主程序</td>
+</tr>
+<tr>
+<td style="text-align:left">btest.h</td>
+<td style="text-align:left">用于构建 btest</td>
+</tr>
+<tr>
+<td style="text-align:left">decl.c</td>
+<td style="text-align:left">用于构建 btest</td>
+</tr>
+<tr>
+<td style="text-align:left">tests.c</td>
+<td style="text-align:left">用于构建 btest</td>
+</tr>
+<tr>
+<td style="text-align:left">tests-header.c</td>
+<td style="text-align:left">用于构建 btest</td>
+</tr>
+<tr>
+<td style="text-align:left">dlc*</td>
+<td style="text-align:left">规则检查编译器的二进制文件（data lab 编译器）</td>
+</tr>
+<tr>
+<td style="text-align:left">driver.pl*</td>
+<td style="text-align:left">使用 btest 和 dlc 来为 bits.c 自动评分的驱动程序</td>
+</tr>
+<tr>
+<td style="text-align:left">Driverhdrs.pm</td>
+<td style="text-align:left">头文件，用于可选的“击败教授”比赛</td>
+</tr>
+<tr>
+<td style="text-align:left">fshow.c</td>
+<td style="text-align:left">实用代码，用于检查浮点表示</td>
+</tr>
+<tr>
+<td style="text-align:left">ishow.c</td>
+<td style="text-align:left">实用代码，用于检查整数表示</td>
+</tr>
+</tbody>
+</table>
 
 ## 1. 修改 bits.c 并检查它是否符合 dlc **的要求**
 

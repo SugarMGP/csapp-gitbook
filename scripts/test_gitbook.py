@@ -7,7 +7,7 @@ from pathlib import Path
 
 import jsonschema
 import yaml
-from sync import (disable_processor_table_search, group_answers, native_code_titles,
+from sync import (disable_table_search, group_answers, native_code_titles,
                   native_figures, native_images, native_math, normalize_headings,
                   outside_fences, rewrite_links)
 
@@ -125,15 +125,23 @@ class GitBookTests(unittest.TestCase):
         chapter = next((ROOT / "book").glob("第01章-*/README.md")).read_text(encoding="utf-8")
         self.assertIn('{% code title="code/intro/hello.c" %}', chapter)
 
-    def test_processor_table_disables_native_search(self):
+    def test_all_tables_disable_native_search(self):
         source = ("| 阶段 | `OPq rA, rB` | `rrmovq rA, rB` | `irmovq V, rB` |\n"
                   "|---|---|---|---|\n| 取指 | `A` | `B` | `C` |\n")
-        rendered = disable_processor_table_search(source)
+        rendered = disable_table_search(source)
         self.assertIn('<table data-search="false">', rendered)
         self.assertIn("<th>阶段</th>", rendered)
         self.assertIn("<td><code>A</code></td>", rendered)
-        processor = next((ROOT / "book").glob("第04章-*/4.3/4.3.1-*.md")).read_text(encoding="utf-8")
-        self.assertIn('<table data-search="false">', processor)
+        quoted = disable_table_search("> | A | B |\n> |---|---|\n> | 1 | 2 |\n")
+        self.assertIn("<blockquote>", quoted)
+        self.assertIn('<table data-search="false">', quoted)
+        tables = 0
+        for path in (ROOT / "book").rglob("*.md"):
+            text = path.read_text(encoding="utf-8-sig")
+            tables += len(re.findall(r"<table\b", text))
+            self.assertNotRegex(text, r"<table(?![^>]*\bdata-search=)")
+            self.assertNotRegex(text, r"(?m)^(?:> )?\|.*\|\n(?:> )?\|(?:\s*:?-{3,}:?\s*\|)+$")
+        self.assertGreater(tables, 300)
 
     def test_native_math_replaces_standalone_formula_quotes(self):
         source = "说明。\n\n> S<sub>p</sub> = T<sub>1</sub> / T<sub>p</sub>\n\n下文。\n"
@@ -161,7 +169,8 @@ class GitBookTests(unittest.TestCase):
 
     def test_lab_index_uses_native_cards_and_files(self):
         labs = (ROOT / "book/实验/README.md").read_text(encoding="utf-8")
-        self.assertIn('<table data-view="cards">', labs)
+        self.assertIn('data-view="cards"', labs)
+        self.assertIn('data-search="false"', labs)
         self.assertEqual(labs.count("{% file src="), 8)
 
     def test_site_configuration_and_content_mapping(self):

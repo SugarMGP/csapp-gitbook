@@ -233,17 +233,122 @@ linux> ./test-csim
 
 该程序的输出形式如下：
 
-| 分值 | `(s,E,b)` | 你的模拟器：命中 | 你的模拟器：不命中 | 你的模拟器：驱逐 | 参考模拟器：命中 | 参考模拟器：不命中 | 参考模拟器：驱逐 | 跟踪文件 |
-|---:|:---:|---:|---:|---:|---:|---:|---:|---|
-| 3 | `(1,1,1)` | 9 | 8 | 6 | 9 | 8 | 6 | `traces/yi2.trace` |
-| 3 | `(4,2,4)` | 4 | 5 | 2 | 4 | 5 | 2 | `traces/yi.trace` |
-| 3 | `(2,1,4)` | 2 | 3 | 1 | 2 | 3 | 1 | `traces/dave.trace` |
-| 3 | `(2,1,3)` | 167 | 71 | 67 | 167 | 71 | 67 | `traces/trans.trace` |
-| 3 | `(2,2,3)` | 201 | 37 | 29 | 201 | 37 | 29 | `traces/trans.trace` |
-| 3 | `(2,4,3)` | 212 | 26 | 10 | 212 | 26 | 10 | `traces/trans.trace` |
-| 3 | `(5,1,5)` | 231 | 7 | 0 | 231 | 7 | 0 | `traces/trans.trace` |
-| 6 | `(5,1,5)` | 265189 | 21775 | 21743 | 265189 | 21775 | 21743 | `traces/long.trace` |
-| **27** |  |  |  |  |  |  |  |  |
+<table data-search="false">
+<thead>
+<tr>
+<th style="text-align:right">分值</th>
+<th style="text-align:center"><code>(s,E,b)</code></th>
+<th style="text-align:right">你的模拟器：命中</th>
+<th style="text-align:right">你的模拟器：不命中</th>
+<th style="text-align:right">你的模拟器：驱逐</th>
+<th style="text-align:right">参考模拟器：命中</th>
+<th style="text-align:right">参考模拟器：不命中</th>
+<th style="text-align:right">参考模拟器：驱逐</th>
+<th>跟踪文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:center"><code>(1,1,1)</code></td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">6</td>
+<td><code>traces/yi2.trace</code></td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:center"><code>(4,2,4)</code></td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">2</td>
+<td><code>traces/yi.trace</code></td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:center"><code>(2,1,4)</code></td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1</td>
+<td><code>traces/dave.trace</code></td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:center"><code>(2,1,3)</code></td>
+<td style="text-align:right">167</td>
+<td style="text-align:right">71</td>
+<td style="text-align:right">67</td>
+<td style="text-align:right">167</td>
+<td style="text-align:right">71</td>
+<td style="text-align:right">67</td>
+<td><code>traces/trans.trace</code></td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:center"><code>(2,2,3)</code></td>
+<td style="text-align:right">201</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">29</td>
+<td style="text-align:right">201</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">29</td>
+<td><code>traces/trans.trace</code></td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:center"><code>(2,4,3)</code></td>
+<td style="text-align:right">212</td>
+<td style="text-align:right">26</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">212</td>
+<td style="text-align:right">26</td>
+<td style="text-align:right">10</td>
+<td><code>traces/trans.trace</code></td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:center"><code>(5,1,5)</code></td>
+<td style="text-align:right">231</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">231</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">0</td>
+<td><code>traces/trans.trace</code></td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:center"><code>(5,1,5)</code></td>
+<td style="text-align:right">265189</td>
+<td style="text-align:right">21775</td>
+<td style="text-align:right">21743</td>
+<td style="text-align:right">265189</td>
+<td style="text-align:right">21775</td>
+<td style="text-align:right">21743</td>
+<td><code>traces/long.trace</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>27</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 对于每项测试，程序都会显示你得到的分数、缓存参数、输入跟踪文件，以及你的模拟器与参考模拟器结果的对比。
 

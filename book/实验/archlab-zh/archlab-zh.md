@@ -373,13 +373,36 @@ unix> ../misc/yis driver.yo
 
 程序结束时，寄存器 `%rax` 将具有以下值之一：
 
-| `%rax` | 含义 |
-|---|---|
-| `0xaaaa` | 所有测试均通过。 |
-| `0xbbbb` | 计数不正确。 |
-| `0xcccc` | 函数 `ncopy` 超过 1000 字节。 |
-| `0xdddd` | 某些源数据没有复制到目标位置。 |
-| `0xeeee` | 目标区域之前或之后紧邻的某个字被破坏。 |
+<table data-search="false">
+<thead>
+<tr>
+<th><code>%rax</code></th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0xaaaa</code></td>
+<td>所有测试均通过。</td>
+</tr>
+<tr>
+<td><code>0xbbbb</code></td>
+<td>计数不正确。</td>
+</tr>
+<tr>
+<td><code>0xcccc</code></td>
+<td>函数 <code>ncopy</code> 超过 1000 字节。</td>
+</tr>
+<tr>
+<td><code>0xdddd</code></td>
+<td>某些源数据没有复制到目标位置。</td>
+</tr>
+<tr>
+<td><code>0xeeee</code></td>
+<td>目标区域之前或之后紧邻的某个字被破坏。</td>
+</tr>
+</tbody>
+</table>
 
 #### 在基准程序上测试流水线模拟器
 
@@ -450,11 +473,28 @@ unix> ./benchmark.pl
 
 平均 CPE 应当能够达到 9.00 以下。作者的最佳版本平均为 7.48。如果平均 CPE 为 `c`，则本实验这一部分的得分 `S` 为：
 
-| 条件 | 得分 `S` |
-|---|---:|
-| `c > 10.5` | `0` |
-| `7.50 <= c <= 10.50` | `20 * (10.5 - c)` |
-| `c < 7.50` | `60` |
+<table data-search="false">
+<thead>
+<tr>
+<th>条件</th>
+<th style="text-align:right">得分 <code>S</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c &gt; 10.5</code></td>
+<td style="text-align:right"><code>0</code></td>
+</tr>
+<tr>
+<td><code>7.50 &lt;= c &lt;= 10.50</code></td>
+<td style="text-align:right"><code>20 * (10.5 - c)</code></td>
+</tr>
+<tr>
+<td><code>c &lt; 7.50</code></td>
+<td style="text-align:right"><code>60</code></td>
+</tr>
+</tbody>
+</table>
 
 默认情况下，`benchmark.pl` 和 `correctness.pl` 会编译并测试 `ncopy.ys`。使用参数 `-f` 可以指定其他文件名；标志 `-h` 会给出完整的命令行参数列表。
 

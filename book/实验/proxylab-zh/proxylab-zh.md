@@ -182,11 +182,32 @@ MAX_CACHE_SIZE + T * MAX_OBJECT_SIZE
 
 本次作业总分为 70 分：
 
-| 项目 | 分值 | 要求 |
-| --- | ---: | --- |
-| BasicCorrectness | 40 | 代理基本功能（自动评分） |
-| Concurrency | 15 | 处理并发请求（自动评分） |
-| Cache | 15 | 可正常工作的缓存（自动评分） |
+<table data-search="false">
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align:right">分值</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BasicCorrectness</td>
+<td style="text-align:right">40</td>
+<td>代理基本功能（自动评分）</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td style="text-align:right">15</td>
+<td>处理并发请求（自动评分）</td>
+</tr>
+<tr>
+<td>Cache</td>
+<td style="text-align:right">15</td>
+<td>可正常工作的缓存（自动评分）</td>
+</tr>
+</tbody>
+</table>
 
 ### 7.1 自动评分
 
