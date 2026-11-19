@@ -98,14 +98,17 @@ def generate(paths, sources):
             landing = BOOK / directory.name / "README.md"
             chunks = [f"# {title}"]
             part_openings = [ref for label, ref in refs if re.match(r"第[一二三四五六七八九十]+部分", label)]
-            openings = [ref for label, ref in refs if label == title] + part_openings
+            for ref in part_openings:
+                opening = BOOK / directory.name / ref
+                relocations[opening.resolve()] = landing.resolve()
+                original_target = opening.relative_to(BOOK).as_posix()
+                imported[:] = [entry for entry in imported if entry["target"] != original_target]
+                opening.unlink()
+            openings = [ref for label, ref in refs if label == title]
             for ref in openings:
                 opening = BOOK / directory.name / ref
                 body = normalize_headings(opening.read_text(encoding="utf-8-sig"))
-                if ref in part_openings:
-                    body = re.sub(r"^# ", "## ", body, count=1)
-                else:
-                    body = body.split("\n", 1)[1]
+                body = body.split("\n", 1)[1]
                 chunks.append(rewrite_links(body.strip(), opening, landing, relocations))
                 relocations[opening.resolve()] = landing.resolve()
                 original_target = opening.relative_to(BOOK).as_posix()
@@ -113,7 +116,7 @@ def generate(paths, sources):
                     if entry["target"] == original_target:
                         entry["target"] = landing.relative_to(BOOK).as_posix()
                 opening.unlink()
-            refs = [(label, ref) for label, ref in refs if ref not in openings]
+            refs = [(label, ref) for label, ref in refs if ref not in openings + part_openings]
             toc = ["  " * (section_depth(label) - 1) + f"- [{label}]({ref})" for label, ref in refs]
             chunks.extend(["## 小节目录", "\n".join(toc)])
             if (directory / "练习题答案.md").exists():

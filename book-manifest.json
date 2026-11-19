@@ -1190,24 +1190,17 @@
     },
     {
       "upstream": "sunnymaria",
-      "source": "第02章-信息的表示和处理/2.0/2.0-part-1.md",
-      "target": "第02章-信息的表示和处理/README.md",
-      "sha256": "c2f7ec90f81c05bbf111f8c69247758a6bf22ea8b7ab8ce3623fca797b29a73f",
-      "output_sha256": "d9f31eeb4fb5cf276f992fe84c135995a6390340ab2684923cb3ee11727059d3"
-    },
-    {
-      "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/2.1/2.0-chapter-opening.md",
       "target": "第02章-信息的表示和处理/README.md",
       "sha256": "baf94e3c44b3b02a7cdc9ce42c001d91f727d94dff6aad9698e67be226d301a7",
-      "output_sha256": "d9f31eeb4fb5cf276f992fe84c135995a6390340ab2684923cb3ee11727059d3"
+      "output_sha256": "15a702fa8848f5715ba56a7f057ac76b2adb8d26a76b7550bcd3a83ce30f03bd"
     },
     {
       "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/README.md",
       "target": "第02章-信息的表示和处理/README.md",
       "sha256": "34f78c719862b88c20122e10d8fa75379203e169f17ec0b953b1d7d0de63f165",
-      "output_sha256": "d9f31eeb4fb5cf276f992fe84c135995a6390340ab2684923cb3ee11727059d3"
+      "output_sha256": "15a702fa8848f5715ba56a7f057ac76b2adb8d26a76b7550bcd3a83ce30f03bd"
     },
     {
       "upstream": "sunnymaria",
@@ -3605,24 +3598,17 @@
     },
     {
       "upstream": "sunnymaria",
-      "source": "第07章-链接/7.0/7.0-part-2.md",
-      "target": "第07章-链接/README.md",
-      "sha256": "f72caa4249fe0f368945a3077d06532253e52f050ce3589b3192be95b3c1781a",
-      "output_sha256": "051583f70972b49b5184760b0211cdeebf8728a8586a7b2f19f409202d351a50"
-    },
-    {
-      "upstream": "sunnymaria",
       "source": "第07章-链接/7.1/7.0-chapter-opening.md",
       "target": "第07章-链接/README.md",
       "sha256": "39d42e37863eef8deb1c9f5230c867c792e9991585ca8b10094b5ecb451cb015",
-      "output_sha256": "051583f70972b49b5184760b0211cdeebf8728a8586a7b2f19f409202d351a50"
+      "output_sha256": "7f56ef4eb303149b52e0e249984e423167ad3d35c1aeb22bf4fd7cbb36f026a7"
     },
     {
       "upstream": "sunnymaria",
       "source": "第07章-链接/README.md",
       "target": "第07章-链接/README.md",
       "sha256": "0af3d4365bd8923712cabc4c35a65052fe3b084fde27f4bd7417fc24a776ff81",
-      "output_sha256": "051583f70972b49b5184760b0211cdeebf8728a8586a7b2f19f409202d351a50"
+      "output_sha256": "7f56ef4eb303149b52e0e249984e423167ad3d35c1aeb22bf4fd7cbb36f026a7"
     },
     {
       "upstream": "sunnymaria",
@@ -4921,24 +4907,17 @@
     },
     {
       "upstream": "sunnymaria",
-      "source": "第10章-系统级IO/10.0/10.0-part-3.md",
-      "target": "第10章-系统级IO/README.md",
-      "sha256": "267830edc6b48f8ac2df1895785f1eb537ba0b1e5c7c88a62c3d5fd732002d6f",
-      "output_sha256": "fa466cd53242e865d2a0c55bde5e27601a6a6891bc216789bd4a44add7a73a08"
-    },
-    {
-      "upstream": "sunnymaria",
       "source": "第10章-系统级IO/10.1/10.0-chapter-opening.md",
       "target": "第10章-系统级IO/README.md",
       "sha256": "af3006954668c5ead197796ca1b809620e042051b5a0e0d345d185a4f235851c",
-      "output_sha256": "fa466cd53242e865d2a0c55bde5e27601a6a6891bc216789bd4a44add7a73a08"
+      "output_sha256": "6118de8cc2bcaf91d6a2b5cdac140490fcf044b728a78d04ee9ed411634797cc"
     },
     {
       "upstream": "sunnymaria",
       "source": "第10章-系统级IO/README.md",
       "target": "第10章-系统级IO/README.md",
       "sha256": "b5353357435b16534494c5ee93cae5c63b54644b449ac9197fad5db8cf6010b9",
-      "output_sha256": "fa466cd53242e865d2a0c55bde5e27601a6a6891bc216789bd4a44add7a73a08"
+      "output_sha256": "6118de8cc2bcaf91d6a2b5cdac140490fcf044b728a78d04ee9ed411634797cc"
     },
     {
       "upstream": "sunnymaria",

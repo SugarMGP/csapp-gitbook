@@ -15,15 +15,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class GitBookTests(unittest.TestCase):
-    def test_part_introductions_are_not_chapter_subpages(self):
+    def test_part_introductions_are_omitted(self):
         manifest = json.loads((ROOT / "book-manifest.json").read_text(encoding="utf-8"))
         parts = [entry for entry in manifest["files"] if re.search(r"-part-\d+\.md$", entry["source"])]
-        self.assertEqual(len(parts), 3)
-        for entry in parts:
-            self.assertTrue(entry["target"].endswith("/README.md"), entry["source"])
-            self.assertFalse((ROOT / "book" / entry["source"]).exists())
-            landing = (ROOT / "book" / entry["target"]).read_text(encoding="utf-8")
-            self.assertRegex(landing, r"(?m)^## 第[一二三]+部分")
+        self.assertEqual(parts, [])
+        self.assertEqual(list((ROOT / "book").rglob("*-part-*.md")), [])
+        for number in ("02", "07", "10"):
+            landing = next((ROOT / "book").glob(f"第{number}章-*/README.md")).read_text(encoding="utf-8")
+            self.assertNotRegex(landing, r"(?m)^## 第[一二三]+部分")
         summary = (ROOT / "book/SUMMARY.md").read_text(encoding="utf-8")
         self.assertNotRegex(summary, r"(?m)^\s+\* \[第[一二三]+部分")
         tenth = next((ROOT / "book").glob("第10章-*/README.md")).read_text(encoding="utf-8")
