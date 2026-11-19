@@ -132,9 +132,13 @@ class GitBookTests(unittest.TestCase):
         self.assertIn('<table data-search="false">', rendered)
         self.assertIn("<th>阶段</th>", rendered)
         self.assertIn("<td><code>A</code></td>", rendered)
-        quoted = disable_table_search("> | A | B |\n> |---|---|\n> | 1 | 2 |\n")
+        quoted = disable_table_search("> Intro.\n>\n> | A | B |\n> |---|---|\n> | 1 | 2 |\n>\n> Outro.\n")
         self.assertIn("<blockquote>", quoted)
         self.assertIn('<table data-search="false">', quoted)
+        self.assertIn("> Intro.", quoted)
+        self.assertIn("> Outro.", quoted)
+        self.assertNotIn("\n>\n<blockquote>", quoted)
+        self.assertNotIn("</blockquote>\n>\n", quoted)
         tables = 0
         for path in (ROOT / "book").rglob("*.md"):
             text = path.read_text(encoding="utf-8-sig")

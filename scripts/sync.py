@@ -258,9 +258,13 @@ def disable_table_search(text):
             end = index + 2
             while end < len(lines) and lines[end].startswith(prefix + "|") and lines[end].endswith("|"):
                 end += 1
+            if prefix and result and result[-1] == ">":
+                result.pop()
             rendered = TABLE_MARKDOWN.render("\n".join(lines[index:end]) + "\n").strip()
             rendered = rendered.replace("<table>", '<table data-search="false">', 1)
             result.extend(rendered.splitlines())
+            if prefix and end < len(lines) and lines[end] == ">":
+                end += 1
             index = end
             continue
         result.append(line)
