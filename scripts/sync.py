@@ -161,6 +161,9 @@ def generate(paths, sources):
         original = path.read_text(encoding="utf-8-sig")
         normalized = normalize_headings(rewrite_links(original, path, path, relocations))
         normalized = native_figures(normalized)
+        normalized = native_images(normalized)
+        normalized = native_code_titles(normalized)
+        normalized = disable_processor_table_search(normalized)
         normalized = native_math(normalized)
         if path.name == "练习题答案.md":
             normalized = group_answers(normalized)
@@ -200,15 +203,60 @@ def native_figures(text):
 
     def replace(match):
         alt, source, caption = match.groups()
-        caption = html.escape(caption)
-        caption = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", caption)
-        caption = re.sub(r"`([^`]+)`", r"<code>\1</code>", caption)
-        caption = caption.replace("&lt;sup&gt;", "<sup>").replace("&lt;/sup&gt;", "</sup>")
-        caption = caption.replace("&lt;sub&gt;", "<sub>").replace("&lt;/sub&gt;", "</sub>")
         return (f'<figure><img src="{html.escape(source, quote=True)}" '
-                f'alt="{html.escape(alt, quote=True)}"><figcaption><p>{caption}</p></figcaption></figure>')
+                f'alt="{html.escape(alt, quote=True)}"></figure>\n\n{caption}')
 
     return pattern.sub(replace, text)
+
+
+def native_images(text):
+    pattern = re.compile(r"^!\[([^]\n]*)\]\(([^)\n]+)\)$", re.M)
+    return pattern.sub(lambda match: (
+        f'<figure><img src="{html.escape(match[2], quote=True)}" '
+        f'alt="{html.escape(match[1], quote=True)}"></figure>'), text)
+
+
+def native_code_titles(text):
+    pattern = re.compile(
+        r"^`([^`\n]+)`\n\n(?P<fence>`{3,}|~{3,})([^\n]*)\n(.*?)^(?P=fence)[ \t]*$",
+        re.M | re.S,
+    )
+
+    def replace(match):
+        title, fence, language, body = match[1], match[2], match[3], match[4]
+        block = f"{fence}{language}\n{body}{fence}"
+        return f'{{% code title="{html.escape(title, quote=True)}" %}}\n\n{block}\n\n{{% endcode %}}'
+
+    return pattern.sub(replace, text)
+
+
+def disable_processor_table_search(text):
+    lines = text.splitlines()
+    header = "| 阶段 | `OPq rA, rB` | `rrmovq rA, rB` | `irmovq V, rB` |"
+    try:
+        start = lines.index(header)
+    except ValueError:
+        return text
+    end = start
+    while end < len(lines) and lines[end].startswith("|"):
+        end += 1
+    rows = [[cell.strip() for cell in line.strip("|").split("|")] for line in lines[start:end]]
+    if len(rows) < 3:
+        return text
+
+    def cells(tag, values):
+        rendered = []
+        for value in values:
+            value = html.escape(value)
+            value = re.sub(r"`([^`]+)`", r"<code>\1</code>", value)
+            rendered.append(f"<{tag}>{value}</{tag}>")
+        return "<tr>" + "".join(rendered) + "</tr>"
+
+    table = ["<table data-search=\"false\">", "<thead>", cells("th", rows[0]), "</thead>", "<tbody>"]
+    table.extend(cells("td", row) for row in rows[2:])
+    table.extend(["</tbody>", "</table>"])
+    lines[start:end] = table
+    return "\n".join(lines) + ("\n" if text.endswith("\n") else "")
 
 
 def native_math(text):

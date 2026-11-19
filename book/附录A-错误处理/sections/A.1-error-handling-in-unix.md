@@ -58,7 +58,7 @@ void app_error(char *msg);
 
 正如它们的名字表明的那样，`unix_error`、`posix_error` 和 `gai_error` 函数报告 Unix 风格的错误、Posix 风格的错误和 GAI 风格的错误，然后终止。包括 `app_error` 函数是为了方便报告应用错误。它只是简单地打印它的输入，然后终止。图 A-1 展示了这些错误报告函数的代码。
 
-`code/src/csapp.c`
+{% code title="code/src/csapp.c" %}
 
 ```c
 void unix_error(char *msg) /* Unix-style error */
@@ -85,5 +85,7 @@ void app_error(char *msg) /* Application error */
     exit(0);
 }
 ```
+
+{% endcode %}
 
 **图 A-1** 错误报告函数

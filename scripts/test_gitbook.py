@@ -7,7 +7,9 @@ from pathlib import Path
 
 import jsonschema
 import yaml
-from sync import group_answers, native_figures, native_math, normalize_headings, outside_fences, rewrite_links
+from sync import (disable_processor_table_search, group_answers, native_code_titles,
+                  native_figures, native_images, native_math, normalize_headings,
+                  outside_fences, rewrite_links)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -94,15 +96,44 @@ class GitBookTests(unittest.TestCase):
         source = "### Page\n\nText.\n\n#### Detail\n\n```c\n#define VALUE 1\n```\n"
         self.assertEqual(normalize_headings(source), "# Page\n\nText.\n\n## Detail\n\n```c\n#define VALUE 1\n```\n")
 
-    def test_native_figures_keep_one_visible_caption(self):
+    def test_native_figures_keep_only_the_text_caption(self):
         source = "![高速缓存存储器](assets/cache.png)\n\n**图 1-8** 高速缓存存储器\n"
         rendered = native_figures(source)
         self.assertIn('<figure><img src="assets/cache.png" alt="高速缓存存储器">', rendered)
-        self.assertIn("<figcaption><p><strong>图 1-8</strong> 高速缓存存储器", rendered)
+        self.assertIn("</figure>\n\n**图 1-8** 高速缓存存储器", rendered)
+        self.assertNotIn("<figcaption>", rendered)
         self.assertNotIn("![", rendered)
         for path in (ROOT / "book").rglob("*.md"):
             text = path.read_text(encoding="utf-8-sig")
             self.assertNotRegex(text, r"(?m)^!\[[^]]+\]\([^)]+\)\n\n\*\*图")
+
+    def test_all_image_captions_are_hidden_but_alt_text_is_preserved(self):
+        source = "![向量的抽象数据类型](assets/vector.jpg)\n"
+        self.assertEqual(native_images(source),
+                         '<figure><img src="assets/vector.jpg" alt="向量的抽象数据类型"></figure>\n')
+        for path in (ROOT / "book").rglob("*.md"):
+            text = path.read_text(encoding="utf-8-sig")
+            self.assertNotIn("<figcaption>", text)
+            self.assertNotRegex(text, r"(?m)^!\[[^]]+\]\(")
+
+    def test_file_labels_become_native_code_titles(self):
+        source = "`code/intro/hello.c`\n\n```c\nint main(void) {}\n```\n"
+        rendered = native_code_titles(source)
+        self.assertIn('{% code title="code/intro/hello.c" %}', rendered)
+        self.assertIn("```c\nint main(void) {}\n```", rendered)
+        self.assertIn("{% endcode %}", rendered)
+        chapter = next((ROOT / "book").glob("第01章-*/README.md")).read_text(encoding="utf-8")
+        self.assertIn('{% code title="code/intro/hello.c" %}', chapter)
+
+    def test_processor_table_disables_native_search(self):
+        source = ("| 阶段 | `OPq rA, rB` | `rrmovq rA, rB` | `irmovq V, rB` |\n"
+                  "|---|---|---|---|\n| 取指 | `A` | `B` | `C` |\n")
+        rendered = disable_processor_table_search(source)
+        self.assertIn('<table data-search="false">', rendered)
+        self.assertIn("<th>阶段</th>", rendered)
+        self.assertIn("<td><code>A</code></td>", rendered)
+        processor = next((ROOT / "book").glob("第04章-*/4.3/4.3.1-*.md")).read_text(encoding="utf-8")
+        self.assertIn('<table data-search="false">', processor)
 
     def test_native_math_replaces_standalone_formula_quotes(self):
         source = "说明。\n\n> S<sub>p</sub> = T<sub>1</sub> / T<sub>p</sub>\n\n下文。\n"

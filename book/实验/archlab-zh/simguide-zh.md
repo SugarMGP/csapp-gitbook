@@ -6,7 +6,7 @@
 
 > 版权所有 (c) 2002、2011、2015 R. E. Bryant、D. R. O'Hallaron。保留所有权利。
 
-![Y86-64 流水线处理器总体结构](simguide-assets/pipeline-overview.png)
+<figure><img src="simguide-assets/pipeline-overview.png" alt="Y86-64 流水线处理器总体结构"></figure>
 
 本文介绍《深入理解计算机系统（原书第 3 版）》第 4 章讲解 Y86-64 处理器体系结构时配套使用的处理器模拟器。这些模拟器对三种不同的处理器设计进行建模：SEQ、SEQ+ 和 PIPE。
 
@@ -138,7 +138,9 @@ linux> ./ssim -g ../y86-code/asum.yo &
 
 主控制窗口中既有控制模拟器的按钮，也有处理器状态信息。图中各部分的含义如下：
 
-<figure><img src="simguide-assets/figure-2-seq-control-panel.png" alt="SEQ 模拟器主控制面板"><figcaption><p><strong>图 2：SEQ 模拟器的主控制面板。</strong> 图中标注依次为：<code>Controls</code>（控制区）、<code>Stage values</code>（阶段值）、<code>Register file</code>（寄存器文件）、<code>Condition codes</code>（条件码）和 <code>Status</code>（状态）。</p></figcaption></figure>
+<figure><img src="simguide-assets/figure-2-seq-control-panel.png" alt="SEQ 模拟器主控制面板"></figure>
+
+**图 2：SEQ 模拟器的主控制面板。** 图中标注依次为：`Controls`（控制区）、`Stage values`（阶段值）、`Register file`（寄存器文件）、`Condition codes`（条件码）和 `Status`（状态）。
 
 - **控制区（Control）**：顶部按钮用于控制模拟器。单击 `Quit` 退出；单击 `Go` 开始运行；单击 `Stop` 暂停；单击 `Step` 执行一条指令后停止；单击 `Reset` 返回初始状态。初始状态下，程序计数器位于地址 0，寄存器全部清零，除程序所占区域外的内存被清空，条件码设置为 ZF = 1、CF = 0、OF = 0，程序状态设置为 AOK。按钮下方的滑块用于在模拟器运行时控制速度；向右移动会使模拟器运行得更快。这里的 `CF` 按原文保留；同页后文将三个条件码列为 ZF、SF 和 OF。
 - **阶段值（Stage values）**：显示当前指令求值期间不同处理器信号的值。这些信号几乎与 CS:APP3e 图 4-23 中的信号完全相同。主要区别在于，模拟器会在标为 `Instr` 的字段中显示指令名称，而不是 `icode` 和 `ifun` 的数值。类似地，所有寄存器标识符都以名称显示，而不是数值；`----` 表示不需要访问寄存器。
@@ -152,11 +154,15 @@ linux> ./ssim -g ../y86-code/asum.yo &
 
 图 2 所示的处理器状态对应图 1 中 `asum.yo` 程序第 29 行的第一次执行。可以看到，程序计数器为 `0x085`，正在处理指令 `addq %r8, %rdi`；寄存器 `%rax` 保存 `0xd000d000d`，即第一个数组元素的和；`%rsi` 保存 4，即即将被递减的计数。寄存器 `%rdi` 保存 `0x020`，即第二个数组元素的地址。当前还有一次将 `0x03` 写入 `%rsi` 的待处理操作（因为 `dstE` 被设置为 `%rsi`，而 `valE` 被设置为 `0x03`）。这次写入会在下一个时钟周期开始时发生。
 
-<figure><img src="simguide-assets/figure-3-seq-code-window.png" alt="SEQ 模拟器代码显示窗口"><figcaption><p><strong>图 3：SEQ 模拟器的代码显示窗口。</strong> 图中标注为：<code>Control</code>（控制区）、<code>Object code</code>（目标代码）、<code>Assembly Code</code>（汇编代码）和 <code>Currently executing instruction</code>（当前正在执行的指令）。</p></figcaption></figure>
+<figure><img src="simguide-assets/figure-3-seq-code-window.png" alt="SEQ 模拟器代码显示窗口"></figure>
+
+**图 3：SEQ 模拟器的代码显示窗口。** 图中标注为：`Control`（控制区）、`Object code`（目标代码）、`Assembly Code`（汇编代码）和 `Currently executing instruction`（当前正在执行的指令）。
 
 图 3 所示窗口显示模拟器正在执行的目标代码文件。编辑框标识当前程序的文件名。可以在该窗口中编辑文件名，再单击 `Load` 按钮载入新程序。显示区左侧是正在执行的目标代码，右侧是汇编代码文件中的文本；中间用星号（`*`）指出当前正在模拟的指令。这里对应图 1 中 `asum.yo` 程序的第 29 行。
 
-<figure><img src="simguide-assets/figure-4-seq-memory-window.png" alt="SEQ 模拟器内存显示窗口"><figcaption><p><strong>图 4：SEQ 模拟器的内存显示窗口。</strong> 图中箭头文字为 <code>0x00e0</code>、<code>0x00e4</code>、<code>0x00e8</code> 和 <code>0x00ec</code>；正文随后把该示例中的栈位置描述为 <code>0x01f0</code> 和 <code>0x01f8</code>。图文差异按原 PDF 保留。</p></figcaption></figure>
+<figure><img src="simguide-assets/figure-4-seq-memory-window.png" alt="SEQ 模拟器内存显示窗口"></figure>
+
+**图 4：SEQ 模拟器的内存显示窗口。** 图中箭头文字为 `0x00e0`、`0x00e4`、`0x00e8` 和 `0x00ec`；正文随后把该示例中的栈位置描述为 `0x01f0` 和 `0x01f8`。图文差异按原 PDF 保留。
 
 图 4 所示窗口显示内存内容。它只显示程序开始执行后发生过变化的地址范围，即最小已变地址与最大已变地址之间的位置。每一行显示两个内存字的内容，也就是 16 个内存字节；这些字节地址之间只有最低十六进制位不同。内存值左侧是“根”地址，其最低位以 `-` 显示。每列分别对应最低地址位为 `0x0` 和 `0x8` 的字。原图示例中的箭头指出内存位置 `0x01f0` 和 `0x01f8`。
 
@@ -166,15 +172,21 @@ linux> ./ssim -g ../y86-code/asum.yo &
 
 PIPE 模拟器同样会生成三个窗口。图 5 显示其控制面板。它具有相同的一组控制按钮，也同样显示寄存器文件、状态和条件码。中间部分显示流水线寄存器的状态，各字段与 CS:APP3e 图 4-52 中的字段对应。面板底部还会显示已经模拟的周期数（不包括让流水线开始流动所需的初始周期）、已经完成的指令数，以及由此得到的 CPI。
 
-<figure><img src="simguide-assets/figure-5-pipe-control-panel.png" alt="PIPE 模拟器主控制面板"><figcaption><p><strong>图 5：PIPE 模拟器的主控制面板。</strong> 图中标注为：<code>Controls</code>（控制区）、<code>Pipeline stages</code>（流水线阶段）、<code>Register file</code>（寄存器文件）、<code>Status &amp; condition codes</code>（状态与条件码）和 <code>Performance monitor</code>（性能监视器）。</p></figcaption></figure>
+<figure><img src="simguide-assets/figure-5-pipe-control-panel.png" alt="PIPE 模拟器主控制面板"></figure>
+
+**图 5：PIPE 模拟器的主控制面板。** 图中标注为：`Controls`（控制区）、`Pipeline stages`（流水线阶段）、`Register file`（寄存器文件）、`Status & condition codes`（状态与条件码）和 `Performance monitor`（性能监视器）。
 
 如图 6 的局部放大图所示，每个流水线寄存器分为两部分显示。白色方框中的上排数值是流水线寄存器的当前值；灰色背景中的下排数值是流水线寄存器的输入。除非该寄存器被插入气泡或暂停，否则这些输入会在下一个时钟周期装入寄存器。
 
-<figure><img src="simguide-assets/figure-6-pipeline-register.png" alt="PIPE 控制面板中的单个流水线寄存器"><figcaption><p><strong>图 6：PIPE 模拟器控制面板中的单个流水线寄存器。</strong> <code>Current state</code> 表示当前状态，<code>Register inputs</code> 表示寄存器输入。</p></figcaption></figure>
+<figure><img src="simguide-assets/figure-6-pipeline-register.png" alt="PIPE 控制面板中的单个流水线寄存器"></figure>
+
+**图 6：PIPE 模拟器控制面板中的单个流水线寄存器。** `Current state` 表示当前状态，`Register inputs` 表示寄存器输入。
 
 PIPE 模拟器中的数值流动与 SEQ 模拟器很不相同。对于 SEQ，控制面板显示执行一条指令得到的数值，模拟器每执行一步就完成一整条指令。对于 PIPE，控制面板显示同时流经流水线的多条指令的数值，模拟器每执行一步只为每条指令完成一个阶段的计算。
 
-<figure><img src="simguide-assets/figure-7-pipe-code-window.png" alt="PIPE 模拟器代码显示窗口"><figcaption><p><strong>图 7：PIPE 模拟器的代码显示窗口。</strong> 格式与 SEQ 类似，但不是只用一个标记指出正在执行的指令，而是用 <code>F</code>、<code>D</code>、<code>E</code>、<code>M</code> 和 <code>W</code> 指出分别位于取指、译码、执行、访存和写回阶段的指令。图中其余标注为：<code>Control</code>（控制区）、<code>Object code</code>（目标代码）、<code>Assembly code</code>（汇编代码）和 <code>Currently executing instructions</code>（当前正在执行的指令）。</p></figcaption></figure>
+<figure><img src="simguide-assets/figure-7-pipe-code-window.png" alt="PIPE 模拟器代码显示窗口"></figure>
+
+**图 7：PIPE 模拟器的代码显示窗口。** 格式与 SEQ 类似，但不是只用一个标记指出正在执行的指令，而是用 `F`、`D`、`E`、`M` 和 `W` 指出分别位于取指、译码、执行、访存和写回阶段的指令。图中其余标注为：`Control`（控制区）、`Object code`（目标代码）、`Assembly code`（汇编代码）和 `Currently executing instructions`（当前正在执行的指令）。
 
 PIPE 模拟器还会生成一个显示内存内容的窗口，其格式与 SEQ 的内存窗口（图 4）完全相同。
 

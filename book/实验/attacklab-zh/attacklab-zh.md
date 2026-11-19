@@ -286,7 +286,7 @@ void touch3(char *sval)
 
 幸运的是，人们已经设计出一些策略，可以通过执行程序中已有的代码而不是注入新代码，来完成有用的操作。其中最通用的一种形式称为面向返回编程（return-oriented programming，ROP）[1, 2]。ROP 的策略是在现有程序中寻找这样的字节序列：它由一条或多条指令组成，并以 `ret` 指令结束。这样的代码片段称为 gadget。
 
-![图 2：组织 gadget 执行序列](assets/figure-2-rop-gadgets-zh.png)
+<figure><img src="assets/figure-2-rop-gadgets-zh.png" alt="图 2：组织 gadget 执行序列"></figure>
 
 *图 2：组织 gadget 执行序列。字节值 `0xc3` 编码 `ret` 指令。*
 
@@ -338,7 +338,7 @@ void setval_210(unsigned *p)
 
 阶段 5 要求你对 `RTARGET` 实施 ROP 攻击，以指向 cookie 字符串表示的指针作为参数调用函数 `touch3`。这看起来可能不会比使用 ROP 攻击调用 `touch2` 困难多少，但我们特意提高了它的难度。此外，阶段 5 只有 5 分，这并不能真实反映完成它所需的工作量。对于希望超越课程常规要求的人，可以把它看作一道额外加分题。
 
-![图 3：指令的字节编码](assets/figure-3-instruction-encodings-zh.png)
+<figure><img src="assets/figure-3-instruction-encodings-zh.png" alt="图 3：指令的字节编码"></figure>
 
 *图 3：指令的字节编码。所有数值均以十六进制表示。*
 
