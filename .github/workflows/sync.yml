@@ -18,18 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          cache: npm
       - uses: actions/setup-python@v7
         with:
           python-version: '3.13'
-      - run: npm ci
-      - run: npm run sync:update
-      - run: npm test
-      - run: npm run build
-      - run: npm run check
+      - run: python scripts/sync.py --update
+      - run: python -m unittest discover -s scripts -p 'test_*.py'
+      - run: python scripts/check_book.py
       - uses: peter-evans/create-pull-request@v8
         with:
           branch: sync/upstream
@@ -38,8 +32,8 @@ jobs:
           body: |
             更新两个上游仓库的固定版本并重新生成阅读目录和来源清单。
 
-            已完成内容清单校验、站点构建、本地链接/图片/锚点检查与中文搜索索引检查。
-            请检查 sources.json 和正文变更后合并；不会自动合并。
+            已完成内容清单校验、实验包校验与 Markdown 链接、图片、锚点检查。
+            请检查 sources.json 和正文变更后合并；不会自动合并。连接 Git Sync 后，GitBook 会自动导入主分支更新。
           add-paths: |
             book/
             sources.json

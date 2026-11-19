@@ -115,7 +115,7 @@
       "source": "前言/chapter.md",
       "target": "前言/chapter.md",
       "sha256": "c5f311f2a2a254a948d7d8cf3fcf3449c7cf0f2cf1a85bb4a5decbaf1c5ba9e3",
-      "output_sha256": "d24b69ebd043982463b25f6fb451036851c91c3310a34605a716dfb750a16c37"
+      "output_sha256": "c5f311f2a2a254a948d7d8cf3fcf3449c7cf0f2cf1a85bb4a5decbaf1c5ba9e3"
     },
     {
       "upstream": "sunnymaria",
@@ -703,7 +703,7 @@
       "source": "第01章-计算机系统漫游/chapter.md",
       "target": "第01章-计算机系统漫游/chapter.md",
       "sha256": "c0f756ccf48f94e2de24701e4df821c683311447915724cd79dfe5692a9fb505",
-      "output_sha256": "e4a48e174a2026ae2198124d4dc8ba0a4ee2b0e1579848290230c429abfd5c56"
+      "output_sha256": "c0f756ccf48f94e2de24701e4df821c683311447915724cd79dfe5692a9fb505"
     },
     {
       "upstream": "sunnymaria",
@@ -1242,7 +1242,7 @@
       "source": "第02章-信息的表示和处理/chapter.md",
       "target": "第02章-信息的表示和处理/chapter.md",
       "sha256": "b82569d82d9d35a259d03054525e6990853e518197e2770f41e3c03d7525347d",
-      "output_sha256": "c2bd07d8f0a4ca11a9327aa4b6caccc02e933d946b64cbf759cc6940c28aee60"
+      "output_sha256": "b82569d82d9d35a259d03054525e6990853e518197e2770f41e3c03d7525347d"
     },
     {
       "upstream": "sunnymaria",
@@ -1823,7 +1823,7 @@
       "source": "第03章-程序的机器级表示/chapter.md",
       "target": "第03章-程序的机器级表示/chapter.md",
       "sha256": "facc6e17431c4ea9f9c7488425880682829ebc36c232e9a389455f58ccdf6026",
-      "output_sha256": "70fb361656d0200103d63f4c99bf1b91256c7e489f977672f317454b2d4f236f"
+      "output_sha256": "facc6e17431c4ea9f9c7488425880682829ebc36c232e9a389455f58ccdf6026"
     },
     {
       "upstream": "sunnymaria",
@@ -2516,7 +2516,7 @@
       "source": "第04章-处理器体系结构/chapter.md",
       "target": "第04章-处理器体系结构/chapter.md",
       "sha256": "06771b9d703bc6bfdbaeb74bdaf87873b418c557e7f717bfb33885f312b15e95",
-      "output_sha256": "e0f39b13af37313345c93e566b8137954ac42e2b6b5907f20961bd64bfc07774"
+      "output_sha256": "06771b9d703bc6bfdbaeb74bdaf87873b418c557e7f717bfb33885f312b15e95"
     },
     {
       "upstream": "sunnymaria",
@@ -2943,7 +2943,7 @@
       "source": "第05章-优化程序性能/chapter.md",
       "target": "第05章-优化程序性能/chapter.md",
       "sha256": "7c764ab081d24b20defb8512287fb1a681130501a37595d5e90275d98c489202",
-      "output_sha256": "5c5735b2853c61d4b5bb4465cb13b8df07ea0d45ad77da9aaf352cc589edbf96"
+      "output_sha256": "7c764ab081d24b20defb8512287fb1a681130501a37595d5e90275d98c489202"
     },
     {
       "upstream": "sunnymaria",
@@ -3405,7 +3405,7 @@
       "source": "第06章-存储器层次结构/chapter.md",
       "target": "第06章-存储器层次结构/chapter.md",
       "sha256": "ea435cffafed1992dc6394b9137f3d3577e4796b82361e02c3162a2d725c4d7b",
-      "output_sha256": "f1fdb6d16dab0d60ffd148b4e5823a8579bdba015540430e37a7c20a42bd424d"
+      "output_sha256": "ea435cffafed1992dc6394b9137f3d3577e4796b82361e02c3162a2d725c4d7b"
     },
     {
       "upstream": "sunnymaria",
@@ -3685,7 +3685,7 @@
       "source": "第07章-链接/chapter.md",
       "target": "第07章-链接/chapter.md",
       "sha256": "c9903e4832a4303559ae98b829f414f255d03b2c5cae3f49d7c86c7d3e84fe79",
-      "output_sha256": "5072d88e79fc1a735c732cea13bc3bf1b0d21ee25f58ee4fd0a47d9350619f01"
+      "output_sha256": "c9903e4832a4303559ae98b829f414f255d03b2c5cae3f49d7c86c7d3e84fe79"
     },
     {
       "upstream": "sunnymaria",
@@ -4077,7 +4077,7 @@
       "source": "第08章-异常控制流/chapter.md",
       "target": "第08章-异常控制流/chapter.md",
       "sha256": "8f3d1482b6456310372db767f36a00a0d8756b60d251973dab2fa58fe7342bd6",
-      "output_sha256": "fb7aa54ef30d6cb816ebefd60f8eae6c0fb54506bde9f9f856616f067f54da0d"
+      "output_sha256": "8f3d1482b6456310372db767f36a00a0d8756b60d251973dab2fa58fe7342bd6"
     },
     {
       "upstream": "sunnymaria",
@@ -4826,7 +4826,7 @@
       "source": "第09章-虚拟内存/chapter.md",
       "target": "第09章-虚拟内存/chapter.md",
       "sha256": "0778d87368fdef84674e5bac775654bb68dd46e69bf134e2bf34be5c6a68c03f",
-      "output_sha256": "bda5dfff39ed7523fff092b70ef506e9b81b062f177966ba8be4f0254cfa2474"
+      "output_sha256": "0778d87368fdef84674e5bac775654bb68dd46e69bf134e2bf34be5c6a68c03f"
     },
     {
       "upstream": "sunnymaria",
@@ -5022,7 +5022,7 @@
       "source": "第10章-系统级IO/chapter.md",
       "target": "第10章-系统级IO/chapter.md",
       "sha256": "9b4d42cf7128a607d4ab14f87307271dcb783a874c593d57e562b6d9ca80fa4e",
-      "output_sha256": "4c02509174145f354dfbd1e2041cd9c0020a253258a823231b936c66c65d6d0f"
+      "output_sha256": "9b4d42cf7128a607d4ab14f87307271dcb783a874c593d57e562b6d9ca80fa4e"
     },
     {
       "upstream": "sunnymaria",
@@ -5316,7 +5316,7 @@
       "source": "第11章-网络编程/chapter.md",
       "target": "第11章-网络编程/chapter.md",
       "sha256": "a67207cfc1992b6cf9beca4c0ff8ad310306574a009086245af9c563018c5b8f",
-      "output_sha256": "13be05d9040b87c6bdbf3a716d54466bc2c65b5fdf6152437b0e8dcf7eda54bd"
+      "output_sha256": "a67207cfc1992b6cf9beca4c0ff8ad310306574a009086245af9c563018c5b8f"
     },
     {
       "upstream": "sunnymaria",
@@ -5722,7 +5722,7 @@
       "source": "第12章-并发编程/chapter.md",
       "target": "第12章-并发编程/chapter.md",
       "sha256": "1fb32c5aecdee9d535e2dde6dda019fe0cec17da323ea7bc027a46b6f9b3b250",
-      "output_sha256": "a7978e41af05984f5f1e00e59886255c32c1cd4e515f6d761c885833ced1d243"
+      "output_sha256": "1fb32c5aecdee9d535e2dde6dda019fe0cec17da323ea7bc027a46b6f9b3b250"
     },
     {
       "upstream": "sunnymaria",
@@ -5757,7 +5757,7 @@
       "source": "附录A-错误处理/chapter.md",
       "target": "附录A-错误处理/chapter.md",
       "sha256": "4a221ad46d87e1ae79b4aa242add5f48c25efaa14dd47fb067e139aa200feb2e",
-      "output_sha256": "234acbea3c231abecabc78b0991caab767c802417bddeeaaf924b0b2eb0b5a89"
+      "output_sha256": "4a221ad46d87e1ae79b4aa242add5f48c25efaa14dd47fb067e139aa200feb2e"
     },
     {
       "upstream": "sunnymaria",

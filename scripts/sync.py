@@ -112,11 +112,8 @@ def generate(paths, sources):
     for old, new in [("README-perflab", "README-perflab.txt"), ("perflab.pdf", "perflab.pdf"), ("perflab-handout.tar", "perflab-handout.tar")]:
         text = text.replace(f"](http://csapp.cs.cmu.edu/3e/{old})", f"](assets/{new})")
     perf.write_text(text, encoding="utf-8", newline="\n")
-    shutil.copyfile(ROOT / "site/README.md", BOOK / "README.md")
-    shutil.copyfile(ROOT / "site/supplements.md", BOOK / "supplements/README.md")
-    shutil.copytree(ROOT / "site/styles", BOOK / "styles")
-    shutil.copytree(ROOT / "site/_layouts", BOOK / "_layouts")
-    shutil.copytree(ROOT / "site/_i18n", BOOK / "_i18n")
+    shutil.copyfile(ROOT / "templates/README.md", BOOK / "README.md")
+    shutil.copyfile(ROOT / "templates/supplements.md", BOOK / "supplements/README.md")
     summary.extend(["* [补充资料](supplements/README.md)",
                     "  * [Performance Lab](supplements/performance-lab.md)",
                     "  * [实验常见问题](supplements/faq.md)",
@@ -127,7 +124,7 @@ def generate(paths, sources):
                     "* [参考文献](参考文献.md)", "* [答案编校说明](答案编校说明.md)",
                     "* [资料来源与权利归属](SOURCES.md)", "* [上游原始说明](UPSTREAM.md)"])
     (BOOK / "SUMMARY.md").write_text("\n".join(summary) + "\n", encoding="utf-8", newline="\n")
-    credits = ["# 资料来源与权利归属", "", "本项目整合已有中文资料，使用 HonKit 构建 GitBook 风格阅读站。", ""]
+    credits = ["# 资料来源与权利归属", "", "本项目整合已有中文资料，通过 Git Sync 导入 GitBook，使用 GitBook 官方默认主题阅读。", ""]
     for name, source in sources.items():
         url = source["url"].removesuffix(".git")
         credits.append(f"- [{name}]({url})：固定版本 [`{source['commit'][:12]}`]({url}/tree/{source['commit']})")
@@ -136,9 +133,6 @@ def generate(paths, sources):
                     "本项目的“完整”指上述仓库现有的十二章和附属资料均已纳入阅读目录，不代表已经逐字核对正式出版物；不包含自行编写的家庭作业解答、实验解答或讲师专用材料。发现 OCR 或排印疑点请结合正版教材、[官方勘误](https://csapp.cs.cmu.edu/3e/errata.html)及[上游答案编校说明](答案编校说明.md)核对。", "",
                     "自动更新只生成待审查的 Pull Request，不直接把新上游内容合并到主分支。", ""])
     (BOOK / "SOURCES.md").write_text("\n".join(credits), encoding="utf-8", newline="\n")
-    # Whole chapters remain readable but must not duplicate every section in search results.
-    for chapter in BOOK.rglob("chapter.md"):
-        chapter.write_text("---\nsearch: false\n---\n\n" + chapter.read_text(encoding="utf-8-sig"), encoding="utf-8", newline="\n")
     for entry in imported:
         entry["output_sha256"] = hashlib.sha256((BOOK / entry["target"]).read_bytes()).hexdigest()
     manifest = {"sources": sources, "files": sorted(imported, key=lambda entry: entry["target"])}

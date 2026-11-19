@@ -36,7 +36,7 @@ class BookTests(unittest.TestCase):
         for entry in manifest["files"]:
             with self.subTest(path=entry["target"]):
                 self.assertEqual(hashlib.sha256((BOOK / entry["target"]).read_bytes()).hexdigest(), entry["output_sha256"])
-                if entry["target"] not in {"UPSTREAM.md", "supplements/performance-lab.md"} and not entry["target"].endswith("/chapter.md"):
+                if entry["target"] not in {"UPSTREAM.md", "supplements/performance-lab.md"}:
                     self.assertEqual(entry["sha256"], entry["output_sha256"])
 
     def test_summary_covers_all_sections_answers_and_labs(self):

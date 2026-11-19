@@ -1,7 +1,3 @@
----
-search: false
----
-
 # 序章
 
 [返回总目录](../README.md) · [下一章](../第01章-计算机系统漫游/README.md) · [按小节阅读](README.md)

@@ -1,6 +1,6 @@
 # 补充资料
 
-以下资料来自 Hansimov/csapp，与正文和八个现代实验配合使用。
+以下资料来自 Hansimov/csapp，与正文和八个现代实验配合阅读。
 
 - [Performance Lab：简介、原版说明与自学包](performance-lab.md)
 - [实验常见问题](faq.md)

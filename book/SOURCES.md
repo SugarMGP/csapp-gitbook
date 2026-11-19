@@ -1,6 +1,6 @@
 # 资料来源与权利归属
 
-本项目整合已有中文资料，使用 HonKit 构建 GitBook 风格阅读站。
+本项目整合已有中文资料，通过 Git Sync 导入 GitBook，使用 GitBook 官方默认主题阅读。
 
 - [sunnymaria](https://github.com/SunnyMaria/csapp-zh-markdown)：固定版本 [`7fe0d4f79d65`](https://github.com/SunnyMaria/csapp-zh-markdown/tree/7fe0d4f79d65ba63cc3c8723c24d2d2e99b84c66)
 - [hansimov](https://github.com/Hansimov/csapp)：固定版本 [`49ec5b8fb885`](https://github.com/Hansimov/csapp/tree/49ec5b8fb885d1e273c84d22cad6196e9731239f)
