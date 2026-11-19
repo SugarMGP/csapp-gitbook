@@ -262,7 +262,8 @@ def disable_table_search(text):
                 result.pop()
             if prefix and result and result[-1] != "":
                 result.append("")
-            rendered = TABLE_MARKDOWN.render("\n".join(lines[index:end]) + "\n").strip()
+            table_lines = [item[len(prefix):] for item in lines[index:end]]
+            rendered = TABLE_MARKDOWN.render("\n".join(table_lines) + "\n").strip()
             rendered = rendered.replace("<table>", '<table data-search="false">', 1)
             result.extend(rendered.splitlines())
             if prefix and end < len(lines) and lines[end] == ">":
