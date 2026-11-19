@@ -70,6 +70,8 @@ def generate(paths, sources):
                 summary.extend(["", f"## {part}", ""])
         elif directory.name == "实验":
             summary.extend(["", "## 实验与补充资料", ""])
+        elif directory.name.startswith("附录"):
+            summary.extend(["", "## 附录", ""])
         for path in sorted(directory.rglob("*")):
             if path.is_file():
                 copy(path, path.relative_to(sunny), "sunnymaria")
@@ -114,6 +116,7 @@ def generate(paths, sources):
     perf.write_text(text, encoding="utf-8", newline="\n")
     shutil.copyfile(ROOT / "templates/README.md", BOOK / "README.md")
     shutil.copyfile(ROOT / "templates/supplements.md", BOOK / "supplements/README.md")
+    shutil.copyfile(ROOT / "templates/.gitbook.yaml", BOOK / ".gitbook.yaml")
     summary.extend(["* [补充资料](supplements/README.md)",
                     "  * [Performance Lab](supplements/performance-lab.md)",
                     "  * [实验常见问题](supplements/faq.md)",
@@ -123,7 +126,6 @@ def generate(paths, sources):
                     "", "## 参考资料", "",
                     "* [参考文献](参考文献.md)", "* [答案编校说明](答案编校说明.md)",
                     "* [资料来源与权利归属](SOURCES.md)", "* [上游原始说明](UPSTREAM.md)"])
-    (BOOK / "SUMMARY.md").write_text("\n".join(summary) + "\n", encoding="utf-8", newline="\n")
     credits = ["# 资料来源与权利归属", "", "本项目整合已有中文资料，通过 Git Sync 导入 GitBook，使用 GitBook 官方默认主题阅读。", ""]
     for name, source in sources.items():
         url = source["url"].removesuffix(".git")
@@ -133,11 +135,43 @@ def generate(paths, sources):
                     "本项目的“完整”指上述仓库现有的十二章和附属资料均已纳入阅读目录，不代表已经逐字核对正式出版物；不包含自行编写的家庭作业解答、实验解答或讲师专用材料。发现 OCR 或排印疑点请结合正版教材、[官方勘误](https://csapp.cs.cmu.edu/3e/errata.html)及[上游答案编校说明](答案编校说明.md)核对。", "",
                     "自动更新只生成待审查的 Pull Request，不直接把新上游内容合并到主分支。", ""])
     (BOOK / "SOURCES.md").write_text("\n".join(credits), encoding="utf-8", newline="\n")
+    for path in BOOK.rglob("*.md"):
+        original = path.read_text(encoding="utf-8-sig")
+        normalized = normalize_headings(original)
+        if normalized != original:
+            path.write_text(normalized, encoding="utf-8", newline="\n")
+    for i, line in enumerate(summary):
+        link = re.match(r"^(\s*)\* \[([^\]]+)\]\(([^)]+)\)$", line)
+        if link:
+            indent, label, ref = link.groups()
+            title = re.search(r"^# (.+)$", (BOOK / ref).read_text(encoding="utf-8-sig"), re.M)[1]
+            navigation = " " + json.dumps(label, ensure_ascii=False) if label != title else ""
+            summary[i] = f"{indent}* [{title}]({ref}{navigation})"
+    (BOOK / "SUMMARY.md").write_text("\n".join(summary) + "\n", encoding="utf-8", newline="\n")
     for entry in imported:
         entry["output_sha256"] = hashlib.sha256((BOOK / entry["target"]).read_bytes()).hexdigest()
     manifest = {"sources": sources, "files": sorted(imported, key=lambda entry: entry["target"])}
     (ROOT / "book-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"Imported {len(imported)} files; generated {len(list(BOOK.rglob('*.md')))} Markdown pages")
+
+
+def normalize_headings(text):
+    first = re.search(r"^(#{1,6}) ", text, re.M)
+    if not first or len(first[1]) == 1:
+        return text
+    offset = 1 - len(first[1])
+    lines, fence = [], None
+    for line in text.splitlines(keepends=True):
+        marker = re.match(r"^\s*(`{3,}|~{3,})", line)
+        if marker:
+            if fence is None:
+                fence = marker[1]
+            elif marker[1][0] == fence[0] and len(marker[1]) >= len(fence):
+                fence = None
+        elif fence is None:
+            line = re.sub(r"^(#{1,6})(?= )", lambda match: "#" * max(1, len(match[1]) + offset), line)
+        lines.append(line)
+    return "".join(lines)
 
 
 if __name__ == "__main__":

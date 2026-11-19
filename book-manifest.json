@@ -864,63 +864,63 @@
       "source": "第02章-信息的表示和处理/2.2/2.2-integer-representations.md",
       "target": "第02章-信息的表示和处理/2.2/2.2-integer-representations.md",
       "sha256": "ff800929f7f8b7d8e0ca78bb17b6ccde09d3df94f1636b70ab414e936dea6b2f",
-      "output_sha256": "ff800929f7f8b7d8e0ca78bb17b6ccde09d3df94f1636b70ab414e936dea6b2f"
+      "output_sha256": "15aaabe3a680f4db90f019fa31a24793a418cb65090e66bd71cc7072d06ed6f0"
     },
     {
       "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/2.2/2.2.1-integer-data-types.md",
       "target": "第02章-信息的表示和处理/2.2/2.2.1-integer-data-types.md",
       "sha256": "4d0efa558708ccdbb28e6a144a7f2d6892b944e12401d5844a4e80b4ed5bc143",
-      "output_sha256": "4d0efa558708ccdbb28e6a144a7f2d6892b944e12401d5844a4e80b4ed5bc143"
+      "output_sha256": "1f91524152bd7d41cea9b099beaef7fb443bc325a35b7ee28cc6cafefe35bceb"
     },
     {
       "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/2.2/2.2.2-unsigned-encodings.md",
       "target": "第02章-信息的表示和处理/2.2/2.2.2-unsigned-encodings.md",
       "sha256": "d8ee9456f1f8f15eb9dae54944bff0be6d5e3d139429944f8668599098db8717",
-      "output_sha256": "d8ee9456f1f8f15eb9dae54944bff0be6d5e3d139429944f8668599098db8717"
+      "output_sha256": "e921eb8a046564ffa1e61b5b0722118de7074b6d11b2e0a80859515ea2f420c9"
     },
     {
       "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/2.2/2.2.3-twos-complement-encodings.md",
       "target": "第02章-信息的表示和处理/2.2/2.2.3-twos-complement-encodings.md",
       "sha256": "6c69ccb21ddac3a5e54341646495bdc15969aff65f843d52b6a72993834cf480",
-      "output_sha256": "6c69ccb21ddac3a5e54341646495bdc15969aff65f843d52b6a72993834cf480"
+      "output_sha256": "a1f3f3092a671c5c0182749602a023b3b303af0dc077df44ee85552fa261e40b"
     },
     {
       "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/2.2/2.2.4-conversions-between-signed-and-unsigned.md",
       "target": "第02章-信息的表示和处理/2.2/2.2.4-conversions-between-signed-and-unsigned.md",
       "sha256": "e72b8bf39094b8a8cc1720cfdedc4e28e0d9634d7aeb5331c6a1f739229ff588",
-      "output_sha256": "e72b8bf39094b8a8cc1720cfdedc4e28e0d9634d7aeb5331c6a1f739229ff588"
+      "output_sha256": "e26e3fcff58082df8499541b20c792760f05659b8fcf1d9e1c43ca8898a7bcbe"
     },
     {
       "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/2.2/2.2.5-signed-versus-unsigned-in-c.md",
       "target": "第02章-信息的表示和处理/2.2/2.2.5-signed-versus-unsigned-in-c.md",
       "sha256": "c9e04ff23bc01da09ee62b44fdfe86cca461ccf4d40c656c3951ae3577f66b12",
-      "output_sha256": "c9e04ff23bc01da09ee62b44fdfe86cca461ccf4d40c656c3951ae3577f66b12"
+      "output_sha256": "40212752195694309c488692adc3979c5bdc67b6809e618252131f6c66d45282"
     },
     {
       "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/2.2/2.2.6-expanding-bit-representations.md",
       "target": "第02章-信息的表示和处理/2.2/2.2.6-expanding-bit-representations.md",
       "sha256": "272cff3dd0ab8b16fa575121275cf61ea001e8dcc873e8f75cc00a8929b9f183",
-      "output_sha256": "272cff3dd0ab8b16fa575121275cf61ea001e8dcc873e8f75cc00a8929b9f183"
+      "output_sha256": "19a1546118f6c9361cb376059ed8f964929f2d382f25add64b4e8ddfdcf27c3c"
     },
     {
       "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/2.2/2.2.7-truncating-numbers.md",
       "target": "第02章-信息的表示和处理/2.2/2.2.7-truncating-numbers.md",
       "sha256": "2bde30f1aa8a3f71e2c4ac982a919f4b824d7449b76cf089b5759fed7707d8a8",
-      "output_sha256": "2bde30f1aa8a3f71e2c4ac982a919f4b824d7449b76cf089b5759fed7707d8a8"
+      "output_sha256": "263e6eedd7980266f434590d7263f93c3574b751bd6c19cb72d83f0b4a6a4e19"
     },
     {
       "upstream": "sunnymaria",
       "source": "第02章-信息的表示和处理/2.2/2.2.8-advice-on-signed-versus-unsigned.md",
       "target": "第02章-信息的表示和处理/2.2/2.2.8-advice-on-signed-versus-unsigned.md",
       "sha256": "536d4b295e6b7e79ec0edc7cf3a4a8e7a793a0f53805c28c47996b96cc6fdbaa",
-      "output_sha256": "536d4b295e6b7e79ec0edc7cf3a4a8e7a793a0f53805c28c47996b96cc6fdbaa"
+      "output_sha256": "6bad85872b08638a2775ba72b5b05a50a2797e19282fb3765021ff449f592b55"
     },
     {
       "upstream": "sunnymaria",

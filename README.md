@@ -4,7 +4,7 @@
 
 **[书籍目录](book/SUMMARY.md)** · [连接 GitBook](docs/gitbook-setup.md) · [资料来源与权利归属](book/SOURCES.md) · [调研记录](docs/source-research.md)
 
-书稿和接入配置已准备好，GitBook 官方站点尚未连接、发布。
+仓库通过根目录 `gitbook-docs.yaml` 配置站点，将默认中文空间映射到 `book/`。
 
 收录前言、第 1—12 章、附录 A、参考文献、238 道原书练习题答案、8 个实验的中文说明及自学包，以及 Performance Lab、实验 FAQ、Data/Bomb Lab 补充 README 和示例代码包。保留逐节阅读与整章阅读，目录、搜索和外观使用 GitBook 原生功能。
 
@@ -12,9 +12,10 @@
 
 ## 本地维护
 
-只需要 Python 3.13 和 Git，脚本使用 Python 标准库。
+需要 Python 3.13 和 Git。导入与链接检查使用标准库；配置测试使用 PyYAML、jsonschema 解析 YAML 并验证官方 schema。
 
 ```sh
+python -m pip install -r requirements-dev.txt
 python -m unittest discover -s scripts -p 'test_*.py'
 python scripts/check_book.py
 ```
@@ -30,7 +31,7 @@ python scripts/sync.py --update
 
 ## 自动化
 
-- 推送到 `main` 或 Pull Request：检查内容清单、原始文件校验值、8 个实验包，以及 Markdown 链接、图片和锚点。
+- 推送到 `main` 或 Pull Request：验证站点配置的官方 schema、空间目录映射、页面标题、导航、内容清单、8 个实验包及 Markdown 链接、图片和锚点。
 - 每周一北京时间 09:23：检查两个上游的新版本，通过校验后生成更新 PR。
 - 合并更新 PR 后，已连接的 GitBook 会通过 Git Sync 导入主分支变化。
 - Actions → **Sync upstream** → **Run workflow**：随时手动检查上游。
@@ -41,9 +42,9 @@ python scripts/sync.py --update
 
 ## 修改方式
 
-`book/` 是自动生成目录。正文修正优先提交对应上游；首页和补充资料入口维护在 `templates/`，导入与目录规则维护在 `scripts/sync.py`，修改后运行 `python scripts/sync.py`。直接在 `book/` 或 GitBook 中修改导入正文，会被下一次同步生成的内容覆盖；更新 PR 会展示这些差异，供合并前审查。
+`book/` 是自动生成目录。正文修正优先提交对应上游；首页、补充资料入口和空间配置维护在 `templates/`，导入与目录规则维护在 `scripts/sync.py`，修改后运行 `python scripts/sync.py`。导入会统一页面标题层级，并用 GitBook 的导航标签语法保留简短目录名。直接在 `book/` 或 GitBook 中修改导入正文，会被下一次同步生成的内容覆盖；更新 PR 会展示这些差异，供合并前审查。
 
-`.gitbook.yaml` 和标准 `SUMMARY.md` 已按 GitBook 官方文档配置。连接 `SugarMGP/csapp-gitbook` 的 `main` 分支，项目目录和空间映射目录均使用仓库根目录，首次同步选择 **GitHub → GitBook**。具体操作见[GitBook 接入说明](docs/gitbook-setup.md)。
+连接 `SugarMGP/csapp-gitbook` 的 `main` 分支，Project directory 留空或填 `./`。根目录 `gitbook-docs.yaml` 会把空间映射到 `./book`，其中的 `.gitbook.yaml` 再读取首页和 `SUMMARY.md`；首次同步选择 **GitHub → GitBook**。具体操作见[GitBook 接入说明](docs/gitbook-setup.md)。
 
 ## 致谢与权利
 

@@ -54,7 +54,7 @@ def anchors(text):
 
 def references(text):
     text = re.sub(r"^(`{3,}|~{3,}).*?^\1[^\n]*$", "", text, flags=re.M | re.S)
-    for match in re.finditer(r"!?\[[^\]\n]*\]\((<[^>]+>|[^)\n]+)\)", text):
+    for match in re.finditer(r'!?\[[^\]\n]*\]\((<[^>]+>|[^)\s]+)(?:\s+"(?:\\.|[^"\\])*")?\)', text):
         yield match[1].strip().strip("<>")
     for match in re.finditer(r'^\[(?!\^)[^\]]+\]:\s*(\S+)', text, re.M):
         yield match[1].strip("<>")

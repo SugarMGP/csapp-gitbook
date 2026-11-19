@@ -1,0 +1,12 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: 深入理解计算机系统
+  structure:
+    - type: space
+      key: csapp-zh
+      title: CSAPP 中文版
+      path: csapp
+      default: true
+      content:
+        directory: ./book
+        language: zh

@@ -7,6 +7,7 @@ import tarfile
 import unittest
 from pathlib import Path
 from urllib.parse import unquote
+from check_book import references
 
 ROOT = Path(__file__).resolve().parents[1]
 BOOK = ROOT / "book"
@@ -36,12 +37,12 @@ class BookTests(unittest.TestCase):
         for entry in manifest["files"]:
             with self.subTest(path=entry["target"]):
                 self.assertEqual(hashlib.sha256((BOOK / entry["target"]).read_bytes()).hexdigest(), entry["output_sha256"])
-                if entry["target"] not in {"UPSTREAM.md", "supplements/performance-lab.md"}:
+                if not entry["target"].endswith(".md"):
                     self.assertEqual(entry["sha256"], entry["output_sha256"])
 
     def test_summary_covers_all_sections_answers_and_labs(self):
         summary = (BOOK / "SUMMARY.md").read_text(encoding="utf-8")
-        refs = re.findall(r"\]\(([^)#]+)\)", summary)
+        refs = list(references(summary))
         self.assertEqual(len(refs), len(set(refs)))
         for ref in refs:
             self.assertTrue((BOOK / unquote(ref)).is_file(), ref)
